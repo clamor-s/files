@@ -1,0 +1,240 @@
+asus-tf201:~$ sudo pulseaudio -v
+W: [pulseaudio] main.c: This program is not intended to be run as root (unless --system is specified).
+I: [pulseaudio] core-util.c: Successfully gained nice level -11.
+I: [pulseaudio] main.c: This is PulseAudio 14.2
+I: [pulseaudio] main.c: Page size is 4096 bytes
+I: [pulseaudio] main.c: Machine ID is a899297ff271fdc34ff89b4160698c6e.
+I: [pulseaudio] main.c: Using runtime directory /root/.config/pulse/a899297ff271fdc34ff89b4160698c6e-runtime.
+I: [pulseaudio] main.c: Using state directory /root/.config/pulse.
+I: [pulseaudio] main.c: Using modules directory /usr/lib/pulse-14.2/modules.
+I: [pulseaudio] main.c: Running in system mode: no
+I: [pulseaudio] main.c: System supports high resolution timers
+I: [pulseaudio] cpu-arm.c: CPU flags: V6 V7 VFP EDSP NEON VFPV3 
+I: [pulseaudio] svolume_arm.c: Initialising ARM optimized volume functions.
+I: [pulseaudio] sconv_neon.c: Initialising ARM NEON optimized conversions.
+I: [pulseaudio] mix_neon.c: Initialising ARM NEON optimized mixing functions.
+I: [pulseaudio] remap_neon.c: Initialising ARM NEON optimized remappers.
+I: [pulseaudio] database.c: Successfully opened 'device-volumes' database file '/root/.config/pulse/a899297ff271fdc34ff89b4160698c6e-device-volumes.tdb'.
+I: [pulseaudio] module.c: Loaded "module-device-restore" (index: #0; argument: "").
+I: [pulseaudio] database.c: Successfully opened 'stream-volumes' database file '/root/.config/pulse/a899297ff271fdc34ff89b4160698c6e-stream-volumes.tdb'.
+I: [pulseaudio] module.c: Loaded "module-stream-restore" (index: #1; argument: "").
+I: [pulseaudio] database.c: Successfully opened 'card-database' database file '/root/.config/pulse/a899297ff271fdc34ff89b4160698c6e-card-database.tdb'.
+I: [pulseaudio] module.c: Loaded "module-card-restore" (index: #2; argument: "").
+I: [pulseaudio] module.c: Loaded "module-augment-properties" (index: #3; argument: "").
+I: [pulseaudio] module.c: Loaded "module-switch-on-port-available" (index: #4; argument: "").
+I: [pulseaudio] alsa-ucm.c: UCM available for card hw:1
+I: [pulseaudio] alsa-ucm.c: Set UCM verb to HiFi
+I: [pulseaudio] alsa-ucm.c: UCM file does not specify 'PlaybackChannels' for device HDMI1, assuming stereo.
+I: [pulseaudio] module-alsa-card.c: Found UCM profiles
+I: [pulseaudio] alsa-ucm.c: Set ucm verb to HiFi
+I: [pulseaudio] alsa-util.c: Successfully attached to mixer 'hw:tegrahda'
+I: [pulseaudio] alsa-ucm.c: UCM jack HDMI/DP,pcm=3 has_control=1
+I: [pulseaudio] card.c: alsa_card.platform-70030000.hda: active_profile: off
+I: [pulseaudio] card.c: Created 0 "alsa_card.platform-70030000.hda"
+I: [pulseaudio] module-card-restore.c: Storing port latency offsets for card alsa_card.platform-70030000.hda.
+I: [pulseaudio] module-alsa-card.c: ELD device found for port [Out] HDMI1 (3).
+I: [pulseaudio] module.c: Loaded "module-alsa-card" (index: #6; argument: "device_id="1" name="platform-70030000.hda" card_name="alsa_card.platform-70030000.hda" namereg_fail=false tsched=yes fixed_latency_range=no ignore_dB=no deferred_volume=yes use_ucm=yes avoid_resampling=no card_properties="module-udev-detect.discovered=1"").
+I: [pulseaudio] module-udev-detect.c: Card /devices/soc0/70030000.hda/sound/card1 (alsa_card.platform-70030000.hda) module loaded.
+I: [pulseaudio] alsa-ucm.c: UCM available for card hw:0
+I: [pulseaudio] alsa-ucm.c: Set UCM verb to HiFi
+I: [pulseaudio] module-alsa-card.c: Found UCM profiles
+I: [pulseaudio] alsa-ucm.c: Set ucm verb to HiFi
+I: [pulseaudio] alsa-util.c: Successfully attached to mixer 'hw:RT5631'
+I: [pulseaudio] alsa-ucm.c: UCM jack Headphone has_control=1
+I: [pulseaudio] card.c: alsa_card.platform-sound: active_profile: HiFi
+I: [pulseaudio] card.c: Created 1 "alsa_card.platform-sound"
+I: [pulseaudio] module-card-restore.c: Storing port latency offsets for card alsa_card.platform-sound.
+I: [pulseaudio] alsa-ucm.c: Set UCM verb to HiFi
+I: [pulseaudio] alsa-util.c: Cannot disable ALSA period wakeups
+I: [pulseaudio] alsa-util.c: ALSA period wakeups were not disabled
+I: [pulseaudio] alsa-sink.c: Successfully opened device hw:RT5631.
+I: [pulseaudio] alsa-sink.c: Selected mapping 'Headphones + Speakers' (HiFi: hw:RT5631: sink).
+I: [pulseaudio] alsa-sink.c: Successfully enabled mmap() mode.
+I: [pulseaudio] alsa-sink.c: Successfully enabled timer-based scheduling mode.
+I: [pulseaudio] alsa-ucm.c: ALSA device hw:RT5631 roles: (null)
+I: [pulseaudio] alsa-util.c: Successfully attached to mixer 'hw:RT5631'
+I: [pulseaudio] sink.c: Created sink 0 "alsa_output.platform-sound.HiFi__hw_RT5631__sink" with sample spec s16le 2ch 44100Hz and channel map front-left,front-right
+I: [pulseaudio] sink.c:     alsa.resolution_bits = "16"
+I: [pulseaudio] sink.c:     device.api = "alsa"
+I: [pulseaudio] sink.c:     device.class = "sound"
+I: [pulseaudio] sink.c:     alsa.class = "generic"
+I: [pulseaudio] sink.c:     alsa.subclass = "generic-mix"
+I: [pulseaudio] sink.c:     alsa.name = "RT5631 PCM rt5631-hifi-0"
+I: [pulseaudio] sink.c:     alsa.id = "RT5631 PCM rt5631-hifi-0"
+I: [pulseaudio] sink.c:     alsa.subdevice = "0"
+I: [pulseaudio] sink.c:     alsa.subdevice_name = "subdevice #0"
+I: [pulseaudio] sink.c:     alsa.device = "0"
+I: [pulseaudio] sink.c:     alsa.card = "0"
+I: [pulseaudio] sink.c:     alsa.card_name = "TF201 RT5631"
+I: [pulseaudio] sink.c:     alsa.long_card_name = "TF201 RT5631"
+I: [pulseaudio] sink.c:     device.bus_path = "platform-sound"
+I: [pulseaudio] sink.c:     sysfs.path = "/devices/soc0/sound/sound/card0"
+I: [pulseaudio] sink.c:     device.string = "hw:RT5631"
+I: [pulseaudio] sink.c:     device.buffering.buffer_size = "32768"
+I: [pulseaudio] sink.c:     device.buffering.fragment_size = "4096"
+I: [pulseaudio] sink.c:     device.access_mode = "mmap+timer"
+I: [pulseaudio] sink.c:     device.profile.name = "HiFi: hw:RT5631: sink"
+I: [pulseaudio] sink.c:     device.profile.description = "Headphones + Speakers"
+I: [pulseaudio] sink.c:     alsa.mixer_device = "hw:RT5631"
+I: [pulseaudio] sink.c:     device.description = "TF201 RT5631 Headphones + Speakers"
+I: [pulseaudio] sink.c:     module-udev-detect.discovered = "1"
+I: [pulseaudio] sink.c:     device.icon_name = "audio-card"
+I: [pulseaudio] source.c: Created source 0 "alsa_output.platform-sound.HiFi__hw_RT5631__sink.monitor" with sample spec s16le 2ch 44100Hz and channel map front-left,front-right
+I: [pulseaudio] source.c:     device.description = "Monitor of TF201 RT5631 Headphones + Speakers"
+I: [pulseaudio] source.c:     device.class = "monitor"
+I: [pulseaudio] source.c:     alsa.card = "0"
+I: [pulseaudio] source.c:     alsa.card_name = "TF201 RT5631"
+I: [pulseaudio] source.c:     alsa.long_card_name = "TF201 RT5631"
+I: [pulseaudio] source.c:     device.bus_path = "platform-sound"
+I: [pulseaudio] source.c:     sysfs.path = "/devices/soc0/sound/sound/card0"
+I: [pulseaudio] source.c:     device.string = "0"
+I: [pulseaudio] source.c:     module-udev-detect.discovered = "1"
+I: [pulseaudio] source.c:     device.icon_name = "audio-card"
+I: [pulseaudio] alsa-sink.c: Using 8.0 fragments of size 4096 bytes (23.22ms), buffer size is 32768 bytes (185.76ms)
+I: [pulseaudio] alsa-sink.c: Time scheduling watermark is 20.00ms
+I: [pulseaudio] alsa-sink.c: Successfully enabled deferred volume.
+I: [pulseaudio] alsa-sink.c: Hardware volume ranges from -46.50 dB to 12.00 dB.
+I: [pulseaudio] alsa-sink.c: Fixing base volume to -12.00 dB
+I: [pulseaudio] alsa-sink.c: Using hardware volume control. Hardware dB scale supported.
+I: [pulseaudio] alsa-sink.c: Using hardware mute control.
+I: [alsa-sink-RT5631 PCM rt5631-hifi-0] util.c: Failed to acquire real-time scheduling: Not supported
+I: [alsa-sink-RT5631 PCM rt5631-hifi-0] alsa-sink.c: Starting playback.
+I: [pulseaudio] core.c: default_source: (unset) -> alsa_output.platform-sound.HiFi__hw_RT5631__sink.monitor
+I: [pulseaudio] core.c: default_sink: (unset) -> alsa_output.platform-sound.HiFi__hw_RT5631__sink
+I: [pulseaudio] alsa-util.c: Cannot disable ALSA period wakeups
+I: [pulseaudio] alsa-util.c: ALSA period wakeups were not disabled
+I: [pulseaudio] alsa-source.c: Successfully opened device hw:RT5631.
+I: [pulseaudio] alsa-source.c: Selected mapping 'Internal Microphone' (HiFi: hw:RT5631: source).
+I: [pulseaudio] alsa-source.c: Successfully enabled mmap() mode.
+I: [pulseaudio] alsa-source.c: Successfully enabled timer-based scheduling mode.
+I: [pulseaudio] alsa-ucm.c: ALSA device hw:RT5631 roles: (null)
+I: [pulseaudio] source.c: Created source 1 "alsa_input.platform-sound.HiFi__hw_RT5631__source" with sample spec s16le 2ch 44100Hz and channel map front-left,front-right
+I: [pulseaudio] source.c:     alsa.resolution_bits = "16"
+I: [pulseaudio] source.c:     device.api = "alsa"
+I: [pulseaudio] source.c:     device.class = "sound"
+I: [pulseaudio] source.c:     alsa.class = "generic"
+I: [pulseaudio] source.c:     alsa.subclass = "generic-mix"
+I: [pulseaudio] source.c:     alsa.name = "RT5631 PCM rt5631-hifi-0"
+I: [pulseaudio] source.c:     alsa.id = "RT5631 PCM rt5631-hifi-0"
+I: [pulseaudio] source.c:     alsa.subdevice = "0"
+I: [pulseaudio] source.c:     alsa.subdevice_name = "subdevice #0"
+I: [pulseaudio] source.c:     alsa.device = "0"
+I: [pulseaudio] source.c:     alsa.card = "0"
+I: [pulseaudio] source.c:     alsa.card_name = "TF201 RT5631"
+I: [pulseaudio] source.c:     alsa.long_card_name = "TF201 RT5631"
+I: [pulseaudio] source.c:     device.bus_path = "platform-sound"
+I: [pulseaudio] source.c:     sysfs.path = "/devices/soc0/sound/sound/card0"
+I: [pulseaudio] source.c:     device.string = "hw:RT5631"
+I: [pulseaudio] source.c:     device.buffering.buffer_size = "32768"
+I: [pulseaudio] source.c:     device.buffering.fragment_size = "4096"
+I: [pulseaudio] source.c:     device.access_mode = "mmap+timer"
+I: [pulseaudio] source.c:     device.profile.name = "HiFi: hw:RT5631: source"
+I: [pulseaudio] source.c:     device.profile.description = "Internal Microphone"
+I: [pulseaudio] source.c:     alsa.mixer_device = "hw:RT5631"
+I: [pulseaudio] source.c:     device.description = "TF201 RT5631 Internal Microphone"
+I: [pulseaudio] source.c:     module-udev-detect.discovered = "1"
+I: [pulseaudio] source.c:     device.icon_name = "audio-card"
+I: [pulseaudio] alsa-source.c: Using 8.0 fragments of size 4096 bytes (23.22ms), buffer size is 32768 bytes (185.76ms)
+I: [pulseaudio] alsa-source.c: Time scheduling watermark is 20.00ms
+I: [alsa-source-RT5631 PCM rt5631-hifi-0] util.c: Failed to acquire real-time scheduling: Not supported
+I: [alsa-source-RT5631 PCM rt5631-hifi-0] alsa-source.c: Starting capture.
+I: [pulseaudio] core.c: default_source: alsa_output.platform-sound.HiFi__hw_RT5631__sink.monitor -> alsa_input.platform-sound.HiFi__hw_RT5631__source
+I: [pulseaudio] module.c: Loaded "module-alsa-card" (index: #7; argument: "device_id="0" name="platform-sound" card_name="alsa_card.platform-sound" namereg_fail=false tsched=yes fixed_latency_range=no ignore_dB=no deferred_volume=yes use_ucm=yes avoid_resampling=no card_properties="module-udev-detect.discovered=1"").
+I: [pulseaudio] module-udev-detect.c: Card /devices/soc0/sound/sound/card0 (alsa_card.platform-sound) module loaded.
+I: [pulseaudio] module-udev-detect.c: Found 2 cards.
+I: [pulseaudio] module.c: Loaded "module-udev-detect" (index: #5; argument: "").
+I: [pulseaudio] module.c: Loaded "module-dbus-protocol" (index: #8; argument: "").
+W: [pulseaudio] authkey.c: Failed to open cookie file '/root/.config/pulse/cookie': No such file or directory
+W: [pulseaudio] authkey.c: Failed to load authentication key '/root/.config/pulse/cookie': No such file or directory
+W: [pulseaudio] authkey.c: Failed to open cookie file '/root/.pulse-cookie': No such file or directory
+W: [pulseaudio] authkey.c: Failed to load authentication key '/root/.pulse-cookie': No such file or directory
+I: [pulseaudio] module.c: Loaded "module-native-protocol-unix" (index: #9; argument: "").
+I: [pulseaudio] module.c: Loaded "module-gsettings" (index: #10; argument: "").
+I: [pulseaudio] module.c: Loaded "module-default-device-restore" (index: #11; argument: "").
+I: [pulseaudio] module.c: Loaded "module-always-sink" (index: #12; argument: "").
+I: [pulseaudio] module.c: Loaded "module-intended-roles" (index: #13; argument: "").
+I: [pulseaudio] module.c: Loaded "module-suspend-on-idle" (index: #14; argument: "").
+I: [pulseaudio] module.c: Loaded "module-console-kit" (index: #15; argument: "").
+I: [pulseaudio] module.c: Loaded "module-position-event-sounds" (index: #16; argument: "").
+I: [pulseaudio] module.c: Loaded "module-role-cork" (index: #17; argument: "").
+I: [pulseaudio] module.c: Loaded "module-filter-heuristics" (index: #18; argument: "").
+I: [pulseaudio] module.c: Loaded "module-filter-apply" (index: #19; argument: "").
+I: [pulseaudio] main.c: Daemon startup complete.
+I: [pulseaudio] module-device-restore.c: Storing port for device sink:alsa_output.platform-sound.HiFi__hw_RT5631__sink.
+I: [pulseaudio] module-device-restore.c: Storing volume/mute for device+port sink:alsa_output.platform-sound.HiFi__hw_RT5631__sink:[Out] Speakers.
+I: [pulseaudio] module-device-restore.c: Storing port for device source:alsa_output.platform-sound.HiFi__hw_RT5631__sink.monitor.
+I: [pulseaudio] module-device-restore.c: Storing volume/mute for device+port source:alsa_output.platform-sound.HiFi__hw_RT5631__sink.monitor:null.
+I: [pulseaudio] module-device-restore.c: Storing port for device source:alsa_input.platform-sound.HiFi__hw_RT5631__source.
+I: [pulseaudio] module-device-restore.c: Storing volume/mute for device+port source:alsa_input.platform-sound.HiFi__hw_RT5631__source:[In] InternalMic.
+I: [pulseaudio] module-device-restore.c: Storing volume/mute for device+port sink:alsa_output.platform-sound.HiFi__hw_RT5631__sink:[Out] Speakers.
+I: [pulseaudio] module-suspend-on-idle.c: Source alsa_input.platform-sound.HiFi__hw_RT5631__source idle for too long, suspending ...
+I: [alsa-source-RT5631 PCM rt5631-hifi-0] alsa-source.c: Device suspended...
+I: [pulseaudio] module-suspend-on-idle.c: Sink alsa_output.platform-sound.HiFi__hw_RT5631__sink idle for too long, suspending ...
+I: [alsa-sink-RT5631 PCM rt5631-hifi-0] alsa-sink.c: Device suspended...
+I: [pulseaudio] module-card-restore.c: Synced.
+I: [pulseaudio] module-device-restore.c: Synced.
+I: [pulseaudio] core.c: We are idle, quitting...
+I: [pulseaudio] main.c: Daemon shutdown initiated.
+I: [pulseaudio] module.c: Unloading "module-filter-apply" (index: #19).
+I: [pulseaudio] module.c: Unloaded "module-filter-apply" (index: #19).
+I: [pulseaudio] module.c: Unloading "module-filter-heuristics" (index: #18).
+I: [pulseaudio] module.c: Unloaded "module-filter-heuristics" (index: #18).
+I: [pulseaudio] module.c: Unloading "module-role-cork" (index: #17).
+I: [pulseaudio] module.c: Unloaded "module-role-cork" (index: #17).
+I: [pulseaudio] module.c: Unloading "module-position-event-sounds" (index: #16).
+I: [pulseaudio] module.c: Unloaded "module-position-event-sounds" (index: #16).
+I: [pulseaudio] module.c: Unloading "module-console-kit" (index: #15).
+I: [pulseaudio] module.c: Unloaded "module-console-kit" (index: #15).
+I: [pulseaudio] module.c: Unloading "module-suspend-on-idle" (index: #14).
+I: [alsa-sink-RT5631 PCM rt5631-hifi-0] alsa-sink.c: Trying resume...
+I: [alsa-sink-RT5631 PCM rt5631-hifi-0] alsa-util.c: Cannot disable ALSA period wakeups
+I: [alsa-sink-RT5631 PCM rt5631-hifi-0] alsa-util.c: ALSA period wakeups were not disabled
+I: [alsa-sink-RT5631 PCM rt5631-hifi-0] alsa-sink.c: Time scheduling watermark is 20.00ms
+I: [alsa-sink-RT5631 PCM rt5631-hifi-0] alsa-sink.c: Resumed successfully...
+I: [alsa-sink-RT5631 PCM rt5631-hifi-0] alsa-sink.c: Starting playback.
+I: [alsa-source-RT5631 PCM rt5631-hifi-0] alsa-source.c: Trying resume...
+I: [alsa-source-RT5631 PCM rt5631-hifi-0] alsa-util.c: Cannot disable ALSA period wakeups
+I: [alsa-source-RT5631 PCM rt5631-hifi-0] alsa-util.c: ALSA period wakeups were not disabled
+I: [alsa-source-RT5631 PCM rt5631-hifi-0] alsa-source.c: Time scheduling watermark is 20.00ms
+I: [alsa-source-RT5631 PCM rt5631-hifi-0] alsa-source.c: Resumed successfully...
+I: [pulseaudio] module.c: Unloaded "module-suspend-on-idle" (index: #14).
+I: [alsa-source-RT5631 PCM rt5631-hifi-0] alsa-source.c: Starting capture.
+I: [pulseaudio] module.c: Unloading "module-intended-roles" (index: #13).
+I: [pulseaudio] module.c: Unloaded "module-intended-roles" (index: #13).
+I: [pulseaudio] module.c: Unloading "module-always-sink" (index: #12).
+I: [pulseaudio] module.c: Unloaded "module-always-sink" (index: #12).
+I: [pulseaudio] module.c: Unloading "module-default-device-restore" (index: #11).
+I: [pulseaudio] module.c: Unloaded "module-default-device-restore" (index: #11).
+I: [pulseaudio] module.c: Unloading "module-gsettings" (index: #10).
+I: [pulseaudio] module.c: Unloaded "module-gsettings" (index: #10).
+I: [pulseaudio] module.c: Unloading "module-native-protocol-unix" (index: #9).
+I: [pulseaudio] module.c: Unloaded "module-native-protocol-unix" (index: #9).
+I: [pulseaudio] module.c: Unloading "module-dbus-protocol" (index: #8).
+I: [pulseaudio] module.c: Unloaded "module-dbus-protocol" (index: #8).
+I: [pulseaudio] module.c: Unloading "module-alsa-card" (index: #7).
+I: [pulseaudio] core.c: default_sink: alsa_output.platform-sound.HiFi__hw_RT5631__sink -> (unset)
+I: [pulseaudio] sink.c: Freeing sink 0 "alsa_output.platform-sound.HiFi__hw_RT5631__sink"
+I: [pulseaudio] source.c: Freeing source 0 "alsa_output.platform-sound.HiFi__hw_RT5631__sink.monitor"
+I: [pulseaudio] core.c: default_source: alsa_input.platform-sound.HiFi__hw_RT5631__source -> (unset)
+I: [pulseaudio] source.c: Freeing source 1 "alsa_input.platform-sound.HiFi__hw_RT5631__source"
+I: [pulseaudio] card.c: Freed 1 "alsa_card.platform-sound"
+I: [pulseaudio] module.c: Unloaded "module-alsa-card" (index: #7).
+I: [pulseaudio] module.c: Unloading "module-alsa-card" (index: #6).
+I: [pulseaudio] card.c: Freed 0 "alsa_card.platform-70030000.hda"
+I: [pulseaudio] module.c: Unloaded "module-alsa-card" (index: #6).
+I: [pulseaudio] module.c: Unloading "module-udev-detect" (index: #5).
+I: [pulseaudio] module.c: Unloaded "module-udev-detect" (index: #5).
+I: [pulseaudio] module.c: Unloading "module-switch-on-port-available" (index: #4).
+I: [pulseaudio] module.c: Unloaded "module-switch-on-port-available" (index: #4).
+I: [pulseaudio] module.c: Unloading "module-augment-properties" (index: #3).
+I: [pulseaudio] module.c: Unloaded "module-augment-properties" (index: #3).
+I: [pulseaudio] module.c: Unloading "module-card-restore" (index: #2).
+I: [pulseaudio] module.c: Unloaded "module-card-restore" (index: #2).
+I: [pulseaudio] module.c: Unloading "module-stream-restore" (index: #1).
+I: [pulseaudio] module.c: Unloaded "module-stream-restore" (index: #1).
+I: [pulseaudio] module.c: Unloading "module-device-restore" (index: #0).
+I: [pulseaudio] module.c: Unloaded "module-device-restore" (index: #0).
+I: [pulseaudio] main.c: Daemon terminated.
+asus-tf201:~$
+
+
