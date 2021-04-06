@@ -1,0 +1,893 @@
+[    0.000000] Booting Linux on physical CPU 0
+[    0.000000] Initializing cgroup subsys cpu
+[    0.000000] Linux version 3.4.113-g65a4e39-dirty (clamor@retranslator) (gcc version 4.8 (GCC) ) #42 SMP PREEMPT Wed Jan 3 10:57:44 EET 2018
+[    0.000000] CPU: ARMv7 Processor [412fc099] revision 9 (ARMv7), cr=10c5387d
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] Machine: transformer
+[    0.000000] Ignoring unrecognised tag 0x41000801
+[    0.000000] Ignoring unrecognised tag 0x41000801
+[    0.000000] Ignoring unrecognised tag 0x41000801
+[    0.000000] Ignoring unrecognised tag 0x41000801
+[    0.000000] Ignoring unrecognised tag 0x41000801
+[    0.000000] Ignoring unrecognised tag 0x41000801
+[    0.000000] Ignoring unrecognised tag 0x41000801
+[    0.000000] SoC: NVIDIA Tegra
+[    0.000000] Found tegra_fbmem: 003e8a00@abc01000
+[    0.000000] [MISC]: Found androidboot.productid = 0x00
+[    0.000000] Tegra reserved memory:
+[    0.000000] LP0:                    bddf9000 - bddfafff
+[    0.000000] Bootloader framebuffer: abc01000 - abfe9fff
+[    0.000000] Bootloader framebuffer2: 00000000 - 00000000
+[    0.000000] Framebuffer:            bec00000 - bf4fffff
+[    0.000000] 2nd Framebuffer:        bf500000 - bfdfffff
+[    0.000000] Carveout:               00000000 - 00000000
+[    0.000000] Vpr:                    00000000 - 00000000
+[    0.000000] Tsec:                   00000000 - 00000000
+[    0.000000] cma: CMA: reserved 16 MiB at 8e000000
+[    0.000000] Memory policy: ECC disabled, Data cache writealloc
+[    0.000000] fuse_speedo_calib: ATE prog ver 2.5
+[    0.000000] Tegra3: CPU Speedo ID 3, Soc Speedo ID 2
+[    0.000000] Tegra Revision: A03 SKU: 0x83 CPU Process: 1 Core Process: 0
+[    0.000000] tegra: PLLP fixed rate: 408000000
+[    0.000000] Lowering cpu_lp maximum rate from 620000000 to 513000000
+[    0.000000] Lowering sbus maximum rate from 378000000 to 267000000
+[    0.000000] Lowering vi maximum rate from 470000000 to 409000000
+[    0.000000] Lowering vde maximum rate from 600000000 to 437000000
+[    0.000000] Lowering mpe maximum rate from 600000000 to 446000000
+[    0.000000] Lowering 2d maximum rate from 600000000 to 446000000
+[    0.000000] Lowering epp maximum rate from 600000000 to 446000000
+[    0.000000] Lowering 3d maximum rate from 600000000 to 446000000
+[    0.000000] Lowering 3d2 maximum rate from 600000000 to 446000000
+[    0.000000] Lowering se maximum rate from 625000000 to 446000000
+[    0.000000] Lowering host1x maximum rate from 300000000 to 267000000
+[    0.000000] Lowering cbus maximum rate from 700000000 to 437000000
+[    0.000000] Lowering pll_c maximum rate from 1400000000 to 1066000000
+[    0.000000] Lowering ndflash maximum rate from 240000000 to 200000000
+[    0.000000] Lowering sbc1 maximum rate from 160000000 to 100000000
+[    0.000000] Lowering sbc2 maximum rate from 160000000 to 100000000
+[    0.000000] Lowering sbc3 maximum rate from 160000000 to 100000000
+[    0.000000] Lowering sbc4 maximum rate from 160000000 to 100000000
+[    0.000000] Lowering sbc5 maximum rate from 160000000 to 100000000
+[    0.000000] Lowering sbc6 maximum rate from 160000000 to 100000000
+[    0.000000] Lowering dsia maximum rate from 500000000 to 432500000
+[    0.000000] Lowering dsib maximum rate from 500000000 to 432500000
+[    0.000000] Lowering cpu_g maximum rate from 1700000000 to 1250000000
+[    0.000000] tegra3_dvfs: cold offset 50000000 is too high for regular dvfs limit 1000000
+[    0.000000] tegra3_dvfs: cold offset 50000000 is too high for regular dvfs limit 1000000
+[    0.000000] tegra3_dvfs: cold offset 50000000 is too high for regular dvfs limit 1000000
+[    0.000000] tegra3_dvfs: cold offset 50000000 is too high for regular dvfs limit 1000000
+[    0.000000] tegra dvfs: VDD_CPU nominal 1087mV, scaling enabled
+[    0.000000] tegra dvfs: VDD_CORE nominal 1200mV, scaling enabled
+[    0.000000] ------------[ cut here ]------------
+[    0.000000] WARNING: at arch/arm/mach-tegra/clock.c:882 tegra_common_init_clock+0x70/0x8c()
+[    0.000000] tegra: pciex boot rate 216666667 exceeds max rate 100000000
+[    0.000000] [<c0016c04>] (unwind_backtrace+0x0/0x140) from [<c0803548>] (dump_stack+0x20/0x24)
+[    0.000000] [<c0803548>] (dump_stack+0x20/0x24) from [<c00626e8>] (warn_slowpath_common+0x60/0x70)
+[    0.000000] [<c00626e8>] (warn_slowpath_common+0x60/0x70) from [<c0062774>] (warn_slowpath_fmt+0x40/0x48)
+[    0.000000] [<c0062774>] (warn_slowpath_fmt+0x40/0x48) from [<c0b20cd4>] (tegra_common_init_clock+0x70/0x8c)
+[    0.000000] [<c0b20cd4>] (tegra_common_init_clock+0x70/0x8c) from [<c0b1fd84>] (tegra30_init_early+0x3c/0x288)
+[    0.000000] [<c0b1fd84>] (tegra30_init_early+0x3c/0x288) from [<c0b1b518>] (setup_arch+0x80c/0x860)
+[    0.000000] [<c0b1b518>] (setup_arch+0x80c/0x860) from [<c0b178b0>] (start_kernel+0xa0/0x340)
+[    0.000000] [<c0b178b0>] (start_kernel+0xa0/0x340) from [<80008044>] (0x80008044)
+[    0.000000] ---[ end trace 1b75b31a2719ed1c ]---
+[    0.000000] ------------[ cut here ]------------
+[    0.000000] WARNING: at arch/arm/mach-tegra/clock.c:882 tegra_common_init_clock+0x70/0x8c()
+[    0.000000] tegra: cml1 boot rate 216666667 exceeds max rate 100000000
+[    0.000000] [<c0016c04>] (unwind_backtrace+0x0/0x140) from [<c0803548>] (dump_stack+0x20/0x24)
+[    0.000000] [<c0803548>] (dump_stack+0x20/0x24) from [<c00626e8>] (warn_slowpath_common+0x60/0x70)
+[    0.000000] [<c00626e8>] (warn_slowpath_common+0x60/0x70) from [<c0062774>] (warn_slowpath_fmt+0x40/0x48)
+[    0.000000] [<c0062774>] (warn_slowpath_fmt+0x40/0x48) from [<c0b20cd4>] (tegra_common_init_clock+0x70/0x8c)
+[    0.000000] [<c0b20cd4>] (tegra_common_init_clock+0x70/0x8c) from [<c0b1fd84>] (tegra30_init_early+0x3c/0x288)
+[    0.000000] [<c0b1fd84>] (tegra30_init_early+0x3c/0x288) from [<c0b1b518>] (setup_arch+0x80c/0x860)
+[    0.000000] [<c0b1b518>] (setup_arch+0x80c/0x860) from [<c0b178b0>] (start_kernel+0xa0/0x340)
+[    0.000000] [<c0b178b0>] (start_kernel+0xa0/0x340) from [<80008044>] (0x80008044)
+[    0.000000] ---[ end trace 1b75b31a2719ed1d ]---
+[    0.000000] ------------[ cut here ]------------
+[    0.000000] WARNING: at arch/arm/mach-tegra/clock.c:882 tegra_common_init_clock+0x70/0x8c()
+[    0.000000] tegra: cml0 boot rate 216666667 exceeds max rate 100000000
+[    0.000000] [<c0016c04>] (unwind_backtrace+0x0/0x140) from [<c0803548>] (dump_stack+0x20/0x24)
+[    0.000000] [<c0803548>] (dump_stack+0x20/0x24) from [<c00626e8>] (warn_slowpath_common+0x60/0x70)
+[    0.000000] [<c00626e8>] (warn_slowpath_common+0x60/0x70) from [<c0062774>] (warn_slowpath_fmt+0x40/0x48)
+[    0.000000] [<c0062774>] (warn_slowpath_fmt+0x40/0x48) from [<c0b20cd4>] (tegra_common_init_clock+0x70/0x8c)
+[    0.000000] [<c0b20cd4>] (tegra_common_init_clock+0x70/0x8c) from [<c0b1fd84>] (tegra30_init_early+0x3c/0x288)
+[    0.000000] [<c0b1fd84>] (tegra30_init_early+0x3c/0x288) from [<c0b1b518>] (setup_arch+0x80c/0x860)
+[    0.000000] [<c0b1b518>] (setup_arch+0x80c/0x860) from [<c0b178b0>] (start_kernel+0xa0/0x340)
+[    0.000000] [<c0b178b0>] (start_kernel+0xa0/0x340) from [<80008044>] (0x80008044)
+[    0.000000] ---[ end trace 1b75b31a2719ed1e ]---
+[    0.000000] ------------[ cut here ]------------
+[    0.000000] WARNING: at arch/arm/mach-tegra/clock.c:882 tegra_common_init_clock+0x70/0x8c()
+[    0.000000] tegra: pll_e boot rate 216666667 exceeds max rate 100000000
+[    0.000000] [<c0016c04>] (unwind_backtrace+0x0/0x140) from [<c0803548>] (dump_stack+0x20/0x24)
+[    0.000000] [<c0803548>] (dump_stack+0x20/0x24) from [<c00626e8>] (warn_slowpath_common+0x60/0x70)
+[    0.000000] [<c00626e8>] (warn_slowpath_common+0x60/0x70) from [<c0062774>] (warn_slowpath_fmt+0x40/0x48)
+[    0.000000] [<c0062774>] (warn_slowpath_fmt+0x40/0x48) from [<c0b20cd4>] (tegra_common_init_clock+0x70/0x8c)
+[    0.000000] [<c0b20cd4>] (tegra_common_init_clock+0x70/0x8c) from [<c0b1fd84>] (tegra30_init_early+0x3c/0x288)
+[    0.000000] [<c0b1fd84>] (tegra30_init_early+0x3c/0x288) from [<c0b1b518>] (setup_arch+0x80c/0x860)
+[    0.000000] [<c0b1b518>] (setup_arch+0x80c/0x860) from [<c0b178b0>] (start_kernel+0xa0/0x340)
+[    0.000000] [<c0b178b0>] (start_kernel+0xa0/0x340) from [<80008044>] (0x80008044)
+[    0.000000] ---[ end trace 1b75b31a2719ed1f ]---
+[    0.000000] L310 cache controller enabled
+[    0.000000] l2x0: 8 ways, CACHE_ID 0x410000c7, AUX_CTRL 0x7e080001, Cache size: 1048576 B
+[    0.000000] tegra_powergate_init: DONE
+[    0.000000] Initialized persistent memory from beb00000-bebfffff
+[    0.000000] PERCPU: Embedded 7 pages/cpu @c1711000 s12544 r0 d16128 u32768
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 254724
+[    0.000000] Kernel command line: tegra_wdt.heartbeat=30 androidboot.selinux=permissive androidboot.hardware=transformer buildvariant=eng tegraid=30.1.3.0.0 mem=1022M@2048M commchip_id=0 vmalloc=768M androidboot.serialno=015d07875404060f androidboot.commchip_id=0 video=tegrafb no_console_suspend=1 console=ttyS0,115200n8 debug_uartport=lsport,0 usbcore.old_scheme_first=1 lp0_vec=8192@0xbddf9000 tegra_fbmem=4098560@0xabc01000 core_edp_mv=0 audio_codec=wm8903 board_info=245:0:1c:a7:29 tegraboot=sdmmc gpt gpt_sector=62078975 modem_id=0 android.kerneltype=normal androidboot.productid=0x00 androidboot.carrier=wifi-only 
+[    0.000000] PID hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.000000] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)
+[    0.000000] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)
+[    0.000000] Memory: 1004MB = 1004MB total
+[    0.000000] Memory: 981332k/981332k available, 65196k reserved, 777300K highmem
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+[    0.000000]     vmalloc : 0xcf800000 - 0xff000000   ( 760 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xcf000000   ( 240 MB)
+[    0.000000]     pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+[    0.000000]       .text : 0xc0008000 - 0xc0b16738   (11322 kB)
+[    0.000000]       .init : 0xc0b17000 - 0xc0b7d100   ( 409 kB)
+[    0.000000]       .data : 0xc0b7e000 - 0xc0c546b8   ( 858 kB)
+[    0.000000]        .bss : 0xc0c546dc - 0xc0cf1940   ( 629 kB)
+[    0.000000] Preemptible hierarchical RCU implementation.
+[    0.000000] NR_IRQS:800
+[    0.000000] sched_clock: 32 bits at 1000kHz, resolution 1000ns, wraps every 4294967ms
+[    0.000243] Calibrating delay loop... 1980.41 BogoMIPS (lpj=990208)
+[    0.007052] pid_max: default: 32768 minimum: 301
+[    0.007187] Security Framework initialized
+[    0.007225] SELinux:  Initializing.
+[    0.007354] Mount-cache hash table entries: 512
+[    0.008351] Initializing cgroup subsys debug
+[    0.008367] Initializing cgroup subsys cpuacct
+[    0.008377] Initializing cgroup subsys freezer
+[    0.008387] Initializing cgroup subsys bfqio
+[    0.008424] CPU: Testing write buffer coherency: ok
+[    0.008466] ftrace: allocating 27864 entries in 82 pages
+[    0.052175] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+[    0.052335] hw perfevents: enabled with ARMv7 Cortex-A9 PMU driver, 7 counters available
+[    0.052430] Setting up static identity map for 0x8080e840 - 0x8080e898
+[    0.053925] CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
+[    0.054672] CPU2: thread -1, cpu 2, socket 0, mpidr 80000002
+[    0.055396] CPU3: thread -1, cpu 3, socket 0, mpidr 80000003
+[    0.055515] Brought up 4 CPUs
+[    0.055528] SMP: Total of 4 processors activated (7921.66 BogoMIPS).
+[    0.062117] VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 4
+[    0.062330] pinctrl core: initialized pinctrl subsystem
+[    0.062615] dummy: 
+[    0.063844] NET: Registered protocol family 16
+[    0.072225] DMA: preallocated 1024 KiB pool for atomic coherent allocations
+[    0.075514] platform tegra-gpio: No map yet available
+[    0.075546] tegra-gpio tegra-gpio: No map yet available
+[    0.075856] gpiochip_add: registered GPIOs 0 to 255 on device: tegra-gpio
+[    0.076220] platform tegra30-pinmux-ctl: No map yet available
+[    0.076245] tegra-pinmux-ctl tegra30-pinmux-ctl: No map yet available
+[    0.076352] platform tegra_smmu: No map yet available
+[    0.076376] tegra_smmu tegra_smmu: No map yet available
+[    0.076753] tegra_booting_info reg=3
+[    0.076761] tegra_booting_info-SW reboot
+[    0.078383] The pingroup KB_ROW0 was configured to RSVD3 instead of <UNKNOWN>
+[    0.079783] cardhu_gpio_init_configure: unknown project_info 0
+[    0.080219] cardhu_edp_init : use asus edp policy with 5000 mA
+[    0.080255] Selecting UARTA as the debug console
+[    0.080269] The debug console clock name is uarta_dbg
+[    0.081558] persistent_ram: error in header, 6
+[    0.081568] persistent_ram: found existing buffer, size 47260, start 47260
+[    0.268561] console [ram-1] enabled
+[    0.268857] cardhu_regulator_init: board_id is BOARD_PM269
+[    0.269016] cardhu_regulator_init: pmu_board_info.sku & SKU_DCDC_TPS62361_SUPPORT
+[    0.269171] TPS6591x GPIO2 was reprogrammed to follow state of SLEEP input
+[    0.269261] Registering the core regulator
+[    0.269348] cardhu_suspend_init: case BOARD_PM269
+[    0.269514] cardhu_suspend_init: case BOARD_PM305 or BOARD_PM311
+[    0.270084] Clear bootloader IO dpd settings
+[    0.372433] Registering gpio keys
+[    0.991357] cardhu_camera_init
+[    0.991471] Registering cam pca6416
+[    0.991708] Registering pmu pca6416
+[    0.991797] *** MPU START *** mpuirq_init...
+[    0.991883] initial mpu with TF201 config...
+[    0.992036] *** MPU END *** mpuirq_init...
+[    0.992204] set_unused_pin_gpio() Error in gpio_request() for gpio 83
+[    0.992367] BOARD_PM269: dvfs_TF201_500MHZ 
+[    0.992735] tegra: validated EMC DFS table
+[    0.992876] hw-breakpoint: found 5 (+1 reserved) breakpoint and 1 watchpoint registers.
+[    0.993037] hw-breakpoint: maximum watchpoint size is 4 bytes.
+[    1.002745] bio: create slab <bio-0> at 0
+[    1.003825] vgaarb: loaded
+[    1.004318] SCSI subsystem initialized
+[    1.005937] spi_tegra spi_tegra.3: master is unqueued, this is deprecated
+[    1.006280] usbcore: registered new interface driver usbfs
+[    1.006500] usbcore: registered new interface driver hub
+[    1.006689] usbcore: registered new device driver usb
+[    1.007449] tps6591x 4-002d: VERNUM is 02
+[    1.008640] Wake18 for irq=118
+[    1.008727] Enabling wake18
+[    1.009333] tps6591x_VIO: 1500 <--> 3300 mV at 1800 mV normal standby
+[    1.010787] tps6591x_VDD_1: 600 <--> 1500 mV at 600 mV normal standby
+[    1.011852] tps6591x_VDD_2: 600 <--> 1500 mV at 1200 mV normal standby
+[    1.013107] __tps6591x_ext_control_set(): EN1 reg: mask 0x46:0x08
+[    1.018855] tps6591x_VDDCTRL: 600 <--> 1400 mV at 1025 mV normal standby
+[    1.019661] tps6591x_LDO_1: 1000 <--> 3300 mV at 3300 mV normal standby
+[    1.019827] tps6591x_LDO_1: supplied by tps6591x_VDD_2
+[    1.020480] tps6591x_LDO_2: 1050 <--> 3300 mV at 3100 mV normal standby
+[    1.020644] tps6591x_LDO_2: supplied by tps6591x_VDD_2
+[    1.021150] tps6591x_LDO_3: 1000 <--> 3300 mV at 2900 mV normal standby
+[    1.021859] tps6591x_LDO_4: 1000 <--> 3300 mV at 1200 mV normal standby
+[    1.022347] tps6591x_LDO_5: 1000 <--> 3300 mV at 1000 mV normal standby
+[    1.023182] tps6591x_LDO_6: 1200 mV normal standby
+[    1.023298] tps6591x_LDO_6: supplied by tps6591x_VIO
+[    1.024458] tps6591x_LDO_7: 1200 mV normal standby
+[    1.024559] tps6591x_LDO_7: supplied by tps6591x_VIO
+[    1.025482] tps6591x_LDO_8: 1000 <--> 3300 mV at 1000 mV normal standby
+[    1.025585] tps6591x_LDO_8: supplied by tps6591x_VIO
+[    1.026109] gpiochip_add: registered GPIOs 256 to 264 on device: tps6591x
+[    1.027831] tps62361: 500 <--> 1770 mV at 1300 mV normal standby
+[    1.028443] tegra-i2c tegra-i2c.4: no acknowledge from address 0x20
+[    1.028644] pca953x 4-0020: failed reading register
+[    1.028799] pca953x: probe of 4-0020 failed with error -121
+[    1.029551] tegra-i2c tegra-i2c.2: no acknowledge from address 0x20
+[    1.029843] pca953x 2-0020: failed reading register
+[    1.029933] pca953x: probe of 2-0020 failed with error -121
+[    1.030961] Linux video capture interface: v2.00
+[    1.031334] Advanced Linux Sound Architecture Driver Version 1.0.25.
+[    1.031914] Bluetooth: Core ver 2.16
+[    1.032032] NET: Registered protocol family 31
+[    1.032180] Bluetooth: HCI device and connection manager initialized
+[    1.032266] Bluetooth: HCI socket layer initialized
+[    1.032430] Bluetooth: L2CAP socket layer initialized
+[    1.032529] Bluetooth: SCO socket layer initialized
+[    1.032803] cfg80211: Calling CRDA to update world regulatory domain
+[    1.033139] cardhu_fixed_regulator_init: case BOARD_PM269 or BOARD_E1257
+[    1.033306] cardhu_fixed_regulator_init: else
+[    1.034153] fixed_reg_en_5v_cp: 5000 mV normal standby
+[    1.035087] fixed_reg_en_5v0: 5000 mV normal standby
+[    1.036046] fixed_reg_en_ddr: 1500 mV normal standby
+[    1.036709] fixed_reg_en_3v3_sys: 3300 mV normal standby
+[    1.037209] fixed_reg_en_3v3_modem: 3300 mV normal standby
+[    1.037519] fixed_reg_cam1_ldo_en: 2800 mV normal standby
+[    1.037679] fixed_reg_cam1_ldo_en: supplied by fixed_reg_en_3v3_sys
+[    1.037968] fixed_reg_cam3_ldo_en: 3300 mV normal standby
+[    1.038126] fixed_reg_cam3_ldo_en: supplied by fixed_reg_en_3v3_sys
+[    1.038456] fixed_reg_en_vdd_com: 3300 mV normal standby
+[    1.038614] fixed_reg_en_vdd_com: supplied by fixed_reg_en_3v3_sys
+[    1.038917] fixed_reg_en_3v3_fuse: 3300 mV normal standby
+[    1.039082] fixed_reg_en_3v3_fuse: supplied by fixed_reg_en_3v3_sys
+[    1.039390] fixed_reg_en_3v3_emmc: 3300 mV normal standby
+[    1.039550] fixed_reg_en_3v3_emmc: supplied by fixed_reg_en_3v3_sys
+[    1.039865] fixed_reg_en_1v8_cam: 1800 mV normal standby
+[    1.040029] fixed_reg_en_1v8_cam: supplied by tps6591x_VIO
+[    1.040331] reg-fixed-voltage reg-fixed-voltage.22: Could not obtain regulator enable GPIO 275: -22
+[    1.040490] reg-fixed-voltage: probe of reg-fixed-voltage.22 failed with error -22
+[    1.040780] fixed_reg_en_vdd_bl: 5000 mV normal standby
+[    1.041053] fixed_reg_en_vdd_pnl1: 3300 mV normal standby
+[    1.041212] fixed_reg_en_vdd_pnl1: supplied by fixed_reg_en_3v3_sys
+[    1.043137] tegra: started io power detection dynamic control
+[    1.043310] tegra: NO_IO_POWER setting 0x210
+[    1.043396] Switching to clocksource timer_us
+[    1.066253] nvmap_page_pool_init: nvmap uc page pool size=31178 pages
+[    1.085038] nvmap_page_pool_init: nvmap pool = uc, highmem=31178, pool_size=31178,totalram=249429, freeram=216869, totalhigh=194325, freehigh=163077
+[    1.181519] nvmap_page_pool_init: nvmap wc page pool size=31178 pages
+[    1.200245] nvmap_page_pool_init: nvmap pool = wc, highmem=31178, pool_size=31178,totalram=249429, freeram=185621, totalhigh=194325, freehigh=131829
+[    1.295985] nvmap_page_pool_init: nvmap iwb page pool size=31178 pages
+[    1.314719] nvmap_page_pool_init: nvmap pool = iwb, highmem=31178, pool_size=31178,totalram=249429, freeram=154373, totalhigh=194325, freehigh=100581
+[    1.411115] tegra-nvmap tegra-nvmap: created carveout iram (255KiB)
+[    1.412151] Wake39 for irq=52
+[    1.412325] Wake39 for irq=52
+[    1.412408] Enabling wake39
+[    1.412492] tegra-otg tegra-otg: otg transceiver registered
+[    1.412977] NET: Registered protocol family 2
+[    1.419771] IP route cache hash table entries: 8192 (order: 3, 32768 bytes)
+[    1.420399] TCP established hash table entries: 32768 (order: 6, 262144 bytes)
+[    1.420917] TCP bind hash table entries: 32768 (order: 6, 393216 bytes)
+[    1.421544] TCP: Hash tables configured (established 32768 bind 32768)
+[    1.421646] TCP: reno registered
+[    1.421796] UDP hash table entries: 128 (order: 0, 4096 bytes)
+[    1.421895] UDP-Lite hash table entries: 128 (order: 0, 4096 bytes)
+[    1.422309] NET: Registered protocol family 1
+[    1.422834] RPC: Registered named UNIX socket transport module.
+[    1.422985] RPC: Registered udp transport module.
+[    1.423066] RPC: Registered tcp transport module.
+[    1.423211] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    1.423572] Trying to unpack rootfs image as initramfs...
+[    1.493495] host1x host1x: initialized
+[    1.496015] tegra_throttle : init done
+[    1.496240] Tegra cpuquiet initialized: disabled
+[    1.496622] cpu-tegra: init EDP limit: 1250 MHz
+[    1.497365] vibrator_init+ #####
+[    1.497524] vibrator_init- #####
+[    1.498127] audit: initializing netlink socket (disabled)
+[    1.498251] type=2000 audit(7.924:1): initialized
+[    1.499371] highmem bounce pool size: 64 pages
+[    1.500750] NTFS driver 2.1.30 [Flags: R/O].
+[    1.500927] fuse init (API version 7.18)
+[    1.501830] Registering char device tf_driver (122:0)
+[    1.502046] TF : INFO 00000001 00:00:00.000 ------ ------  --------------- Booting... (t=00:00:07.928) TFNXBF01.16.37161     /Trusted-Logic
+[    1.503427] io scheduler noop registered
+[    1.503603] io scheduler deadline registered
+[    1.503761] io scheduler cfq registered (default)
+[    1.503887] io scheduler bfq registered
+[    1.504031] BFQ I/O-scheduler: v7r8
+[    1.504419] cardhu_backlight_init: error in gpio request for backlight_enb
+[    1.506005] mpe mpe: initialized
+[    1.508068] gr3d gr3d: initialized
+[    1.509837] gr2d gr2d: initialized
+[    1.510680] isp isp: initialized
+[    1.754738] tegradc tegradc.0: probed
+[    1.755326] tegradc tegradc.0: probed
+[    1.755973] gpio wake4 for gpio=111
+[    1.756883] tegradc tegradc.1: probed
+[    1.757476] tegradc tegradc.1: probed
+[    1.757716] hdmi: couldn't get regulator vdd_hdmi_con
+[    1.758266] tegra_uart.2: ttyHS2 at MMIO 0x70006200 (irq = 78) is a TEGRA_UART
+[    1.758461] Registered UART port ttyHS2
+[    1.759299] tegra_uart.3: ttyHS3 at MMIO 0x70006300 (irq = 122) is a TEGRA_UART
+[    1.759499] Registered UART port ttyHS3
+[    1.760115] tegra_uart.4: ttyHS4 at MMIO 0x70006400 (irq = 123) is a TEGRA_UART
+[    1.760309] Registered UART port ttyHS4
+[    1.760939] Initialized tegra uart driver
+[    1.766430] brd: module loaded
+[    1.769348] loop: module loaded
+[    1.771895] nct_thermal 4-004c: nct1008_probe: initialized
+[    1.774883] gpio 2.85V 143 set to 1
+[    1.775000] i2c i2c-2: mpu_probe: 0
+[    1.787710] i2c i2c-2: Installing irq using 377
+[    1.787796] i2c i2c-2: Module Param interface = mpuirq
+[    1.788079] mpu_init: Probe name mpu3050
+[    1.788191] i2c i2c-2: kxtf9_mod_probe: kxtf9
+[    1.788280] i2c i2c-2: inv_mpu_register_slave: +kxtf9 Type 1: Addr:  f IRQ: 309, Adapt:  2
+[    1.792622] i2c i2c-2: Installing accelirq irq using 309
+[    1.792710] gpio wake0 for gpio=117
+[    1.792973] kxtf9_mod_init: Probe name kxtf9_mod
+[    1.793084] i2c i2c-2: ami306_mod_probe: ami306
+[    1.793237] i2c i2c-2: inv_mpu_register_slave: +ami306 Type 2: Addr:  e IRQ: 368, Adapt:  2
+[    2.264949] i2c i2c-2: Installing compassirq irq using 368
+[    2.265235] ami306_mod_init: Probe name ami306_mod
+[    2.266067] tun: Universal TUN/TAP device driver, 1.6
+[    2.266219] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[    2.266364] PPP generic driver version 2.4.2
+[    2.266627] PPP BSD Compression module registered
+[    2.266712] PPP Deflate Compression module registered
+[    2.267097] PPP MPPE Compression module registered
+[    2.267250] NET: Registered protocol family 24
+[    2.267375] usbcore: registered new interface driver rndis_wlan
+[    2.267549] usbcore: registered new interface driver asix
+[    2.267689] usbcore: registered new interface driver cdc_ether
+[    2.267872] usbcore: registered new interface driver net1080
+[    2.267983] usbcore: registered new interface driver rndis_host
+[    2.268156] usbcore: registered new interface driver cdc_subset
+[    2.268264] usbcore: registered new interface driver zaurus
+[    2.268451] usbcore: registered new interface driver cdc_ncm
+[    2.268563] usbcore: registered new interface driver bb_raw_ip_net
+[    2.268749] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    2.268892] tegra USB phy - inst[2] platform info:
+[    2.269039] port_otg: no
+[    2.269119] has_hostpc: yes
+[    2.269198] phy_interface: USB_PHY_INTF_UTMI
+[    2.269342] op_mode: TEGRA_USB_OPMODE_HOST
+[    2.269423] vbus_gpio: -1
+[    2.269502] hot_plug: enabled
+[    2.269669] remote_wakeup: enabled
+[    2.275886] Timed out waiting for lock bit on pll pll_u
+[    2.276093] usb_phy: failed to get regulator vdd_vbus_usb:-517,instance : 2
+[    2.276330] phy->inst = 2, phy->utmi_xcvr_setup = 5
+[    2.277486] gpio_dock_in_irq_init: request irq = 356, ret = 0
+[    2.280274] tegra-ehci tegra-ehci.2: Tegra EHCI Host Controller
+[    2.280457] tegra-ehci tegra-ehci.2: new USB bus registered, assigned bus number 1
+[    2.302620] Wake41 for irq=129
+[    2.302724] tegra-ehci tegra-ehci.2: irq 129, io mem 0x7d008000
+[    2.308612] tegra-ehci tegra-ehci.2: USB 2.0 started, EHCI 1.00
+[    2.308774] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002
+[    2.308923] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    2.309073] usb usb1: Product: Tegra EHCI Host Controller
+[    2.309156] usb usb1: Manufacturer: Linux 3.4.113-g65a4e39-dirty ehci_hcd
+[    2.309303] usb usb1: SerialNumber: tegra-ehci.2
+[    2.309734] hub 1-0:1.0: USB hub found
+[    2.309830] hub 1-0:1.0: 1 port detected
+[    2.310203] Wake41 for irq=129
+[    2.310287] Enabling wake41
+[    2.310520] usbcore: registered new interface driver cdc_acm
+[    2.310690] cdc_acm: USB Abstract Control Model driver for USB modems and ISDN adapters
+[    2.310817] usbcore: registered new interface driver cdc_wdm
+[    2.310964] Initializing USB Mass Storage driver...
+[    2.311103] usbcore: registered new interface driver usb-storage
+[    2.311249] USB Mass Storage support registered.
+[    2.311370] usbcore: registered new interface driver libusual
+[    2.311605] usbcore: registered new interface driver usbserial
+[    2.311689] usbserial: USB Serial Driver core
+[    2.311977] usbcore: registered new interface driver bb_usb_chr
+[    2.312086] usbcore: registered new interface driver option
+[    2.312276] USB Serial support registered for GSM modem (1-port)
+[    2.312478] usbcore: registered new interface driver pl2303
+[    2.312671] USB Serial support registered for pl2303
+[    2.312762] Nvidia Tegra High-Speed USB SOC 					Device Controller driver (Apr 30, 2012)
+[    2.312924] DOCK_IN GPIO164 request fault!-16
+[    2.313060] gpio_limit_set1_irq_init: request irq = 253, ret = 0
+[    2.313317] tegra USB phy - inst[0] platform info:
+[    2.313400] port_otg: yes
+[    2.313543] has_hostpc: yes
+[    2.313644] phy_interface: USB_PHY_INTF_UTMI
+[    2.313726] op_mode: TEGRA_USB_OPMODE_DEVICE
+[    2.313869] vbus_pmu_irq: 0
+[    2.313947] vbus_gpio: -1
+[    2.314024] charging: disabled
+[    2.314103] remote_wakeup: disabled
+[    2.314496] phy->inst = 0, phy->utmi_xcvr_setup = 5
+[    2.317237] tegra-udc tegra-udc.0: usb_bat_chg regulator not registered: USB charging will not be enabled
+[    2.327842] file system registered
+[    2.328653] android_usb gadget: Mass Storage Function, version: 2009/09/11
+[    2.328805] android_usb gadget: Number of LUNs=1
+[    2.328890]  lun0: LUN: removable file: (no medium)
+[    2.329266] android_usb gadget: android_usb ready
+[    2.329352] tegra-udc: bind to driver android_usb
+[    2.329445] asuspec_init+ #####
+[    2.329611] asuspec: [asuspec_init] cdev_alloc
+[    2.329943] gpio wake9 for gpio=146
+[    2.330077] gpio wake9 for gpio=146
+[    2.330222] Enabling wake9
+[    2.330413] asuspec: [asuspec_send_ec_req] send EC_Request
+[    2.330436] asuspec_init- #####
+[    2.330442] asusdec_init+ #####
+[    2.330449] asusdec: [asusdec_init] cdev_alloc
+[    2.330675] power_supply dock_battery: driver failed to report `status' property: 4294967274
+[    2.330754] power_supply dock_battery: driver failed to report `status' property: 4294967274
+[    2.330908] input: lid_input as /devices/platform/tegra-i2c.1/i2c-1/1-0019/input/input0
+[    2.331008] asusdec: [asusdec_irq_dock_in] gpio_request failed for input 164
+[    2.331035] gpio wake28 for gpio=150
+[    2.331078] gpio wake28 for gpio=150
+[    2.331083] Enabling wake28
+[    2.331089] asusdec: [asusdec_irq_hall_sensor] LID open
+[    2.331097] gpio wake29 for gpio=151
+[    2.331131] gpio wake29 for gpio=151
+[    2.331136] Enabling wake29
+[    2.331235] asusdec: [asusdec_dock_init_work_function] TF201 dock-init
+[    2.331244] asusdec: [asusdec_dock_init_work_function] No dock detected
+[    2.331268] asusdec_init- #####
+[    2.331374] usbcore: registered new interface driver xpad
+[    2.331408] usbcore: registered new interface driver usb_acecad
+[    2.331443] usbcore: registered new interface driver aiptek
+[    2.331474] usbcore: registered new interface driver gtco
+[    2.331505] usbcore: registered new interface driver hanwang
+[    2.331536] usbcore: registered new interface driver kbtab
+[    2.331575] usbcore: registered new interface driver wacom
+[    2.331809] atmel_mxt_ts 1-004d: Atmel regulator_get for vdd and avdd succeeded
+[    2.332236] atmel_mxt_ts 1-004d: Family ID: 161 Variant ID: 2 Version: 2.0.AA Object Num: 23
+[    2.339445] atmel_mxt_ts 1-004d: Matrix Size X24Y32 Touchscreen size X1599Y999
+[    2.339713] input: atmel-maxtouch as /devices/platform/tegra-i2c.1/i2c-1/1-004d/input/input1
+[    2.342972] rtc_tps6591x rtc_tps6591x.0: RTC Time : 1/3/2018 9:43:50
+[    2.345133] tps6591x 4-002d: 
+[    2.345137]  getting alarm time::
+[    2.345296] rtc_tps6591x rtc_tps6591x.0: RTC Time : 1/1/2000 0:0:0
+[    2.347761] rtc_tps6591x rtc_tps6591x.0: RTC Time : 1/3/2018 9:43:50
+[    2.347951] rtc_tps6591x rtc_tps6591x.0: rtc core: registered rtc_tps6591x as rtc0
+[    2.352735] rtc_tps6591x rtc_tps6591x.0: RTC Time : 1/3/2018 9:43:50
+[    2.358747] i2c /dev entries driver
+[    2.359307] usbcore: registered new interface driver uvcvideo
+[    2.359391] USB Video Class driver (1.1.1)
+[    2.359620] trpc_sema_init: registered misc dev 10:49
+[    2.359764] trpc_node_register: Adding 'local' to node list
+[    2.360472] nvavp nvavp: allocated IOVM at ff00000 for AVP os
+[    2.360845] sensor_init+ #####
+[    2.360972] sensor_init- #####
+[    2.361139] pad_probe: client->addr=b 
+[    2.361310] pad_get_psp: pad_device->battery_present=0
+[    2.361396] pad-battery 4-000b: pad_get_psp: i2c read for 7 failed
+[    2.361545] power_supply battery: driver failed to report `status' property: 4294967274
+[    2.361783] pad_get_psp: pad_device->battery_present=0
+[    2.361870] pad-battery 4-000b: pad_get_psp: i2c read for 7 failed
+[    2.362017] power_supply battery: driver failed to report `status' property: 4294967274
+[    2.362518] pad-battery 4-000b: pad-battery: battery driver registered
+[    2.362794] gpio wake26 for gpio=149
+[    2.362922] The USB cable status = 0
+[    2.363110] pad_baterry: setup_detect_irq: battery_present = 1
+[    2.363196] gpio wake25 for gpio=148
+[    2.363308] gpio wake25 for gpio=148
+[    2.363454] Enabling wake25
+[    2.363542] gpio 163 set to 1
+[    2.365634] input: light_sensor as /devices/virtual/input/input2
+[    2.365944] al3010 2-001c: probed
+[    2.366186] tegra_wdt tegra_wdt.0: last reset is due to software reset
+[    2.366419] WDT heartbeat enabled on probe
+[    2.366503] tegra_wdt_probe done
+[    2.366790] device-mapper: uevent: version 1.0.3
+[    2.367047] device-mapper: ioctl: 4.22.0-ioctl (2011-10-19) initialised: dm-devel@redhat.com
+[    2.367251] Bluetooth: HCI UART driver ver 2.2
+[    2.367400] Bluetooth: HCI H4 protocol initialized
+[    2.367481] Bluetooth: BlueSleep Mode Driver Ver 1.1
+[    2.367714] gpio wake7 for gpio=166
+[    2.368303] cpuidle: using governor ladder
+[    2.368643] cpuidle: using governor menu
+[    2.368817] sdhci: Secure Digital Host Controller Interface driver
+[    2.368900] sdhci: Copyright(c) Pierre Ossman
+[    2.369042] sdhci-pltfm: SDHCI platform and OF driver helper
+[    2.369624] sdhci-tegra sdhci-tegra.3: vddio_sd_slot regulator not found: -517. Assuming vddio_sd_slot is not required.
+[    2.370874] mmc0: Invalid maximum block size, assuming 512 bytes
+[    2.371052] mmc0: no vmmc regulator found
+[    2.375618] mmc0: SDHCI controller on sdhci-tegra.3 [sdhci-tegra.3] using ADMA
+[    2.375927] sdhci-tegra sdhci-tegra.2: vddio_sdmmc regulator not found: -517.Assuming vddio_sdmmc is not required.
+[    2.376091] sdhci-tegra sdhci-tegra.2: vddio_sd_slot regulator not found: -517. Assuming vddio_sd_slot is not required.
+[    2.376246] mmc1: Invalid maximum block size, assuming 512 bytes
+[    2.376418] mmc1: no vmmc regulator found
+[    2.379616] mmc1: SDHCI controller on sdhci-tegra.2 [sdhci-tegra.2] using ADMA
+[    2.379966] gpio wake23 for gpio=69
+[    2.380114] gpio wake23 for gpio=69
+[    2.380259] Enabling wake23
+[    2.381624] asusdec: [asusdec_lid_report_function] SW_LID report value = 0
+[    2.381717] pad_baterry: docking_callback: docked in = 0, TEGRA_GPIO_PU4 is 1
+[    2.381865] pad_baterry: docking_callback: disable_irq for TEGRA_GPIO_PS5
+[    2.382028] asusdec: [asusdec_pad_battery_report_function] dock_in = 0, ret_val = 0
+[    2.382116] audio_dock_in_out: audio_codec is NULL
+[    2.382123] mmc2: Invalid maximum block size, assuming 512 bytes
+[    2.382161] mmc2: no vmmc regulator found
+[    2.382489] asusdec: [asusAudiodec_in_out_work_function] audio dock out
+[    2.382699] tegra-i2c tegra-i2c.1: no acknowledge from address 0x17
+[    2.382915] asuspec: [asuspec_dockram_read_battery] Fail to read dockram battery, status -121
+[    2.383065] asuspec: [asuspec_battery_monitor] Fail to access battery info.
+[    2.383191] tegra-i2c tegra-i2c.1: no acknowledge from address 0x17
+[    2.383405] asuspec: [asuspec_dockram_read_battery] Fail to read dockram battery, status -121
+[    2.383494] asuspec: [asuspec_battery_monitor] Fail to access battery info.
+[    2.383642] tegra-i2c tegra-i2c.1: no acknowledge from address 0x17
+[    2.383851] asuspec: [asuspec_dockram_read_battery] Fail to read dockram battery, status -121
+[    2.383936] asuspec: [asuspec_battery_monitor] Fail to access battery info.
+[    2.384126] tegra-i2c tegra-i2c.1: no acknowledge from address 0x17
+[    2.384329] asuspec: [asuspec_dockram_read_battery] Fail to read dockram battery, status -121
+[    2.384415] asuspec: [asuspec_battery_monitor] Fail to access battery info.
+[    2.384563] pad-battery 4-000b: pad_get_psp: i2c read for 7 failed
+[    2.384617] mmc2: SDHCI controller on sdhci-tegra.0 [sdhci-tegra.0] using ADMA
+[    2.384810] power_supply battery: driver failed to report `status' property: 4294967274
+[    2.387692] tegra-se tegra-se: tegra_se_probe: complete
+[    2.389302] usbcore: registered new interface driver usbhid
+[    2.389526] usbhid: USB HID core driver
+[    2.390031] ashmem: initialized
+[    2.474964] usbcore: registered new interface driver snd-usb-audio
+[    2.476901] fm34_init
+[    2.476992] DSP: gpio 165 set to 1
+[    2.477182] DSP: GPIO_PO3 = 115 , state = 1
+[    2.477332] DSP: GPIO_PBB6 = 222 , state = 1
+[    2.484480] mmc0: new high speed DDR MMC card at address 0001
+[    2.485086] mmcblk0: mmc0:0001 HYNIX  29.6 GiB 
+[    2.485412] mmcblk0boot0: mmc0:0001 HYNIX  partition 1 2.00 MiB
+[    2.485818] mmcblk0boot1: mmc0:0001 HYNIX  partition 2 2.00 MiB
+[    2.489893] Primary GPT is invalid, using alternate GPT.
+[    2.490083]  mmcblk0: p1 p2 p3 p4 p5 p6 p7 p8
+[    2.493629]  mmcblk0boot1: unknown partition table
+[    2.496133]  mmcblk0boot0: unknown partition table
+[    2.609751] tegra-i2c tegra-i2c.0: no acknowledge from address 0x60
+[    2.617540] asuspec: [asuspec_chip_init] Model Name: ASUS-TF201-PAD
+[    2.624925] asuspec: [asuspec_chip_init] EC-FW Version: PAD-EC20T-0216
+[    2.634786] asuspec: [asuspec_chip_init] PCBA Version: TF201-PAD-SKU1
+[    2.642149] asuspec: [asuspec_enter_normal_mode] Entering normal mode
+[    2.645065] asuspec: [asuspec_work_function] 0x1 0x0 0xff 0xff
+[    2.671609] DSP: fm34_probe()
+[    2.671735] tegra_rt5631_modinit+ #####
+[    2.671879] tegra_rt5631_modinit(): support codec rt5631
+[    2.672023] tegra_rt5631_driver_probe+
+[    2.672740] DSP: ReConfiguration
+[    2.805878] DSP ACK, read 0xc0: 1
+[    2.805963] DSP: load TF201 parameters
+[    2.958617] DSP: config_length = 1462
+[    2.958700] DSP: configuration is done
+[    3.072983] tegra_rt5631_init+
+[    3.076359] asoc: rt5631-hifi <-> tegra30-i2s.1 mapping ok
+[    3.080263] asoc: dit-hifi <-> tegra30-spdif mapping ok
+[    3.082520] tegra-snd-codec tegra-snd-codec.0: Failed to add route Mic Bias1->MIC1
+[    3.083450] tegra_rt5631_driver_probe-
+[    3.083622] tegra_rt5631_modinit- #####
+[    3.085819] headset_init+ #####
+[    3.085900] HEADSET: Headset detection init
+[    3.086206] HEADSET: Headset detection mode
+[    3.086354] HEADSET: Config LineOut detection gpio
+[    3.086534] HEADSET: Config Headset Button detection gpio
+[    3.086706] HEADSET: Config Jack-in detection gpio
+[    3.086788] HEADSET: Turn on micbias power
+[    3.086871] gpio wake12 for gpio=178
+[    3.087049] gpio wake12 for gpio=178
+[    3.087131] Enabling wake12
+[    3.088606] HEADSET: Turn off micbias power
+[    3.089136] headset_init- #####
+[    3.089372] u32 classifier
+[    3.089454]     Actions configured
+[    3.089535] Netfilter messages via NETLINK v0.30.
+[    3.089760] nf_conntrack version 0.5.0 (15589 buckets, 62356 max)
+[    3.090242] ctnetlink v0.93: registering with nfnetlink.
+[    3.092491] NF_TPROXY: Transparent proxy support initialized, version 4.1.0
+[    3.092592] NF_TPROXY: Copyright (c) 2006-2007 BalaBit IT Ltd.
+[    3.093007] xt_time: kernel timezone is -0000
+[    3.093493] ip_tables: (C) 2000-2006 Netfilter Core Team
+[    3.095950] arp_tables: (C) 2002 David S. Miller
+[    3.096083] TCP: cubic registered
+[    3.096227] Initializing XFRM netlink socket
+[    3.096929] NET: Registered protocol family 10
+[    3.098052] Mobile IPv6
+[    3.098162] ip6_tables: (C) 2000-2006 Netfilter Core Team
+[    3.098415] IPv6 over IPv4 tunneling driver
+[    3.099027] NET: Registered protocol family 17
+[    3.099196] NET: Registered protocol family 15
+[    3.099419] Bluetooth: RFCOMM TTY layer initialized
+[    3.099623] Bluetooth: RFCOMM socket layer initialized
+[    3.099708] Bluetooth: RFCOMM ver 1.11
+[    3.099789] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+[    3.099934] Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+[    3.100287] rfkill_gpio rfkill_gpio: bt_rfkill device registered.
+[    3.101634] Registering SWP/SWPB emulation handler
+[    3.101725] Registering SDIV/UDIV emulation handler
+[    3.115268] Disabling clocks left on by bootloader:
+[    3.115365]    dsi2-fixed
+[    3.115447]    dsi1-fixed
+[    3.115632]    uarta
+[    3.115740]    fuse_burn
+[    3.115827]    cclk_lp
+[    3.115908]    pll_x_out0
+[    3.115988]    pll_d2_out0
+[    3.116130]    pll_d_out0
+[    3.116211]    pll_p_out2
+[    3.116294]    pll_c_out1
+[    3.116377]    pll_m_out1
+[    3.116532] DVFS: Got RTC device name:rtc0
+[    3.119009] rtc_tps6591x rtc_tps6591x.0: RTC Time : 1/3/2018 9:43:50
+[    3.119110] TEGRA: Linear age: 8
+[    3.121303] CPU rate: 1000 MHz
+[    3.121684] tegra dvfs: tegra sysfs cap interface is initialized
+[    3.122094] tegra_actmon.emc: Completed initialization (0)
+[    3.122343] tegra_actmon.avp: Completed initialization (0)
+[    3.123475] vi vi: vi_probe: ++
+[    3.123564] vi vi: tegra_camera_register: ++
+[    3.124386] vi vi: initialized
+[    3.124895] wifi_set_power = 1
+[    3.425351] wifi_set_carddetect = 1
+[    3.492483] mmc1: new high speed SDIO card at address 0001
+[    3.493799] SDIO Vendor ID:02d0 and SDIO Device ID: 4329
+[    3.496554] F1 signature OK, socitype:0x0 chip:0x4329 rev:0x3 pkg:0x9
+[    3.498080] DHD: dongle ram size is set to 294912(orig 294912) at 0x0
+[    3.500256] wl_create_event_handler(): thread:wl_event_handler:7c started
+[    3.500265] CFG80211-ERROR) wl_event_handler : tsk Enter, tsk = 0xcd2e13f8
+[    3.501314] p2p0: P2P Interface Registered
+[    3.501553] dhd_attach(): thread:dhd_watchdog_thread:7d started
+[    3.501726] dhd_attach(): thread:dhd_dpc:7e started
+[    3.501947] dhd_attach(): thread:dhd_rxf:7f started
+[    3.502100] dhd_attach(): thread:dhd_sysioc:80 started
+[    3.502441] wifi_get_mac_addr
+[    3.503039] Broadcom Dongle Host Driver: register interface [wlan0] MAC: 00:90:4c:11:22:33
+[    3.515648] mmc1: Controller never released inhibit bit(s).
+[    3.515843] bcmsdh_sdmmc: probe of mmc1:0001:3 failed with error -5
+[    3.516016] 
+[    3.516019] Dongle Host Driver, version 1.88.45 (r)
+[    3.516022] Compiled in drivers/net/wireless/bcmdhd on Jan  3 2018 at 10:54:05
+[    3.516317] wifi_set_power = 0
+[    3.816745] =========== WLAN placed in RESET ========
+[    3.816922] gpio wake24 for gpio=168
+[    3.817373] input: gpio-keys as /devices/platform/gpio-keys.0/input/input3
+[    3.819989] rtc_tps6591x rtc_tps6591x.0: RTC Time : 1/3/2018 9:43:51
+[    3.820166] rtc_tps6591x rtc_tps6591x.0: setting system clock to 2018-01-03 09:43:51 UTC (1514972631)
+[    3.820473] ALSA device list:
+[    3.820558]   #0: HDA NVIDIA Tegra at 0x70038000 irq 113
+[    3.820723]   #1: tegra-codec
+[    3.820897] Warning: unable to open an initial console.
+[01-03 09:43:51.503] init: init first stage started!
+[01-03 09:43:51.559] type=1403 audit(1514972631.559:2): policy loaded auid=4294967295 ses=4294967295
+[01-03 09:43:51.560] init: (Initializing SELinux non-enforcing took 0.06s.)
+[01-03 09:43:51.565] init: init second stage started!
+[01-03 09:43:51.575] init: Running restorecon...
+[01-03 09:43:51.690] init: waitpid failed: No child processes
+[01-03 09:43:51.691] init: (Loading properties from /default.prop took 0.00s.)
+[01-03 09:43:51.695] init: (Parsing /init.environ.rc took 0.00s.)
+[01-03 09:43:51.697] init: (Parsing /init.usb.rc took 0.00s.)
+[01-03 09:43:51.699] init: (Parsing init.tegra3.power.rc took 0.00s.)
+[01-03 09:43:51.699] init: (Parsing init.tegra3.rc took 0.00s.)
+[01-03 09:43:51.699] init: (Parsing init.transformer.usb.rc took 0.00s.)
+[01-03 09:43:51.700] init: (Parsing /init.transformer.rc took 0.00s.)
+[01-03 09:43:51.702] init: (Parsing /init.usb.configfs.rc took 0.00s.)
+[01-03 09:43:51.702] init: (Parsing /init.zygote32.rc took 0.00s.)
+[01-03 09:43:51.703] init: (Parsing /init.io.rc took 0.00s.)
+[01-03 09:43:51.703] init: (Parsing /init.rc took 0.01s.)
+[01-03 09:43:51.704] init: Starting service 'ueventd'...
+[01-03 09:43:51.705] init: Waiting for /dev/.coldboot_done...
+[01-03 09:43:51.708] ueventd: ueventd started!
+[01-03 09:43:51.992] power_supply dock_battery: driver failed to report `status' property: 4294967274
+[01-03 09:43:52.059] ueventd: Coldboot took 0.35s.
+[01-03 09:43:52.069] init: Waiting for /dev/.coldboot_done took 0.36s.
+[01-03 09:43:52.069] init: /dev/hw_random not found
+[01-03 09:43:52.069] keychord: using input dev gpio-keys for fevent
+[01-03 09:43:52.084] init: write_file: Unable to open '/proc/sys/kernel/hung_task_timeout_secs': No such file or directory
+[01-03 09:43:52.099] init: write_file: Unable to open '/proc/sys/abi/swp': No such file or directory
+[01-03 09:43:52.108] init: /dev/hw_random not found
+[01-03 09:43:52.123] EXT4-fs (mmcblk0p1): mounted filesystem with ordered data mode. Opts: (null)
+[01-03 09:43:52.123] fs_mgr: __mount(source=/dev/block/mmcblk0p1,target=/system,type=ext4)=0
+[01-03 09:43:52.141] fs_mgr: __mount(source=/dev/block/mmcblk0p2,target=/cache,type=f2fs)=0
+[01-03 09:43:52.141] fs_mgr: mount_with_alternatives(): skipping fstab dup mountpoint=/cache rec[2].fs_type=ext4 already mounted as f2fs.
+[01-03 09:43:52.263] fs_mgr: __mount(source=/dev/block/mmcblk0p8,target=/data,type=f2fs)=0
+[01-03 09:43:52.263] fs_mgr: mount_with_alternatives(): skipping fstab dup mountpoint=/data rec[4].fs_type=ext4 already mounted as f2fs.
+[01-03 09:43:52.286] init: (Parsing /system/etc/init/atrace.rc took 0.00s.)
+[01-03 09:43:52.287] init: (Parsing /system/etc/init/audioserver.rc took 0.00s.)
+[01-03 09:43:52.288] init: (Parsing /system/etc/init/bootanim.rc took 0.00s.)
+[01-03 09:43:52.289] init: (Parsing /system/etc/init/bootstat.rc took 0.00s.)
+[01-03 09:43:52.290] init: (Parsing /system/etc/init/cameraserver.rc took 0.00s.)
+[01-03 09:43:52.291] init: (Parsing /system/etc/init/debuggerd.rc took 0.00s.)
+[01-03 09:43:52.292] init: (Parsing /system/etc/init/drmserver.rc took 0.00s.)
+[01-03 09:43:52.293] init: (Parsing /system/etc/init/dumpstate.rc took 0.00s.)
+[01-03 09:43:52.294] init: (Parsing /system/etc/init/gatekeeperd.rc took 0.00s.)
+[01-03 09:43:52.295] init: (Parsing /system/etc/init/init-debug.rc took 0.00s.)
+[01-03 09:43:52.296] init: (Parsing /system/etc/init/installd.rc took 0.00s.)
+[01-03 09:43:52.296] init: (Parsing /system/etc/init/keystore.rc took 0.00s.)
+[01-03 09:43:52.297] init: (Parsing /system/etc/init/lmkd.rc took 0.00s.)
+[01-03 09:43:52.298] init: (Parsing /system/etc/init/logcatd.rc took 0.00s.)
+[01-03 09:43:52.299] init: (Parsing /system/etc/init/logd.rc took 0.00s.)
+[01-03 09:43:52.300] init: (Parsing /system/etc/init/mdnsd.rc took 0.00s.)
+[01-03 09:43:52.301] init: (Parsing /system/etc/init/mediacodec.rc took 0.00s.)
+[01-03 09:43:52.302] init: (Parsing /system/etc/init/mediadrmserver.rc took 0.00s.)
+[01-03 09:43:52.303] init: (Parsing /system/etc/init/mediaextractor.rc took 0.00s.)
+[01-03 09:43:52.304] init: (Parsing /system/etc/init/mediaserver.rc took 0.00s.)
+[01-03 09:43:52.305] init: (Parsing /system/etc/init/mtpd.rc took 0.00s.)
+[01-03 09:43:52.305] init: (Parsing /system/etc/init/netd.rc took 0.00s.)
+[01-03 09:43:52.306] init: (Parsing /system/etc/init/perfprofd.rc took 0.00s.)
+[01-03 09:43:52.307] init: (Parsing /system/etc/init/racoon.rc took 0.00s.)
+[01-03 09:43:52.308] init: (Parsing /system/etc/init/servicemanager.rc took 0.00s.)
+[01-03 09:43:52.309] init: (Parsing /system/etc/init/surfaceflinger.rc took 0.00s.)
+[01-03 09:43:52.310] init: (Parsing /system/etc/init/uncrypt.rc took 0.00s.)
+[01-03 09:43:52.311] init: (Parsing /system/etc/init/vdc.rc took 0.00s.)
+[01-03 09:43:52.312] init: (Parsing /system/etc/init/vold.rc took 0.00s.)
+[01-03 09:43:52.314] FAT-fs (mmcblk0p5): bogus number of FAT structure
+[01-03 09:43:52.315] FAT-fs (mmcblk0p5): Can't find a valid FAT filesystem
+[01-03 09:43:52.331] init: Starting service 'logd'...
+[01-03 09:43:52.522] logd.auditd: start
+[01-03 09:43:52.522] logd.klogd: 4826924002
+[01-03 09:43:52.756] init: (Loading properties from /system/build.prop took 0.00s.)
+[01-03 09:43:52.756] init: (Loading properties from /vendor/build.prop took 0.00s.)
+[01-03 09:43:52.757] init: (Loading properties from /factory/factory.prop took 0.00s.)
+[01-03 09:43:52.757] init: error opening block device /dev/block/mmcblk0p9: No such file or directory
+[01-03 09:43:52.758] init: Starting service 'debuggerd'...
+[01-03 09:43:52.759] init: do_start: Service debuggerd64 not found
+[01-03 09:43:52.761] init: Starting service 'vold'...
+[01-03 09:43:52.770] init: Not bootcharting.
+[01-03 09:43:53.041] asuspec: [asuspec_enter_s3_work_function] EC in S3
+[01-03 09:43:55.272] asuspec: [asuspec_send_ec_req] send EC_Request
+[01-03 09:43:55.357] asuspec: [asuspec_work_function] 0x2 0x81 0x50 0xff
+[01-03 09:43:55.357] asuspec: [asuspec_smi] ASUSPEC_SMI_HANDSHAKING
+[01-03 09:43:55.466] init: Starting service 'exec 1 (/system/bin/tzdatacheck)'...
+[01-03 09:43:55.491] init: Service 'exec 1 (/system/bin/tzdatacheck)' (pid 153) exited with status 0
+[01-03 09:43:55.493] init: (Loading properties from /data/local.prop took 0.00s.)
+[01-03 09:43:56.178] init: Starting service 'logd-reinit'...
+[01-03 09:43:56.184] init: Starting service 'healthd'...
+[01-03 09:43:56.186] init: Starting service 'lmkd'...
+[01-03 09:43:56.188] init: Starting service 'servicemanager'...
+[01-03 09:43:56.190] init: Starting service 'surfaceflinger'...
+[01-03 09:43:56.197] binder: 155:155 transaction failed 29189, size 0-0
+[01-03 09:43:56.197] init: write_file: Unable to write to '/sys/class/gpio/gpio162/value': Operation not permitted
+[01-03 09:43:56.198] Tegra cpuquiet clusterswitch enabled
+[01-03 09:43:56.217] logd.daemon: reinit
+[01-03 09:43:56.227] init: Service 'logd-reinit' (pid 154) exited with status 0
+[01-03 09:43:56.245] ueventd: SELinux: Could not set context for /sys/devices/system/cpu/cpufreq/conservative/sampling_rate:  No such file or directory
+[01-03 09:43:56.246] ueventd: SELinux: Could not set context for /sys/devices/system/cpu/cpufreq/conservative/up_threshold:  No such file or directory
+[01-03 09:43:56.246] ueventd: SELinux: Could not set context for /sys/devices/system/cpu/cpufreq/conservative/sampling_rate_min:  No such file or directory
+[01-03 09:43:56.246] ueventd: SELinux: Could not set context for /sys/devices/system/cpu/cpufreq/conservative/freq_step:  No such file or directory
+[01-03 09:43:56.247] ueventd: SELinux: Could not set context for /sys/devices/system/cpu/cpufreq/conservative/sampling_down_factor:  No such file or directory
+[01-03 09:43:56.247] ueventd: SELinux: Could not set context for /sys/devices/system/cpu/cpufreq/conservative/ignore_nice_load:  No such file or directory
+[01-03 09:43:56.248] init: service 'console' requires console
+[01-03 09:43:56.249] android_usb: already disabled
+[01-03 09:43:56.249] init: Starting service 'adbd'...
+[01-03 09:43:56.251] init: cannot find '/system/bin/update_verifier' (No such file or directory), disabling 'exec 2 (/system/bin/update_verifier)'
+[01-03 09:43:56.251] init: Starting service 'sensors-calib'...
+[01-03 09:43:56.255] init: Starting service 'gpsd'...
+[01-03 09:43:56.257] init: Starting service 'tf_daemon'...
+[01-03 09:43:56.259] init: Starting service 'zygote'...
+[01-03 09:43:56.259] adb_open
+[01-03 09:43:56.259] adb_bind_config
+[01-03 09:43:56.261] init: Starting service 'audioserver'...
+[01-03 09:43:56.263] init: Starting service 'cameraserver'...
+[01-03 09:43:56.264] init: couldn't write 168 to /dev/cpuset/camera-daemon/tasks: No such file or directory
+[01-03 09:43:56.264] init: Starting service 'drm'...
+[01-03 09:43:56.266] init: Starting service 'installd'...
+[01-03 09:43:56.267] init: Starting service 'keystore'...
+[01-03 09:43:56.268] init: Starting service 'mediacodec'...
+[01-03 09:43:56.270] init: Starting service 'mediadrm'...
+[01-03 09:43:56.271] init: Starting service 'mediaextractor'...
+[01-03 09:43:56.273] init: Starting service 'media'...
+[01-03 09:43:56.275] init: Starting service 'netd'...
+[01-03 09:43:56.277] init: Starting service 'gatekeeperd'...
+[01-03 09:43:56.297] init: Starting service 'perfprofd'...
+[01-03 09:43:56.335] init: Service 'sensors-calib' (pid 160) exited with status 0
+[01-03 09:43:56.365] TF : INFO 00000002 09:43:48.438 P-0005 T-0014 TL OTF --------- SDrvCreate
+[01-03 09:43:56.366] TF : INFO 00000003 09:43:48.438 P-000D T-001E NV RSA --------- SDrvCreate
+[01-03 09:43:56.370] TF : INFO 00000004 09:43:48.442 ------ ------  --------------- Booted
+[01-03 09:43:56.558] asuspec: [asuspec_enter_s3_work_function] EC in S3
+[01-03 09:43:57.213] healthd: Unknown power supply type 'Charging'
+[01-03 09:43:57.216] healthd: BatteryCurrentNowPath not found
+[01-03 09:43:57.217] healthd: BatteryFullChargePath not found
+[01-03 09:43:57.217] healthd: BatteryCycleCountPath not found
+[01-03 09:43:57.218] asuspec: [asuspec_send_ec_req] send EC_Request
+[01-03 09:43:57.280] asuspec: [asuspec_work_function] 0x2 0x81 0x50 0xff
+[01-03 09:43:57.280] asuspec: [asuspec_smi] ASUSPEC_SMI_HANDSHAKING
+[01-03 09:43:57.499] healthd: battery l=52 v=7 t=24.9 h=2 st=4 chg=
+[01-03 09:43:57.932] nvavp nvavp: using SMMU at ff00000 to load AVP kernel
+[01-03 09:43:57.969] nvavp nvavp: read firmware from 'nvavp_os_0ff00000.bin' (15404 bytes)
+[01-03 09:43:57.990] nvavp nvavp: entry=00000094 control=00004a10 debug=00005210 size=15380
+[01-03 09:43:57.991] nvavp nvavp: AVP os at vaddr=cfa41000 paddr=ff00000 reset_addr=0ff00094
+[01-03 09:43:58.072] nvavp nvavp: read ucode firmware from 'nvavp_vid_ucode_alt.bin' (27056 bytes)
+[01-03 09:43:58.215] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 09:43:58.288] nvavp nvavp: using SMMU at ff00000 to load AVP kernel
+[01-03 09:43:58.289] nvavp nvavp: AVP os at vaddr=cfa41000 paddr=ff00000 reset_addr=0ff00094
+[01-03 09:43:58.467] init: Starting service 'bootanim'...
+[01-03 09:43:58.509] asuspec: [asuspec_enter_s3_work_function] EC in S3
+[01-03 09:44:09.941] warning: `main' uses 32-bit capabilities (legacy support in use)
+[01-03 09:44:16.022] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 09:44:24.423] asuspec: [asuspec_send_ec_req] send EC_Request
+[01-03 09:44:24.476] type=1400 audit(1514972664.476:3): avc: denied { read write } for pid=922 comm="StartSensorThre" name="accelirq" dev="tmpfs" ino=7298 scontext=u:r:system_server:s0 tcontext=u:object_r:device:s0 tclass=chr_file permissive=1
+[01-03 09:44:24.476] drivers/misc/inv_mpu/compass/ami306.c|ami306_get_config|867 returning 36
+[01-03 09:44:24.477] drivers/misc/inv_mpu/mpu3050/mldl_cfg.c|inv_mpu_get_slave_config|1749 returning 36
+[01-03 09:44:24.479] type=1400 audit(1514972664.476:4): avc: denied { open } for pid=922 comm="StartSensorThre" name="accelirq" dev="tmpfs" ino=7298 scontext=u:r:system_server:s0 tcontext=u:object_r:device:s0 tclass=chr_file permissive=1
+[01-03 09:44:24.496] asuspec: [asuspec_work_function] 0x2 0x81 0x50 0xff
+[01-03 09:44:24.497] asuspec: [asuspec_smi] ASUSPEC_SMI_HANDSHAKING
+[01-03 09:44:24.702] healthd: battery l=51 v=7 t=25.1 h=2 st=4 chg=
+[01-03 11:44:25.710] asuspec: [asuspec_enter_s3_work_function] EC in S3
+[01-03 11:44:26.209] acc_open
+[01-03 11:44:26.210] acc_release
+[01-03 11:44:26.373] [VIB]: vibrator_enable: 1
+[01-03 11:44:27.059] nvavp nvavp: using SMMU at ff00000 to load AVP kernel
+[01-03 11:44:27.059] nvavp nvavp: AVP os at vaddr=cfa41000 paddr=ff00000 reset_addr=0ff00094
+[01-03 11:44:27.073] nvavp nvavp: using SMMU at ff00000 to load AVP kernel
+[01-03 11:44:27.074] nvavp nvavp: AVP os at vaddr=cfa41000 paddr=ff00000 reset_addr=0ff00094
+[01-03 11:44:27.110] nvavp nvavp: using SMMU at ff00000 to load AVP kernel
+[01-03 11:44:27.111] nvavp nvavp: AVP os at vaddr=cfa41000 paddr=ff00000 reset_addr=0ff00094
+[01-03 11:44:27.121] nvavp nvavp: using SMMU at ff00000 to load AVP kernel
+[01-03 11:44:27.122] nvavp nvavp: AVP os at vaddr=cfa41000 paddr=ff00000 reset_addr=0ff00094
+[01-03 11:44:29.147] nvavp nvavp: using SMMU at ff00000 to load AVP kernel
+[01-03 11:44:29.147] nvavp nvavp: AVP os at vaddr=cfa41000 paddr=ff00000 reset_addr=0ff00094
+[01-03 11:44:29.198] nvavp nvavp: using SMMU at ff00000 to load AVP kernel
+[01-03 11:44:29.199] nvavp nvavp: AVP os at vaddr=cfa41000 paddr=ff00000 reset_addr=0ff00094
+[01-03 11:44:29.265] nvavp nvavp: using SMMU at ff00000 to load AVP kernel
+[01-03 11:44:29.265] nvavp nvavp: AVP os at vaddr=cfa41000 paddr=ff00000 reset_addr=0ff00094
+[01-03 11:44:29.306] nvavp nvavp: using SMMU at ff00000 to load AVP kernel
+[01-03 11:44:29.307] nvavp nvavp: AVP os at vaddr=cfa41000 paddr=ff00000 reset_addr=0ff00094
+[01-03 11:44:29.337] nvavp nvavp: using SMMU at ff00000 to load AVP kernel
+[01-03 11:44:29.337] nvavp nvavp: AVP os at vaddr=cfa41000 paddr=ff00000 reset_addr=0ff00094
+[01-03 11:44:29.539] init: Service 'bootanim' (pid 278) exited with status 0
+[01-03 11:44:29.598] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 11:44:29.615] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 11:44:29.615] init: Starting service 'exec 3 (/system/bin/bootstat)'...
+[01-03 11:44:29.631] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 11:44:29.647] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 11:44:29.666] init: Service 'exec 3 (/system/bin/bootstat)' (pid 1283) exited with status 0
+[01-03 11:44:29.667] init: Starting service 'exec 4 (/system/bin/bootstat)'...
+[01-03 11:44:29.668] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 11:44:29.680] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 11:44:29.697] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 11:44:29.713] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 11:44:29.730] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 11:44:29.746] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 11:44:29.751] init: Service 'exec 4 (/system/bin/bootstat)' (pid 1291) exited with status 0
+[01-03 11:44:29.752] init: Starting service 'exec 5 (/system/bin/bootstat)'...
+[01-03 11:44:29.763] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 11:44:29.779] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 11:44:29.783] init: Service 'exec 5 (/system/bin/bootstat)' (pid 1294) exited with status 0
+[01-03 11:44:29.784] init: Starting service 'exec 6 (/system/bin/bootstat)'...
+[01-03 11:44:29.798] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 11:44:29.812] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 11:44:29.813] init: Service 'exec 6 (/system/bin/bootstat)' (pid 1297) exited with status 0
+[01-03 11:44:29.829] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 11:44:29.845] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 11:44:29.861] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 11:44:29.878] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 11:44:29.894] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 11:44:29.911] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 11:44:29.927] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 11:44:29.944] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 11:44:29.960] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 11:44:29.977] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 11:44:29.993] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 11:44:30.010] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 11:44:30.026] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 11:44:30.043] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 11:44:30.056] cardhu_backlight_init: error in gpio request for backlight_enb
+[01-03 11:45:04.671] [VIB]: vibrator_enable: 10
+[01-03 11:45:04.702] [VIB]: vibrator_enable: 30
+[01-03 11:45:08.417] type=1400 audit(1514972708.416:5): avc: denied { getattr } for pid=1874 comm=4173796E635461736B202331 path="/data/user_de/0/com.android.phone" dev="mmcblk0p8" ino=1666 scontext=u:r:system_app:s0 tcontext=u:object_r:radio_data_file:s0 tclass=dir permissive=1
+[01-03 11:45:13.299] [VIB]: vibrator_enable: 10
+[01-03 11:45:13.330] [VIB]: vibrator_enable: 30
+[01-03 11:45:16.754] [VIB]: vibrator_enable: 1
+[01-03 11:45:16.776] [VIB]: vibrator_enable: 21
+[01-03 11:45:20.408] SysRq : Emergency Remount R/O
+[01-03 11:45:22.719] Emergency Remount complete
+[01-03 11:45:22.758] rtc_shutdown: clean alarm
+[01-03 11:45:22.985] Shutting down tegra ...
+[01-03 11:45:22.987] Restarting system with command 'userrequested'.
+[01-03 11:45:22.987] 
+[01-03 11:45:22.987] Restarting Linux version 3.4.113-g65a4e39-dirty (clamor@retranslator) (gcc version 4.8 (GCC) ) #42 SMP PREEMPT Wed Jan 3 10:57:44 EET 2018
+[01-03 11:45:22.987] 

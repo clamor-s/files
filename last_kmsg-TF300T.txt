@@ -1,0 +1,2301 @@
+[    0.000000] Booting Linux on physical CPU 0
+[    0.000000] Initializing cgroup subsys cpu
+[    0.000000] Linux version 3.4.113-gadcba51-dirty (clamor@retranslator) (gcc version 4.8 (GCC) ) #15 SMP PREEMPT Wed Dec 27 22:10:07 EET 2017
+[    0.000000] CPU: ARMv7 Processor [412fc099] revision 9 (ARMv7), cr=10c5387d
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] Machine: transformer
+[    0.000000] Ignoring unrecognised tag 0x41000801
+[    0.000000] Ignoring unrecognised tag 0x41000801
+[    0.000000] Ignoring unrecognised tag 0x41000801
+[    0.000000] Ignoring unrecognised tag 0x41000801
+[    0.000000] Ignoring unrecognised tag 0x41000801
+[    0.000000] Ignoring unrecognised tag 0x41000801
+[    0.000000] Ignoring unrecognised tag 0x41000801
+[    0.000000] SoC: NVIDIA Tegra
+[    0.000000] Found tegra_fbmem: 003e8a00@abc01000
+[    0.000000] [MISC]: Found androidboot.productid = 0x02
+[    0.000000] Tegra reserved memory:
+[    0.000000] LP0:                    bddf9000 - bddfafff
+[    0.000000] Bootloader framebuffer: abc01000 - abfe9fff
+[    0.000000] Bootloader framebuffer2: 00000000 - 00000000
+[    0.000000] Framebuffer:            bec00000 - bf4fffff
+[    0.000000] 2nd Framebuffer:        bf500000 - bfdfffff
+[    0.000000] Carveout:               00000000 - 00000000
+[    0.000000] Vpr:                    00000000 - 00000000
+[    0.000000] Tsec:                   00000000 - 00000000
+[    0.000000] cma: CMA: reserved 16 MiB at 8e000000
+[    0.000000] Memory policy: ECC disabled, Data cache writealloc
+[    0.000000] fuse_speedo_calib: ATE prog ver 3.7
+[    0.000000] Tegra3: CPU Speedo ID 7, Soc Speedo ID 1
+[    0.000000] Tegra Revision: A03 SKU: 0x83 CPU Process: 2 Core Process: 0
+[    0.000000] tegra: PLLP fixed rate: 408000000
+[    0.000000] Lowering cpu_lp maximum rate from 620000000 to 500000000
+[    0.000000] Lowering sbus maximum rate from 378000000 to 267000000
+[    0.000000] Lowering vi maximum rate from 470000000 to 409000000
+[    0.000000] Lowering vde maximum rate from 600000000 to 416000000
+[    0.000000] Lowering mpe maximum rate from 600000000 to 416000000
+[    0.000000] Lowering 2d maximum rate from 600000000 to 416000000
+[    0.000000] Lowering epp maximum rate from 600000000 to 416000000
+[    0.000000] Lowering 3d maximum rate from 600000000 to 416000000
+[    0.000000] Lowering 3d2 maximum rate from 600000000 to 416000000
+[    0.000000] Lowering se maximum rate from 625000000 to 416000000
+[    0.000000] Lowering host1x maximum rate from 300000000 to 267000000
+[    0.000000] Lowering cbus maximum rate from 700000000 to 416000000
+[    0.000000] Lowering pll_c maximum rate from 1400000000 to 1066000000
+[    0.000000] Lowering ndflash maximum rate from 240000000 to 200000000
+[    0.000000] Lowering sbc1 maximum rate from 160000000 to 100000000
+[    0.000000] Lowering sbc2 maximum rate from 160000000 to 100000000
+[    0.000000] Lowering sbc3 maximum rate from 160000000 to 100000000
+[    0.000000] Lowering sbc4 maximum rate from 160000000 to 100000000
+[    0.000000] Lowering sbc5 maximum rate from 160000000 to 100000000
+[    0.000000] Lowering sbc6 maximum rate from 160000000 to 100000000
+[    0.000000] Lowering dsia maximum rate from 500000000 to 432500000
+[    0.000000] Lowering dsib maximum rate from 500000000 to 432500000
+[    0.000000] Lowering cpu_g maximum rate from 1700000000 to 1300000000
+[    0.000000] tegra3_dvfs: cold offset 50000000 is too high for regular dvfs limit 1000000
+[    0.000000] tegra3_dvfs: cold offset 50000000 is too high for regular dvfs limit 1000000
+[    0.000000] tegra3_dvfs: cold offset 50000000 is too high for regular dvfs limit 1000000
+[    0.000000] tegra3_dvfs: cold offset 50000000 is too high for regular dvfs limit 1000000
+[    0.000000] tegra dvfs: VDD_CPU nominal 1050mV, scaling enabled
+[    0.000000] tegra dvfs: VDD_CORE nominal 1200mV, scaling enabled
+[    0.000000] ------------[ cut here ]------------
+[    0.000000] WARNING: at arch/arm/mach-tegra/clock.c:882 tegra_common_init_clock+0x70/0x8c()
+[    0.000000] tegra: pciex boot rate 216666667 exceeds max rate 100000000
+[    0.000000] [<c0016c04>] (unwind_backtrace+0x0/0x140) from [<c0804ae8>] (dump_stack+0x20/0x24)
+[    0.000000] [<c0804ae8>] (dump_stack+0x20/0x24) from [<c0062884>] (warn_slowpath_common+0x60/0x70)
+[    0.000000] [<c0062884>] (warn_slowpath_common+0x60/0x70) from [<c0062910>] (warn_slowpath_fmt+0x40/0x48)
+[    0.000000] [<c0062910>] (warn_slowpath_fmt+0x40/0x48) from [<c0b22cd4>] (tegra_common_init_clock+0x70/0x8c)
+[    0.000000] [<c0b22cd4>] (tegra_common_init_clock+0x70/0x8c) from [<c0b21d84>] (tegra30_init_early+0x3c/0x288)
+[    0.000000] [<c0b21d84>] (tegra30_init_early+0x3c/0x288) from [<c0b1d518>] (setup_arch+0x80c/0x860)
+[    0.000000] [<c0b1d518>] (setup_arch+0x80c/0x860) from [<c0b198b0>] (start_kernel+0xa0/0x340)
+[    0.000000] [<c0b198b0>] (start_kernel+0xa0/0x340) from [<80008044>] (0x80008044)
+[    0.000000] ---[ end trace 1b75b31a2719ed1c ]---
+[    0.000000] ------------[ cut here ]------------
+[    0.000000] WARNING: at arch/arm/mach-tegra/clock.c:882 tegra_common_init_clock+0x70/0x8c()
+[    0.000000] tegra: cml1 boot rate 216666667 exceeds max rate 100000000
+[    0.000000] [<c0016c04>] (unwind_backtrace+0x0/0x140) from [<c0804ae8>] (dump_stack+0x20/0x24)
+[    0.000000] [<c0804ae8>] (dump_stack+0x20/0x24) from [<c0062884>] (warn_slowpath_common+0x60/0x70)
+[    0.000000] [<c0062884>] (warn_slowpath_common+0x60/0x70) from [<c0062910>] (warn_slowpath_fmt+0x40/0x48)
+[    0.000000] [<c0062910>] (warn_slowpath_fmt+0x40/0x48) from [<c0b22cd4>] (tegra_common_init_clock+0x70/0x8c)
+[    0.000000] [<c0b22cd4>] (tegra_common_init_clock+0x70/0x8c) from [<c0b21d84>] (tegra30_init_early+0x3c/0x288)
+[    0.000000] [<c0b21d84>] (tegra30_init_early+0x3c/0x288) from [<c0b1d518>] (setup_arch+0x80c/0x860)
+[    0.000000] [<c0b1d518>] (setup_arch+0x80c/0x860) from [<c0b198b0>] (start_kernel+0xa0/0x340)
+[    0.000000] [<c0b198b0>] (start_kernel+0xa0/0x340) from [<80008044>] (0x80008044)
+[    0.000000] ---[ end trace 1b75b31a2719ed1d ]---
+[    0.000000] ------------[ cut here ]------------
+[    0.000000] WARNING: at arch/arm/mach-tegra/clock.c:882 tegra_common_init_clock+0x70/0x8c()
+[    0.000000] tegra: cml0 boot rate 216666667 exceeds max rate 100000000
+[    0.000000] [<c0016c04>] (unwind_backtrace+0x0/0x140) from [<c0804ae8>] (dump_stack+0x20/0x24)
+[    0.000000] [<c0804ae8>] (dump_stack+0x20/0x24) from [<c0062884>] (warn_slowpath_common+0x60/0x70)
+[    0.000000] [<c0062884>] (warn_slowpath_common+0x60/0x70) from [<c0062910>] (warn_slowpath_fmt+0x40/0x48)
+[    0.000000] [<c0062910>] (warn_slowpath_fmt+0x40/0x48) from [<c0b22cd4>] (tegra_common_init_clock+0x70/0x8c)
+[    0.000000] [<c0b22cd4>] (tegra_common_init_clock+0x70/0x8c) from [<c0b21d84>] (tegra30_init_early+0x3c/0x288)
+[    0.000000] [<c0b21d84>] (tegra30_init_early+0x3c/0x288) from [<c0b1d518>] (setup_arch+0x80c/0x860)
+[    0.000000] [<c0b1d518>] (setup_arch+0x80c/0x860) from [<c0b198b0>] (start_kernel+0xa0/0x340)
+[    0.000000] [<c0b198b0>] (start_kernel+0xa0/0x340) from [<80008044>] (0x80008044)
+[    0.000000] ---[ end trace 1b75b31a2719ed1e ]---
+[    0.000000] ------------[ cut here ]------------
+[    0.000000] WARNING: at arch/arm/mach-tegra/clock.c:882 tegra_common_init_clock+0x70/0x8c()
+[    0.000000] tegra: pll_e boot rate 216666667 exceeds max rate 100000000
+[    0.000000] [<c0016c04>] (unwind_backtrace+0x0/0x140) from [<c0804ae8>] (dump_stack+0x20/0x24)
+[    0.000000] [<c0804ae8>] (dump_stack+0x20/0x24) from [<c0062884>] (warn_slowpath_common+0x60/0x70)
+[    0.000000] [<c0062884>] (warn_slowpath_common+0x60/0x70) from [<c0062910>] (warn_slowpath_fmt+0x40/0x48)
+[    0.000000] [<c0062910>] (warn_slowpath_fmt+0x40/0x48) from [<c0b22cd4>] (tegra_common_init_clock+0x70/0x8c)
+[    0.000000] [<c0b22cd4>] (tegra_common_init_clock+0x70/0x8c) from [<c0b21d84>] (tegra30_init_early+0x3c/0x288)
+[    0.000000] [<c0b21d84>] (tegra30_init_early+0x3c/0x288) from [<c0b1d518>] (setup_arch+0x80c/0x860)
+[    0.000000] [<c0b1d518>] (setup_arch+0x80c/0x860) from [<c0b198b0>] (start_kernel+0xa0/0x340)
+[    0.000000] [<c0b198b0>] (start_kernel+0xa0/0x340) from [<80008044>] (0x80008044)
+[    0.000000] ---[ end trace 1b75b31a2719ed1f ]---
+[    0.000000] L310 cache controller enabled
+[    0.000000] l2x0: 8 ways, CACHE_ID 0x410000c7, AUX_CTRL 0x7e080001, Cache size: 1048576 B
+[    0.000000] tegra_powergate_init: DONE
+[    0.000000] Initialized persistent memory from beb00000-bebfffff
+[    0.000000] PERCPU: Embedded 7 pages/cpu @c1711000 s12544 r0 d16128 u32768
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 254724
+[    0.000000] Kernel command line: tegra_wdt.heartbeat=30 androidboot.selinux=permissive tegraid=30.1.3.0.0 mem=1022M@2048M commchip_id=0 vmalloc=768M androidboot.serialno=015d2ebed03c0a05 androidboot.commchip_id=0 video=tegrafb no_console_suspend=1 console=ttyS0,115200n8 debug_uartport=lsport,0 usbcore.old_scheme_first=1 lp0_vec=8192@0xbddf9000 tegra_fbmem=4098560@0xabc01000 core_edp_mv=0 audio_codec=wm8903 board_info=245:0:1c:a7:29 tegraboot=sdmmc gpt gpt_sector=62078975 modem_id=0 android.kerneltype=recovery androidboot.productid=0x02 androidboot.carrier=wifi-only 
+[    0.000000] PID hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.000000] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)
+[    0.000000] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)
+[    0.000000] Memory: 1004MB = 1004MB total
+[    0.000000] Memory: 979736k/979736k available, 66792k reserved, 777300K highmem
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+[    0.000000]     vmalloc : 0xcf800000 - 0xff000000   ( 760 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xcf000000   ( 240 MB)
+[    0.000000]     pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+[    0.000000]       .text : 0xc0008000 - 0xc0b18918   (11331 kB)
+[    0.000000]       .init : 0xc0b19000 - 0xc0b7f100   ( 409 kB)
+[    0.000000]       .data : 0xc0b80000 - 0xc0c56978   ( 859 kB)
+[    0.000000]        .bss : 0xc0c5699c - 0xc0cf3c00   ( 629 kB)
+[    0.000000] Preemptible hierarchical RCU implementation.
+[    0.000000] NR_IRQS:800
+[    0.000000] sched_clock: 32 bits at 1000kHz, resolution 1000ns, wraps every 4294967ms
+[    0.000228] Calibrating delay loop... 1980.41 BogoMIPS (lpj=990208)
+[    0.007050] pid_max: default: 32768 minimum: 301
+[    0.007180] Security Framework initialized
+[    0.007214] SELinux:  Initializing.
+[    0.007339] Mount-cache hash table entries: 512
+[    0.008300] Initializing cgroup subsys debug
+[    0.008315] Initializing cgroup subsys cpuacct
+[    0.008325] Initializing cgroup subsys freezer
+[    0.008334] Initializing cgroup subsys bfqio
+[    0.008373] CPU: Testing write buffer coherency: ok
+[    0.008413] ftrace: allocating 27887 entries in 82 pages
+[    0.049575] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+[    0.049715] hw perfevents: enabled with ARMv7 Cortex-A9 PMU driver, 7 counters available
+[    0.049801] Setting up static identity map for 0x8080fde0 - 0x8080fe38
+[    0.051209] CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
+[    0.051928] CPU2: thread -1, cpu 2, socket 0, mpidr 80000002
+[    0.052612] CPU3: thread -1, cpu 3, socket 0, mpidr 80000003
+[    0.052745] Brought up 4 CPUs
+[    0.052758] SMP: Total of 4 processors activated (7921.66 BogoMIPS).
+[    0.059113] VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 4
+[    0.059297] pinctrl core: initialized pinctrl subsystem
+[    0.059553] dummy: 
+[    0.060653] NET: Registered protocol family 16
+[    0.068189] DMA: preallocated 1024 KiB pool for atomic coherent allocations
+[    0.071298] platform tegra-gpio: No map yet available
+[    0.071328] tegra-gpio tegra-gpio: No map yet available
+[    0.071609] gpiochip_add: registered GPIOs 0 to 255 on device: tegra-gpio
+[    0.071985] platform tegra30-pinmux-ctl: No map yet available
+[    0.072010] tegra-pinmux-ctl tegra30-pinmux-ctl: No map yet available
+[    0.072109] platform tegra_smmu: No map yet available
+[    0.072131] tegra_smmu tegra_smmu: No map yet available
+[    0.072484] tegra_booting_info reg=3
+[    0.072492] tegra_booting_info-SW reboot
+[    0.074128] The pingroup KB_ROW0 was configured to RSVD3 instead of <UNKNOWN>
+[    0.075521] PBB5 is set to low with PM269
+[    0.075950] cardhu_edp_init : use asus edp policy with 6000 mA
+[    0.075990] Selecting uarta as the debug port
+[    0.076004] The debug console clock name is uarta_dbg
+[    0.077202] persistent_ram: found existing buffer, size 108251, start 108251
+[    0.382880] console [ram-1] enabled
+[    0.383158] cardhu_regulator_init: board_id is BOARD_PM269
+[    0.383306] TPS6591x GPIO2 was reprogrammed to follow state of SLEEP input
+[    0.383450] Registering the core regulator
+[    0.383530] cardhu_suspend_init: case BOARD_PM269
+[    0.383611] cardhu_suspend_init: case BOARD_PM305 or BOARD_PM311
+[    0.384240] Clear bootloader IO dpd settings
+[    0.486679] Registering gpio keys
+[    0.515092] cardhu_camera_init
+[    0.515246] Registering cam pca6416
+[    0.515396] Registering pmu pca6416
+[    0.515479] *** MPU START *** mpuirq_init...
+[    0.515620] initial mpu with TF300T config...
+[    0.515732] *** MPU END *** mpuirq_init...
+[    0.515893] set_unused_pin_gpio() Error in gpio_request() for gpio 83
+[    0.516047] BOARD_PM269:TF300T_Hynix_1GB_667MHZ
+[    0.516660] tegra: validated EMC DFS table
+[    0.517334] hw-breakpoint: found 5 (+1 reserved) breakpoint and 1 watchpoint registers.
+[    0.517484] hw-breakpoint: maximum watchpoint size is 4 bytes.
+[    0.526920] bio: create slab <bio-0> at 0
+[    0.527968] vgaarb: loaded
+[    0.528496] SCSI subsystem initialized
+[    0.530030] spi_tegra spi_tegra.3: master is unqueued, this is deprecated
+[    0.530421] usbcore: registered new interface driver usbfs
+[    0.530554] usbcore: registered new interface driver hub
+[    0.530799] usbcore: registered new device driver usb
+[    0.531472] tps6591x 4-002d: VERNUM is 02
+[    0.532613] Wake18 for irq=118
+[    0.532752] Enabling wake18
+[    0.533345] tps6591x_VIO: 1500 <--> 3300 mV at 1800 mV normal standby
+[    0.534713] tps6591x_VDD_1: 600 <--> 1500 mV at 600 mV normal standby
+[    0.535767] tps6591x_VDD_2: 600 <--> 1500 mV at 1200 mV normal standby
+[    0.536940] __tps6591x_ext_control_set(): EN1 reg: mask 0x46:0x08
+[    0.542604] tps6591x_VDDCTRL: 600 <--> 1400 mV at 1025 mV normal standby
+[    0.543443] tps6591x_LDO_1: 1000 <--> 3300 mV at 2700 mV normal standby
+[    0.543538] tps6591x_LDO_1: supplied by tps6591x_VDD_2
+[    0.544272] tps6591x_LDO_2: 1050 <--> 3300 mV at 3100 mV normal standby
+[    0.544366] tps6591x_LDO_2: supplied by tps6591x_VDD_2
+[    0.544907] tps6591x_LDO_3: 1000 <--> 3300 mV at 1800 mV normal standby
+[    0.545527] tps6591x_LDO_4: 1000 <--> 3300 mV at 1200 mV normal standby
+[    0.546084] tps6591x_LDO_5: 1000 <--> 3300 mV at 1000 mV normal standby
+[    0.546828] tps6591x_LDO_6: 1200 mV normal standby
+[    0.546924] tps6591x_LDO_6: supplied by tps6591x_VIO
+[    0.548025] tps6591x_LDO_7: 1200 mV normal standby
+[    0.548179] tps6591x_LDO_7: supplied by tps6591x_VIO
+[    0.549014] tps6591x_LDO_8: 1000 <--> 3300 mV at 1000 mV normal standby
+[    0.549170] tps6591x_LDO_8: supplied by tps6591x_VIO
+[    0.549613] gpiochip_add: registered GPIOs 256 to 264 on device: tps6591x
+[    0.551392] tps62361: 500 <--> 1770 mV at 1200 mV normal standby
+[    0.551907] tegra-i2c tegra-i2c.4: no acknowledge from address 0x20
+[    0.552161] pca953x 4-0020: failed reading register
+[    0.552249] pca953x: probe of 4-0020 failed with error -121
+[    0.552966] tegra-i2c tegra-i2c.2: no acknowledge from address 0x20
+[    0.553158] pca953x 2-0020: failed reading register
+[    0.553303] pca953x: probe of 2-0020 failed with error -121
+[    0.554240] Linux video capture interface: v2.00
+[    0.554634] Advanced Linux Sound Architecture Driver Version 1.0.25.
+[    0.555132] Bluetooth: Core ver 2.16
+[    0.555301] NET: Registered protocol family 31
+[    0.555380] Bluetooth: HCI device and connection manager initialized
+[    0.555520] Bluetooth: HCI socket layer initialized
+[    0.555599] Bluetooth: L2CAP socket layer initialized
+[    0.555722] Bluetooth: SCO socket layer initialized
+[    0.556026] cfg80211: Calling CRDA to update world regulatory domain
+[    0.556293] cardhu_fixed_regulator_init: case BOARD_PM269 or BOARD_E1257
+[    0.557203] fixed_reg_en_5v_cp: 5000 mV normal standby
+[    0.558079] fixed_reg_en_5v0: 5000 mV normal standby
+[    0.559022] fixed_reg_en_ddr: 1500 mV normal standby
+[    0.559686] fixed_reg_en_3v3_sys: 3300 mV normal standby
+[    0.560229] fixed_reg_en_3v3_modem: 3300 mV normal standby
+[    0.560491] fixed_reg_cam1_ldo_en: 2800 mV normal standby
+[    0.560641] fixed_reg_cam1_ldo_en: supplied by fixed_reg_en_3v3_sys
+[    0.560964] fixed_reg_cam3_ldo_en: 3300 mV normal standby
+[    0.561112] fixed_reg_cam3_ldo_en: supplied by fixed_reg_en_3v3_sys
+[    0.561386] fixed_reg_en_vdd_com: 3300 mV normal standby
+[    0.561534] fixed_reg_en_vdd_com: supplied by fixed_reg_en_3v3_sys
+[    0.561848] fixed_reg_en_3v3_fuse: 3300 mV normal standby
+[    0.561997] fixed_reg_en_3v3_fuse: supplied by fixed_reg_en_3v3_sys
+[    0.562307] fixed_reg_en_3v3_emmc: 3300 mV normal standby
+[    0.562456] fixed_reg_en_3v3_emmc: supplied by fixed_reg_en_3v3_sys
+[    0.562720] reg-fixed-voltage reg-fixed-voltage.13: Could not obtain regulator enable GPIO 220: -16
+[    0.562869] reg-fixed-voltage: probe of reg-fixed-voltage.13 failed with error -16
+[    0.563093] reg-fixed-voltage reg-fixed-voltage.22: Could not obtain regulator enable GPIO 275: -22
+[    0.563238] reg-fixed-voltage: probe of reg-fixed-voltage.22 failed with error -22
+[    0.563448] fixed_reg_en_vdd_bl: 5000 mV normal standby
+[    0.563800] fixed_reg_en_vdd_pnl1: 3300 mV normal standby
+[    0.563890] fixed_reg_en_vdd_pnl1: supplied by fixed_reg_en_3v3_sys
+[    0.565893] tegra: started io power detection dynamic control
+[    0.565977] tegra: NO_IO_POWER setting 0x200
+[    0.566116] Switching to clocksource timer_us
+[    0.587688] nvmap_page_pool_init: nvmap uc page pool size=31253 pages
+[    0.606114] nvmap_page_pool_init: nvmap pool = uc, highmem=31253, pool_size=31253,totalram=250031, freeram=217371, totalhigh=194325, freehigh=163985
+[    0.701133] nvmap_page_pool_init: nvmap wc page pool size=31253 pages
+[    0.719309] nvmap_page_pool_init: nvmap pool = wc, highmem=31253, pool_size=31253,totalram=250031, freeram=186061, totalhigh=194325, freehigh=132675
+[    0.814349] nvmap_page_pool_init: nvmap iwb page pool size=31253 pages
+[    0.832503] nvmap_page_pool_init: nvmap pool = iwb, highmem=31253, pool_size=31253,totalram=250031, freeram=154751, totalhigh=194325, freehigh=101365
+[    0.927735] tegra-nvmap tegra-nvmap: created carveout iram (255KiB)
+[    0.928785] Wake39 for irq=52
+[    0.928885] Wake39 for irq=52
+[    0.929021] Enabling wake39
+[    0.929100] tegra-otg tegra-otg: otg transceiver registered
+[    0.929506] NET: Registered protocol family 2
+[    0.936337] IP route cache hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.936880] TCP established hash table entries: 32768 (order: 6, 262144 bytes)
+[    0.937447] TCP bind hash table entries: 32768 (order: 6, 393216 bytes)
+[    0.937923] TCP: Hash tables configured (established 32768 bind 32768)
+[    0.938061] TCP: reno registered
+[    0.938141] UDP hash table entries: 128 (order: 0, 4096 bytes)
+[    0.938317] UDP-Lite hash table entries: 128 (order: 0, 4096 bytes)
+[    0.938655] NET: Registered protocol family 1
+[    0.939140] RPC: Registered named UNIX socket transport module.
+[    0.939219] RPC: Registered udp transport module.
+[    0.939380] RPC: Registered tcp transport module.
+[    0.939459] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.939855] Trying to unpack rootfs image as initramfs...
+[    2.571622] host1x host1x: initialized
+[    2.574296] tegra_throttle : init done
+[    2.574518] Tegra cpuquiet initialized: disabled
+[    2.574789] cpu-tegra: init EDP limit: 1150 MHz
+[    2.575971] audit: initializing netlink socket (disabled)
+[    2.576100] type=2000 audit(8.711:1): initialized
+[    2.577142] highmem bounce pool size: 64 pages
+[    2.578546] NTFS driver 2.1.30 [Flags: R/O].
+[    2.578733] fuse init (API version 7.18)
+[    2.579616] Registering char device tf_driver (122:0)
+[    2.579847] TF : INFO 00000001 00:00:00.000 ------ ------  --------------- Booting... (t=00:00:08.715) TFNXBF01.16.37161     /Trusted-Logic
+[    2.581317] io scheduler noop registered
+[    2.581458] io scheduler deadline registered
+[    2.581606] io scheduler cfq registered (default)
+[    2.581733] io scheduler bfq registered
+[    2.581865] BFQ I/O-scheduler: v7r8
+[    2.582213] cardhu_backlight_init: error in gpio request for backlight_enb
+[    2.583724] mpe mpe: initialized
+[    2.585742] gr3d gr3d: initialized
+[    2.587427] gr2d gr2d: initialized
+[    2.588223] isp isp: initialized
+[    2.832399] tegradc tegradc.0: probed
+[    2.832986] tegradc tegradc.0: probed
+[    2.833583] gpio wake4 for gpio=111
+[    2.834435] tegradc tegradc.1: probed
+[    2.835004] tegradc tegradc.1: probed
+[    2.835200] hdmi: couldn't get regulator vdd_hdmi_con
+[    2.835731] tegra_uart.1: ttyHS1 at MMIO 0x70006040 (irq = 69) is a TEGRA_UART
+[    2.835907] Registered UART port ttyHS1
+[    2.836696] tegra_uart.2: ttyHS2 at MMIO 0x70006200 (irq = 78) is a TEGRA_UART
+[    2.836886] Registered UART port ttyHS2
+[    2.837484] tegra_uart.3: ttyHS3 at MMIO 0x70006300 (irq = 122) is a TEGRA_UART
+[    2.837660] Registered UART port ttyHS3
+[    2.838209] tegra_uart.4: ttyHS4 at MMIO 0x70006400 (irq = 123) is a TEGRA_UART
+[    2.838423] Registered UART port ttyHS4
+[    2.838981] Initialized tegra uart driver
+[    2.844356] brd: module loaded
+[    2.847178] loop: module loaded
+[    2.849636] nct_thermal 4-004c: nct1008_probe: initialized
+[    2.852406] bcm4329_rfkill_probe: can't find bcm4329_32k_clk.				assuming 32k clock to chip
+[    2.852552] bcm4329_rfkill_probe : can't find reset gpio. reset gpio may not be defined for this platform 
+[    2.853055] i2c i2c-2: mpu_probe: 0
+[    2.862043] i2c i2c-2: Installing irq using 377
+[    2.862125] i2c i2c-2: Module Param interface = mpuirq
+[    2.862416] mpu_init: Probe name mpu3050
+[    2.862521] i2c i2c-2: kxtf9_mod_probe: kxtf9
+[    2.862666] i2c i2c-2: inv_mpu_register_slave: +kxtf9 Type 1: Addr:  f IRQ: 309, Adapt:  2
+[    2.866272] i2c i2c-2: Installing accelirq irq using 309
+[    2.866414] gpio wake0 for gpio=117
+[    2.866625] kxtf9_mod_init: Probe name kxtf9_mod
+[    2.866731] i2c i2c-2: ami306_mod_probe: ami306
+[    2.866874] i2c i2c-2: inv_mpu_register_slave: +ami306 Type 2: Addr:  e IRQ: 368, Adapt:  2
+[    3.117882] i2c i2c-2: Installing compassirq irq using 368
+[    3.118089] ami306_mod_init: Probe name ami306_mod
+[    3.118930] tun: Universal TUN/TAP device driver, 1.6
+[    3.119012] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[    3.119206] PPP generic driver version 2.4.2
+[    3.119403] PPP BSD Compression module registered
+[    3.119483] PPP Deflate Compression module registered
+[    3.119903] PPP MPPE Compression module registered
+[    3.119989] NET: Registered protocol family 24
+[    3.120171] usbcore: registered new interface driver rndis_wlan
+[    3.120299] usbcore: registered new interface driver asix
+[    3.120464] usbcore: registered new interface driver cdc_ether
+[    3.120567] usbcore: registered new interface driver net1080
+[    3.120730] usbcore: registered new interface driver rndis_host
+[    3.120833] usbcore: registered new interface driver cdc_subset
+[    3.120995] usbcore: registered new interface driver zaurus
+[    3.121111] usbcore: registered new interface driver cdc_ncm
+[    3.121305] usbcore: registered new interface driver bb_raw_ip_net
+[    3.121401] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    3.121589] tegra USB phy - inst[2] platform info:
+[    3.121667] port_otg: no
+[    3.121742] has_hostpc: yes
+[    3.121875] phy_interface: USB_PHY_INTF_UTMI
+[    3.121950] op_mode: TEGRA_USB_OPMODE_HOST
+[    3.122025] vbus_gpio: -1
+[    3.122158] hot_plug: enabled
+[    3.122255] remote_wakeup: enabled
+[    3.128421] Timed out waiting for lock bit on pll pll_u
+[    3.128676] usb_phy: failed to get regulator vdd_vbus_usb:-517,instance : 2
+[    3.128840] phy->inst = 2, phy->utmi_xcvr_setup = 62
+[    3.130041] gpio_dock_in_irq_init: request irq = 356, ret = 0
+[    3.132737] tegra-ehci tegra-ehci.2: Tegra EHCI Host Controller
+[    3.132977] tegra-ehci tegra-ehci.2: new USB bus registered, assigned bus number 1
+[    3.154268] Wake41 for irq=129
+[    3.154425] tegra-ehci tegra-ehci.2: irq 129, io mem 0x7d008000
+[    3.160262] tegra-ehci tegra-ehci.2: USB 2.0 started, EHCI 1.00
+[    3.160463] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002
+[    3.160544] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    3.160682] usb usb1: Product: Tegra EHCI Host Controller
+[    3.160759] usb usb1: Manufacturer: Linux 3.4.113-gadcba51-dirty ehci_hcd
+[    3.160897] usb usb1: SerialNumber: tegra-ehci.2
+[    3.161313] hub 1-0:1.0: USB hub found
+[    3.161470] hub 1-0:1.0: 1 port detected
+[    3.161778] Wake41 for irq=129
+[    3.161855] Enabling wake41
+[    3.162136] usbcore: registered new interface driver cdc_acm
+[    3.162215] cdc_acm: USB Abstract Control Model driver for USB modems and ISDN adapters
+[    3.162405] usbcore: registered new interface driver cdc_wdm
+[    3.162481] Initializing USB Mass Storage driver...
+[    3.162665] usbcore: registered new interface driver usb-storage
+[    3.162739] USB Mass Storage support registered.
+[    3.162914] usbcore: registered new interface driver libusual
+[    3.163065] usbcore: registered new interface driver usbserial
+[    3.163203] usbserial: USB Serial Driver core
+[    3.163446] usbcore: registered new interface driver bb_usb_chr
+[    3.163609] usbcore: registered new interface driver option
+[    3.163710] USB Serial support registered for GSM modem (1-port)
+[    3.163955] usbcore: registered new interface driver pl2303
+[    3.164055] USB Serial support registered for pl2303
+[    3.164199] Nvidia Tegra High-Speed USB SOC 					Device Controller driver (Apr 30, 2012)
+[    3.164315] DOCK_IN GPIO164 request fault!-16
+[    3.164505] gpio_limit_set1_irq_init: request irq = 253, ret = 0
+[    3.164682] tegra USB phy - inst[0] platform info:
+[    3.164820] port_otg: yes
+[    3.164893] has_hostpc: yes
+[    3.164968] phy_interface: USB_PHY_INTF_UTMI
+[    3.165042] op_mode: TEGRA_USB_OPMODE_DEVICE
+[    3.165175] vbus_pmu_irq: 0
+[    3.165268] vbus_gpio: -1
+[    3.165344] charging: disabled
+[    3.165477] remote_wakeup: disabled
+[    3.165754] phy->inst = 0, phy->utmi_xcvr_setup = 62
+[    3.168452] tegra-udc tegra-udc.0: usb_bat_chg regulator not registered: USB charging will not be enabled
+[    3.179471] file system registered
+[    3.180251] android_usb gadget: Mass Storage Function, version: 2009/09/11
+[    3.180395] android_usb gadget: Number of LUNs=1
+[    3.180473]  lun0: LUN: removable file: (no medium)
+[    3.180820] android_usb gadget: android_usb ready
+[    3.180899] tegra-udc: bind to driver android_usb
+[    3.181046] asuspec_init+ #####
+[    3.181123] asuspec: [asuspec_init] cdev_alloc
+[    3.181471] gpio wake9 for gpio=146
+[    3.181656] gpio wake9 for gpio=146
+[    3.181733] Enabling wake9
+[    3.181914] asuspec: [asuspec_send_ec_req] send EC_Request
+[    3.181930] asuspec_init- #####
+[    3.181936] asusdec_init+ #####
+[    3.181942] asusdec: [asusdec_init] cdev_alloc
+[    3.182129] power_supply dock_battery: driver failed to report `status' property: 4294967274
+[    3.182203] power_supply dock_battery: driver failed to report `status' property: 4294967274
+[    3.182384] input: lid_input as /devices/platform/tegra-i2c.1/i2c-1/1-0019/input/input0
+[    3.182485] asusdec: [asusdec_irq_dock_in] gpio_request failed for input 164
+[    3.182513] gpio wake28 for gpio=150
+[    3.182555] asusdec: [asusdec_irq_hall_sensor] Disable hall sensor wakeup function due to pid = 2
+[    3.182563] asusdec: [asusdec_irq_hall_sensor] LID open
+[    3.182572] gpio wake29 for gpio=151
+[    3.182612] gpio wake29 for gpio=151
+[    3.182617] Enabling wake29
+[    3.182714] asusdec: [asusdec_dock_init_work_function] TF201 dock-init
+[    3.182723] asusdec: [asusdec_dock_init_work_function] No dock detected
+[    3.182738] asusdec_init- #####
+[    3.182840] usbcore: registered new interface driver xpad
+[    3.182878] usbcore: registered new interface driver usb_acecad
+[    3.182912] usbcore: registered new interface driver aiptek
+[    3.182943] usbcore: registered new interface driver gtco
+[    3.182974] usbcore: registered new interface driver hanwang
+[    3.183004] usbcore: registered new interface driver kbtab
+[    3.183040] usbcore: registered new interface driver wacom
+[    3.183083] [elan] elan_ktf3k_ts_init
+[    3.183187] elan-ktf3k 1-0010: [ELAN] Start HW reset!
+[    3.233264] asusdec: [asusdec_lid_report_function] SW_LID report value = 0
+[    3.233350] asusdec: [asusdec_pad_battery_report_function] dock_in = 0, ret_val = -1
+[    3.233492] audio_dock_in_out: audio_codec is NULL
+[    3.233568] asusdec: [asusAudiodec_in_out_work_function] audio dock out
+[    3.434466] [elan]detect intr=>Old FW
+[    3.434546] elan-ktf3k 1-0010: The boot code is old!
+[    3.455341] elan-ktf3k 1-0010: [elan] __hello_packet_handler: hello packet 55:55:55:55
+[    3.455424] elan-ktf3k 1-0010: [elan] hello packet's rc = 0
+[    3.467684] asuspec: [asuspec_chip_init] Model Name: ASUS-TF201-PAD
+[    3.472350] asuspec: [asuspec_chip_init] EC-FW Version: PAD-EC20T-0216
+[    3.482765] asuspec: [asuspec_chip_init] PCBA Version: TF201-PAD-SKU1
+[    3.490428] asuspec: [asuspec_enter_normal_mode] Entering normal mode
+[    3.493268] asuspec: [asuspec_work_function] 0x1 0x0 0xff 0xff
+[    3.657662] elan-ktf3k 1-0010: [elan] __fw_packet_handler: firmware version: 0x4822
+[    3.659646] elan-ktf3k 1-0010: [elan] __fw_packet_handler: X resolution: 0x0084
+[    3.661685] elan-ktf3k 1-0010: [elan] __fw_packet_handler: Y resolution: 0x00d2
+[    3.663721] elan-ktf3k 1-0010: [elan] __fw_packet_handler: firmware id: 0x3011
+[    3.663808] elan-ktf3k 1-0010: [Elan] Max X=2240, Max Y=1408
+[    3.664083] input: elan-touchscreen as /devices/virtual/input/input1
+[    3.664311]  /proc/ektf_dbg created
+[    3.664499] elan-ktf3k 1-0010: [elan] Start touchscreen elan-touchscreen in interrupt mode
+[    3.664637] [ELAN]misc_register finished!!
+[    3.664776] elan-ktf3k 1-0010: Update power source to 0
+[    3.667913] rtc_tps6591x rtc_tps6591x.0: RTC Time : 12/31/2017 18:41:34
+[    3.670070] tps6591x 4-002d: 
+[    3.670074]  getting alarm time::
+[    3.670222] rtc_tps6591x rtc_tps6591x.0: RTC Time : 1/1/2000 0:0:0
+[    3.672669] rtc_tps6591x rtc_tps6591x.0: RTC Time : 12/31/2017 18:41:34
+[    3.672857] rtc_tps6591x rtc_tps6591x.0: rtc core: registered rtc_tps6591x as rtc0
+[    3.677581] rtc_tps6591x rtc_tps6591x.0: RTC Time : 12/31/2017 18:41:34
+[    3.683386] i2c /dev entries driver
+[    3.683857] usbcore: registered new interface driver uvcvideo
+[    3.683936] USB Video Class driver (1.1.1)
+[    3.684131] trpc_sema_init: registered misc dev 10:48
+[    3.684296] trpc_node_register: Adding 'local' to node list
+[    3.684965] nvavp nvavp: allocated IOVM at ff00000 for AVP os
+[    3.685321] sensor_init+ #####
+[    3.685502] sensor_init- #####
+[    3.685600] pad_probe: client->addr=b 
+[    3.685767] pad_get_psp: pad_device->battery_present=0
+[    3.685907] pad-battery 4-000b: pad_get_psp: i2c read for 7 failed
+[    3.685987] power_supply battery: driver failed to report `status' property: 4294967274
+[    3.686192] pad_get_psp: pad_device->battery_present=0
+[    3.686294] pad-battery 4-000b: pad_get_psp: i2c read for 7 failed
+[    3.686434] power_supply battery: driver failed to report `status' property: 4294967274
+[    3.686982] pad-battery 4-000b: pad-battery: battery driver registered
+[    3.687170] gpio wake26 for gpio=149
+[    3.687311] The USB cable status = 0
+[    3.687484] setup_irq: battery_present = 1
+[    3.687564] gpio wake25 for gpio=148
+[    3.687677] gpio wake25 for gpio=148
+[    3.687813] Enabling wake25
+[    3.687887] setup_low_battery_irq:low_battery_present=0 
+[    3.689074] input: light_sensor as /devices/virtual/input/input2
+[    3.689394] al3010 2-001c: probed
+[    3.689633] tegra_wdt tegra_wdt.0: last reset is due to software reset
+[    3.689854] WDT heartbeat enabled on probe
+[    3.689932] tegra_wdt_probe done
+[    3.690189] device-mapper: uevent: version 1.0.3
+[    3.690459] device-mapper: ioctl: 4.22.0-ioctl (2011-10-19) initialised: dm-devel@redhat.com
+[    3.690715] Bluetooth: HCI UART driver ver 2.2
+[    3.690796] Bluetooth: HCI H4 protocol initialized
+[    3.690874] Bluetooth: BlueSleep Mode Driver Ver 1.1
+[    3.691067] gpio wake7 for gpio=166
+[    3.691659] cpuidle: using governor ladder
+[    3.692025] cpuidle: using governor menu
+[    3.692126] sdhci: Secure Digital Host Controller Interface driver
+[    3.692203] sdhci: Copyright(c) Pierre Ossman
+[    3.692359] sdhci-pltfm: SDHCI platform and OF driver helper
+[    3.692846] sdhci-tegra sdhci-tegra.3: vddio_sd_slot regulator not found: -517. Assuming vddio_sd_slot is not required.
+[    3.694077] mmc0: Invalid maximum block size, assuming 512 bytes
+[    3.694260] mmc0: no vmmc regulator found
+[    3.698268] mmc0: SDHCI controller on sdhci-tegra.3 [sdhci-tegra.3] using ADMA
+[    3.698551] sdhci-tegra sdhci-tegra.2: vddio_sdmmc regulator not found: -517.Assuming vddio_sdmmc is not required.
+[    3.698706] sdhci-tegra sdhci-tegra.2: vddio_sd_slot regulator not found: -517. Assuming vddio_sd_slot is not required.
+[    3.698913] mmc1: Invalid maximum block size, assuming 512 bytes
+[    3.699016] mmc1: no vmmc regulator found
+[    3.702266] mmc1: SDHCI controller on sdhci-tegra.2 [sdhci-tegra.2] using ADMA
+[    3.702518] gpio wake23 for gpio=69
+[    3.702712] gpio wake23 for gpio=69
+[    3.702789] Enabling wake23
+[    3.710427] mmc2: Invalid maximum block size, assuming 512 bytes
+[    3.710593] mmc2: no vmmc regulator found
+[    3.713266] mmc2: SDHCI controller on sdhci-tegra.0 [sdhci-tegra.0] using ADMA
+[    3.716289] tegra-se tegra-se: tegra_se_probe: complete
+[    3.717788] usbcore: registered new interface driver usbhid
+[    3.717996] usbhid: USB HID core driver
+[    3.718498] ashmem: initialized
+[    3.807084] mmc0: new high speed DDR MMC card at address 0001
+[    3.807637] usbcore: registered new interface driver snd-usb-audio
+[    3.807675] mmcblk0: mmc0:0001 HYNIX  29.6 GiB 
+[    3.807918] mmcblk0boot0: mmc0:0001 HYNIX  partition 1 2.00 MiB
+[    3.808226] mmcblk0boot1: mmc0:0001 HYNIX  partition 2 2.00 MiB
+[    3.809011] wm8903 4-001a: WM8903 revision C
+[    3.810648] fm34_init
+[    3.810735] DSP: gpio 123 set to 1
+[    3.810982] DSP: GPIO_PO3 = 115 , state = 1
+[    3.811066] DSP: GPIO_PBB6 = 222 , state = 1
+[    3.812406] Primary GPT is invalid, using alternate GPT.
+[    3.812585]  mmcblk0: p1 p2 p3 p4 p5 p6 p7 p8
+[    3.816073]  mmcblk0boot1: unknown partition table
+[    3.818757]  mmcblk0boot0: unknown partition table
+[    3.944057] tegra-i2c tegra-i2c.0: no acknowledge from address 0x60
+[    4.006266] DSP: fm34_probe()
+[    4.006382] tegra_rt5631_modinit+ #####
+[    4.006459] tegra_rt5631_modinit(): not support codec rt5631
+[    4.006594] headset_init+ #####
+[    4.006667] HEADSET: Headset detection init
+[    4.006883] DSP: ReConfiguration
+[    4.006950] HEADSET: Headset detection mode
+[    4.006956] HEADSET: Config LineOut detection gpio
+[    4.007038] audio_stand_route: audio_codec is NULL
+[    4.007043] HEADSET: Config Headset Button detection gpio
+[    4.007050] HEADSET: Config Jack-in detection gpio
+[    4.007055] HEADSET: Turn on micbias power
+[    4.007060] HEADSET: codec_micbias_power: No wm8903_codec - set micbias on fail
+[    4.007070] gpio wake12 for gpio=178
+[    4.007106] gpio wake12 for gpio=178
+[    4.007112] Enabling wake12
+[    4.008266] HEADSET: Turn off micbias power
+[    4.008348] HEADSET: codec_micbias_power: No wm8903_codec - set micbias off fail
+[    4.008486] headset_init- #####
+[    4.008710] u32 classifier
+[    4.008785]     Actions configured
+[    4.008860] Netfilter messages via NETLINK v0.30.
+[    4.009047] nf_conntrack version 0.5.0 (15626 buckets, 62504 max)
+[    4.010984] ctnetlink v0.93: registering with nfnetlink.
+[    4.011164] NF_TPROXY: Transparent proxy support initialized, version 4.1.0
+[    4.011263] NF_TPROXY: Copyright (c) 2006-2007 BalaBit IT Ltd.
+[    4.013466] xt_time: kernel timezone is -0000
+[    4.013927] ip_tables: (C) 2000-2006 Netfilter Core Team
+[    4.014308] arp_tables: (C) 2002 David S. Miller
+[    4.014438] TCP: cubic registered
+[    4.014514] Initializing XFRM netlink socket
+[    4.016162] NET: Registered protocol family 10
+[    4.018720] Mobile IPv6
+[    4.018827] ip6_tables: (C) 2000-2006 Netfilter Core Team
+[    4.019134] IPv6 over IPv4 tunneling driver
+[    4.019716] NET: Registered protocol family 17
+[    4.019872] NET: Registered protocol family 15
+[    4.021466] Bluetooth: RFCOMM TTY layer initialized
+[    4.021556] Bluetooth: RFCOMM socket layer initialized
+[    4.021692] Bluetooth: RFCOMM ver 1.11
+[    4.021767] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+[    4.021904] Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+[    4.023183] Registering SWP/SWPB emulation handler
+[    4.023347] Registering SDIV/UDIV emulation handler
+[    4.036053] Disabling clocks left on by bootloader:
+[    4.036203]    dsi2-fixed
+[    4.036295]    dsi1-fixed
+[    4.036387]    uarta
+[    4.036484]    fuse_burn
+[    4.036567]    cclk_lp
+[    4.036702]    pll_x_out0
+[    4.036778]    pll_d2_out0
+[    4.036852]    pll_d_out0
+[    4.036926]    pll_p_out2
+[    4.037065]    pll_c_out1
+[    4.037143]    pll_m_out1
+[    4.037240] DVFS: Got RTC device name:rtc0
+[    4.039650] rtc_tps6591x rtc_tps6591x.0: RTC Time : 12/31/2017 18:41:34
+[    4.039806] TEGRA: Linear age: 8
+[    4.041608] CPU rate: 1000 MHz
+[    4.041969] tegra dvfs: tegra sysfs cap interface is initialized
+[    4.042380] tegra_actmon.emc: Completed initialization (0)
+[    4.042623] tegra_actmon.avp: Completed initialization (0)
+[    4.043679] vi vi: vi_probe: ++
+[    4.043760] vi vi: tegra_camera_register: ++
+[    4.044575] vi vi: initialized
+[    4.045147] wifi_set_power = 1
+[    4.140386] tegra-i2c tegra-i2c.0: no acknowledge from address 0x60
+[    4.140610] DSP NOack, Failed to read 0xc0: -121
+[    4.321905] mmc2: host does not support reading read-only switch. assuming write-enable.
+[    4.324347] sdhci-tegra sdhci-tegra.0: Missing nominal vcore. Tuning might fail
+[    4.345551] wifi_set_carddetect = 1
+[    4.494996] sdhci-tegra sdhci-tegra.0: Setting best tap as 50 percent of the full window
+[    4.495079] sdhci-tegra sdhci-tegra.0: Tuning window data at 1.25V
+[    4.495214] Partial window 21
+[    4.495300] full window start 38
+[    4.495434] full window end 66
+[    4.495509] full window chosen
+[    4.495583] Best tap value 52
+[    4.497717] mmc2: new ultra high speed SDR104 SDHC card at address 0001
+[    4.498260] mmcblk1: mmc2:0001 00000 29.8 GiB 
+[    4.499691] mmc2: Data END Bit error, intmask: 600000
+[    4.499920] mmcblk1: error -84 transferring data, sector 0, nr 8, cmd response 0x900, card status 0xb00
+[    4.500063] mmcblk1: retrying using single block read
+[    4.500162] mmc2: Command CRC or END bit error, intmask: 20001
+[    4.500359] mmcblk1: response CRC error sending r/w cmd command, card status 0x900
+[    4.500617] mmc2: Data END Bit error, intmask: 600000
+[    4.500817] mmcblk1: error -84 transferring data, sector 0, nr 8, cmd response 0x900, card status 0x0
+[    4.500961] end_request: I/O error, dev mmcblk1, sector 0
+[    4.501272] mmc2: Command CRC or END bit error, intmask: 20001
+[    4.501452] mmcblk1: response CRC error sending r/w cmd command, card status 0x900
+[    4.502762] Buffer I/O error on device mmcblk1, logical block 0
+[    4.503211] mmc2: Data END Bit error, intmask: 600000
+[    4.503380] mmcblk1: error -84 transferring data, sector 0, nr 8, cmd response 0x900, card status 0xb00
+[    4.503521] mmcblk1: retrying using single block read
+[    4.503773] mmc2: Data END Bit error, intmask: 600000
+[    4.503966] mmcblk1: error -84 transferring data, sector 0, nr 8, cmd response 0x900, card status 0x0
+[    4.504107] end_request: I/O error, dev mmcblk1, sector 0
+[    4.504208] mmc2: Command CRC or END bit error, intmask: 20001
+[    4.504397] mmcblk1: response CRC error sending r/w cmd command, card status 0x900
+[    4.504906] mmc2: Command CRC or END bit error, intmask: 20001
+[    4.505075] mmcblk1: response CRC error sending r/w cmd command, card status 0x900
+[    4.505441] mmc2: Command CRC or END bit error, intmask: 20001
+[    4.505574] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[    4.506139] mmc2: Command CRC or END bit error, intmask: 20001
+[    4.506289] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[    4.506840] Buffer I/O error on device mmcblk1, logical block 0
+[    4.507350] mmc2: Data END Bit error, intmask: 600000
+[    4.507569] mmcblk1: error -84 transferring data, sector 62521336, nr 8, cmd response 0x900, card status 0xb00
+[    4.507709] mmcblk1: retrying using single block read
+[    4.507963] mmc2: Data END Bit error, intmask: 600000
+[    4.508155] mmcblk1: error -84 transferring data, sector 62521336, nr 8, cmd response 0x900, card status 0x0
+[    4.508314] end_request: I/O error, dev mmcblk1, sector 62521336
+[    4.508572] mmc2: Data END Bit error, intmask: 600000
+[    4.508759] mmcblk1: error -84 transferring data, sector 62521337, nr 7, cmd response 0x900, card status 0x0
+[    4.508841] end_request: I/O error, dev mmcblk1, sector 62521337
+[    4.509159] mmc2: Data END Bit error, intmask: 600000
+[    4.509298] mmcblk1: error -84 transferring data, sector 62521338, nr 6, cmd response 0x900, card status 0x0
+[    4.509441] end_request: I/O error, dev mmcblk1, sector 62521338
+[    4.509760] mmc2: Data END Bit error, intmask: 600000
+[    4.509892] mmcblk1: error -84 transferring data, sector 62521339, nr 5, cmd response 0x900, card status 0x0
+[    4.510034] end_request: I/O error, dev mmcblk1, sector 62521339
+[    4.510352] mmc2: Data END Bit error, intmask: 600000
+[    4.510485] mmcblk1: error -84 transferring data, sector 62521340, nr 4, cmd response 0x900, card status 0x0
+[    4.510662] end_request: I/O error, dev mmcblk1, sector 62521340
+[    4.510921] mmc2: Data END Bit error, intmask: 600000
+[    4.511113] mmcblk1: error -84 transferring data, sector 62521341, nr 3, cmd response 0x900, card status 0x0
+[    4.511270] end_request: I/O error, dev mmcblk1, sector 62521341
+[    4.511530] mmc2: Data END Bit error, intmask: 600000
+[    4.511721] mmcblk1: error -84 transferring data, sector 62521342, nr 2, cmd response 0x900, card status 0x0
+[    4.511862] end_request: I/O error, dev mmcblk1, sector 62521342
+[    4.512119] mmc2: Data END Bit error, intmask: 600000
+[    4.512311] mmcblk1: error -84 transferring data, sector 62521343, nr 1, cmd response 0x900, card status 0x0
+[    4.512454] end_request: I/O error, dev mmcblk1, sector 62521343
+[    4.512537] Buffer I/O error on device mmcblk1, logical block 7815167
+[    4.512789] mmc2: Command CRC or END bit error, intmask: a0001
+[    4.512924] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[    4.513251] mmc2: Data END Bit error, intmask: 600000
+[    4.513413] mmcblk1: error -84 transferring data, sector 62521336, nr 8, cmd response 0x900, card status 0xb00
+[    4.513553] mmcblk1: retrying using single block read
+[    4.513865] mmc2: Data END Bit error, intmask: 600000
+[    4.513998] mmcblk1: error -84 transferring data, sector 62521336, nr 8, cmd response 0x900, card status 0x0
+[    4.514141] end_request: I/O error, dev mmcblk1, sector 62521336
+[    4.514257] mmc2: Command CRC or END bit error, intmask: 20001
+[    4.514423] mmcblk1: response CRC error sending r/w cmd command, card status 0x900
+[    4.514585] mmc2: Command CRC or END bit error, intmask: 20001
+[    4.514716] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[    4.515031] mmc2: Data END Bit error, intmask: 600000
+[    4.515162] mmcblk1: error -84 transferring data, sector 62521337, nr 7, cmd response 0x900, card status 0x0
+[    4.515319] end_request: I/O error, dev mmcblk1, sector 62521337
+[    4.515638] mmc2: Data END Bit error, intmask: 600000
+[    4.515767] mmcblk1: error -84 transferring data, sector 62521338, nr 6, cmd response 0x900, card status 0x0
+[    4.515909] end_request: I/O error, dev mmcblk1, sector 62521338
+[    4.516070] mmc2: Command CRC or END bit error, intmask: 20001
+[    4.516201] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[    4.516534] mmc2: Data END Bit error, intmask: 600000
+[    4.516667] mmcblk1: error -84 transferring data, sector 62521339, nr 5, cmd response 0x900, card status 0x0
+[    4.516808] end_request: I/O error, dev mmcblk1, sector 62521339
+[    4.517123] mmc2: Data END Bit error, intmask: 600000
+[    4.517272] mmcblk1: error -84 transferring data, sector 62521340, nr 4, cmd response 0x900, card status 0x0
+[    4.517415] end_request: I/O error, dev mmcblk1, sector 62521340
+[    4.517671] mmc2: Data END Bit error, intmask: 600000
+[    4.517864] mmcblk1: error -84 transferring data, sector 62521341, nr 3, cmd response 0x900, card status 0x0
+[    4.518007] end_request: I/O error, dev mmcblk1, sector 62521341
+[    4.518268] mmc2: Data CRC error, intmask: 200000
+[    4.518461] mmcblk1: error -84 transferring data, sector 62521342, nr 2, cmd response 0x900, card status 0x0
+[    4.518602] end_request: I/O error, dev mmcblk1, sector 62521342
+[    4.518861] mmc2: Data END Bit error, intmask: 600000
+[    4.519052] mmcblk1: error -84 transferring data, sector 62521343, nr 1, cmd response 0x900, card status 0x0
+[    4.519134] end_request: I/O error, dev mmcblk1, sector 62521343
+[    4.519291] Buffer I/O error on device mmcblk1, logical block 7815167
+[    4.519489] mmc2: Command CRC or END bit error, intmask: e0001
+[    4.519624] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[    4.520019] mmc2: Data END Bit error, intmask: 600000
+[    4.520179] mmcblk1: error -84 transferring data, sector 62078968, nr 8, cmd response 0x900, card status 0xb00
+[    4.520336] mmcblk1: retrying using single block read
+[    4.520621] mmc2: Data END Bit error, intmask: 600000
+[    4.520813] mmcblk1: error -84 transferring data, sector 62078968, nr 8, cmd response 0x900, card status 0x0
+[    4.520954] end_request: I/O error, dev mmcblk1, sector 62078968
+[    4.521055] mmc2: Command CRC or END bit error, intmask: 20001
+[    4.521245] mmc2: Command CRC or END bit error, intmask: a0001
+[    4.521333] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[    4.521676] mmc2: Data END Bit error, intmask: 600000
+[    4.521809] mmcblk1: error -84 transferring data, sector 62078969, nr 7, cmd response 0x900, card status 0x0
+[    4.521951] end_request: I/O error, dev mmcblk1, sector 62078969
+[    4.522111] mmc2: Command CRC or END bit error, intmask: 20001
+[    4.522288] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[    4.522635] mmc2: Data END Bit error, intmask: 600000
+[    4.522827] mmcblk1: error -84 transferring data, sector 62078970, nr 6, cmd response 0x900, card status 0x0
+[    4.522909] end_request: I/O error, dev mmcblk1, sector 62078970
+[    4.523250] mmc2: Data END Bit error, intmask: 600000
+[    4.523382] mmcblk1: error -84 transferring data, sector 62078971, nr 5, cmd response 0x900, card status 0x0
+[    4.523525] end_request: I/O error, dev mmcblk1, sector 62078971
+[    4.523866] mmc2: Data END Bit error, intmask: 600000
+[    4.523994] mmcblk1: error -84 transferring data, sector 62078972, nr 4, cmd response 0x900, card status 0x0
+[    4.524136] end_request: I/O error, dev mmcblk1, sector 62078972
+[    4.524496] mmc2: Data END Bit error, intmask: 600000
+[    4.524630] mmcblk1: error -84 transferring data, sector 62078973, nr 3, cmd response 0x900, card status 0x0
+[    4.524771] end_request: I/O error, dev mmcblk1, sector 62078973
+[    4.525054] mmc2: Data END Bit error, intmask: 600000
+[    4.525260] mmcblk1: error -84 transferring data, sector 62078974, nr 2, cmd response 0x900, card status 0x0
+[    4.525402] end_request: I/O error, dev mmcblk1, sector 62078974
+[    4.525687] mmc2: Data END Bit error, intmask: 600000
+[    4.525879] mmcblk1: error -84 transferring data, sector 62078975, nr 1, cmd response 0x900, card status 0x0
+[    4.526021] end_request: I/O error, dev mmcblk1, sector 62078975
+[    4.526103] Buffer I/O error on device mmcblk1, logical block 7759871
+[    4.526373] mmc2: Command CRC or END bit error, intmask: e0001
+[    4.526503] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[    4.526863] mmc2: Data END Bit error, intmask: 600000
+[    4.527023] mmcblk1: error -84 transferring data, sector 62078968, nr 8, cmd response 0x900, card status 0xb00
+[    4.527164] mmcblk1: retrying using single block read
+[    4.527519] mmc2: Data END Bit error, intmask: 600000
+[    4.527653] mmcblk1: error -84 transferring data, sector 62078968, nr 8, cmd response 0x900, card status 0x0
+[    4.527795] end_request: I/O error, dev mmcblk1, sector 62078968
+[    4.528137] mmc2: Data END Bit error, intmask: 600000
+[    4.528275] mmcblk1: error -84 transferring data, sector 62078969, nr 7, cmd response 0x900, card status 0x0
+[    4.528418] end_request: I/O error, dev mmcblk1, sector 62078969
+[    4.528696] mmc2: Data END Bit error, intmask: 600000
+[    4.528889] mmcblk1: error -84 transferring data, sector 62078970, nr 6, cmd response 0x900, card status 0x0
+[    4.529031] end_request: I/O error, dev mmcblk1, sector 62078970
+[    4.529318] mmc2: Data END Bit error, intmask: 600000
+[    4.529511] mmcblk1: error -84 transferring data, sector 62078971, nr 5, cmd response 0x900, card status 0x0
+[    4.529653] end_request: I/O error, dev mmcblk1, sector 62078971
+[    4.529930] mmc2: Data END Bit error, intmask: 600000
+[    4.530117] mmcblk1: error -84 transferring data, sector 62078972, nr 4, cmd response 0x900, card status 0x0
+[    4.530198] end_request: I/O error, dev mmcblk1, sector 62078972
+[    4.530557] mmc2: Data END Bit error, intmask: 600000
+[    4.530689] mmcblk1: error -84 transferring data, sector 62078973, nr 3, cmd response 0x900, card status 0x0
+[    4.530831] end_request: I/O error, dev mmcblk1, sector 62078973
+[    4.531175] mmc2: Data END Bit error, intmask: 600000
+[    4.531308] mmcblk1: error -84 transferring data, sector 62078974, nr 2, cmd response 0x900, card status 0x0
+[    4.531451] end_request: I/O error, dev mmcblk1, sector 62078974
+[    4.531795] mmc2: Data END Bit error, intmask: 600000
+[    4.531928] mmcblk1: error -84 transferring data, sector 62078975, nr 1, cmd response 0x900, card status 0x0
+[    4.532071] end_request: I/O error, dev mmcblk1, sector 62078975
+[    4.532212] Buffer I/O error on device mmcblk1, logical block 7759871
+[    4.532423] mmc2: Command CRC or END bit error, intmask: e0001
+[    4.532612] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[    4.532891] mmc2: Data END Bit error, intmask: 600000
+[    4.533112] mmcblk1: error -84 transferring data, sector 0, nr 8, cmd response 0x900, card status 0xb00
+[    4.533268] mmcblk1: retrying using single block read
+[    4.535036]  mmcblk1: unable to read partition table
+[    4.596571] mmc1: failed to set pll parent clock -22
+[    4.599622] mmc1: new high speed SDIO card at address 0001
+[    4.600534] SDIO Vendor ID:02d0 and SDIO Device ID: 4329
+[    4.602515] F1 signature OK, socitype:0x0 chip:0x4329 rev:0x3 pkg:0x9
+[    4.603600] DHD: dongle ram size is set to 294912(orig 294912) at 0x0
+[    4.605405] wl_create_event_handler(): thread:wl_event_handler:7c started
+[    4.605414] CFG80211-ERROR) wl_event_handler : tsk Enter, tsk = 0xcd2e13f8
+[    4.606417] p2p0: P2P Interface Registered
+[    4.606642] dhd_attach(): thread:dhd_watchdog_thread:7d started
+[    4.606790] dhd_attach(): thread:dhd_dpc:7e started
+[    4.606938] dhd_attach(): thread:dhd_rxf:7f started
+[    4.607080] dhd_attach(): thread:dhd_sysioc:80 started
+[    4.607321] wifi_get_mac_addr
+[    4.607942] Broadcom Dongle Host Driver: register interface [wlan0] MAC: 00:90:4c:11:22:33
+[    4.620292] mmc1: Controller never released inhibit bit(s).
+[    4.620533] bcmsdh_sdmmc: probe of mmc1:0001:3 failed with error -5
+[    4.620634] 
+[    4.620636] Dongle Host Driver, version 1.88.45 (r)
+[    4.620640] Compiled in drivers/net/wireless/bcmdhd on Dec 27 2017 at 22:07:24
+[    4.620978] wifi_set_power = 0
+[    4.921365] =========== WLAN placed in RESET ========
+[    4.921536] gpio wake24 for gpio=168
+[    4.921963] input: gpio-keys as /devices/platform/gpio-keys.0/input/input3
+[    4.924552] rtc_tps6591x rtc_tps6591x.0: RTC Time : 12/31/2017 18:41:35
+[    4.924714] rtc_tps6591x rtc_tps6591x.0: setting system clock to 2017-12-31 18:41:35 UTC (1514745695)
+[    4.925003] ALSA device list:
+[    4.925082]   #0: HDA NVIDIA Tegra at 0x70038000 irq 113
+[    4.925268] Warning: unable to open an initial console.
+[12-31 18:41:35.554] type=1403 audit(1514745695.554:2): policy loaded auid=4294967295 ses=4294967295
+[12-31 18:41:35.624] init: /init.rc: 60: invalid command 'load_system_props'
+[12-31 18:41:35.624] init: could not import file '/init.recovery.transformer.rc' from '/init.rc'
+[12-31 18:41:35.817] docking_callback 1  docking_in =0 pu4=1 
+[12-31 18:41:35.817] disable_irq(gpio_to_irq(TEGRA_GPIO_PS5)
+[12-31 18:41:35.817] asusdec: [asusdec_pad_battery_report_function] dock_in = 0, ret_val = 0
+[12-31 18:41:35.820] pad_get_psp  val->intval=Not charging ret=c0
+[12-31 18:41:35.821] power_supply dock_battery: driver failed to report `status' property: 4294967274
+[12-31 18:41:35.835] pad_get_capacity val->intval=54 ret=57
+[12-31 18:41:35.839] pad_get_psp  val->intval=Not charging ret=c0
+[12-31 18:41:35.844] pad_get_psp voltage_now =7531
+[12-31 18:41:35.858] pad_get_capacity val->intval=54 ret=57
+[12-31 18:41:35.872] pad_get_psp  battery temperature=255
+[12-31 18:41:35.876] pad_get_psp voltage_now =7531
+[12-31 18:41:35.881] pad_get_psp voltage_now =7531
+[12-31 18:41:35.885] pad_get_psp  battery temperature=255
+[12-31 18:41:35.890] pad_get_capacity val->intval=54 ret=57
+[12-31 18:41:35.895] pad_get_psp  val->intval=Not charging ret=c0
+[12-31 18:41:35.899] pad_get_psp  battery temperature=255
+[12-31 18:41:35.904] pad_get_capacity val->intval=54 ret=57
+[12-31 18:41:35.918] pad_get_psp voltage_now =7531
+[12-31 18:41:35.923] pad_get_psp  battery temperature=255
+[12-31 18:41:35.928] pad_get_psp  val->intval=Not charging ret=c0
+[12-31 18:41:35.928] init: /dev/hw_random not found
+[12-31 18:41:35.930] init: /dev/hw_random not found
+[12-31 18:41:35.931] android_usb: already disabled
+[12-31 18:41:35.932] init: Unable to open persistent property directory /data/property errno: 2
+[12-31 18:41:35.932] init: Unable to open persistent property directory /data/property errno: 2
+[12-31 18:41:35.932] pad_get_capacity val->intval=54 ret=57
+[12-31 18:41:35.936] init: Warning!  Service recovery needs a SELinux domain defined; please fix!
+[12-31 18:41:35.937] android_usb: already disabled
+[12-31 18:41:35.941] read descriptors
+[12-31 18:41:35.941] read strings
+[12-31 18:41:35.941] mtp_bind_config
+[12-31 18:41:35.946] pad_get_psp voltage_now =7531
+[12-31 18:41:35.949] type=1400 audit(1514745695.949:3): avc:  denied  { write } for  pid=139 comm="setenforce" name="enforce" dev="selinuxfs" ino=4 scontext=u:r:recovery:s0 tcontext=u:object_r:selinuxfs:s0 tclass=file permissive=1
+[12-31 18:41:35.951] pad_get_psp  battery temperature=255
+[12-31 18:41:35.955] pad_get_psp  val->intval=Not charging ret=c0
+[12-31 18:41:35.960] pad_get_capacity val->intval=54 ret=57
+[12-31 18:41:35.974] pad_get_psp voltage_now =7531
+[12-31 18:41:35.974] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:35.977] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:35.978] pad_get_psp  battery temperature=255
+[12-31 18:41:35.983] pad_get_psp  val->intval=Not charging ret=c0
+[12-31 18:41:35.988] pad_get_capacity val->intval=54 ret=57
+[12-31 18:41:36.001] pad_get_psp voltage_now =7531
+[12-31 18:41:36.006] pad_get_psp  battery temperature=255
+[12-31 18:41:36.011] pad_get_psp  val->intval=Not charging ret=c0
+[12-31 18:41:36.234] type=1400 audit(1514745696.234:4): avc:  denied  { execmem } for  pid=134 comm="recovery" scontext=u:r:init:s0 tcontext=u:r:init:s0 tclass=process permissive=1
+[12-31 18:41:36.376] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.392] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.409] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.426] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.431] EXT4-fs (mmcblk0p2): mounted filesystem with ordered data mode. Opts: 
+[12-31 18:41:36.433] SELinux:  Context test is not valid (left unmapped).
+[12-31 18:41:36.442] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.459] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.477] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.494] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.509] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.525] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.542] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.558] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.574] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.590] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.608] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.625] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.641] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.658] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.674] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.691] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.708] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.725] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.741] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.757] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.774] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.790] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.806] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.823] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.841] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.857] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.874] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.890] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.907] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.923] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.940] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.957] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.973] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:36.993] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.006] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.021] asuspec: [asuspec_enter_s3_work_function] EC in S3
+[12-31 18:41:37.023] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.039] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.058] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.072] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.089] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.106] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.122] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.139] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.156] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.172] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.190] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.203] EXT4-fs (mmcblk0p1): mounted filesystem with ordered data mode. Opts: 
+[12-31 18:41:37.205] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.222] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.238] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.255] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.272] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.288] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.305] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.321] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.338] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.355] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.371] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.388] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.404] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.421] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.438] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.454] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.471] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.487] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.504] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.521] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.537] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.554] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.570] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.587] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.604] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.620] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.637] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.653] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.670] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.687] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.703] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.720] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.736] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.753] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.769] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.786] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.803] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.819] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.836] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.852] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.869] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.886] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.902] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.919] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.935] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.952] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.969] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:37.985] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.002] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.019] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.035] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.052] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.068] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.085] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.101] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.118] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.135] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.151] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.168] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.184] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.201] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.218] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.234] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.251] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.267] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.284] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.300] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.317] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.334] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.350] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.367] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.383] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.400] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.417] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.433] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.450] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.466] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.483] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.500] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.516] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.533] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.549] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.566] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.583] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.599] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.616] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.632] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.649] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.666] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.682] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.699] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.715] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.732] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.748] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.765] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.782] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.798] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.815] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.831] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.848] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.865] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.881] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.898] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.914] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.931] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.948] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.964] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.981] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.988] mmc2: Command CRC or END bit error, intmask: e0001
+[12-31 18:41:38.989] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:41:38.989] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:38.989] mmcblk1: error -84 transferring data, sector 62521216, nr 8, cmd response 0x900, card status 0xb00
+[12-31 18:41:38.989] mmcblk1: retrying using single block read
+[12-31 18:41:38.990] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:38.990] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:38.990] mmcblk1: error -84 transferring data, sector 62521216, nr 8, cmd response 0x900, card status 0x0
+[12-31 18:41:38.990] end_request: I/O error, dev mmcblk1, sector 62521216
+[12-31 18:41:38.990] mmc2: Command CRC or END bit error, intmask: a0001
+[12-31 18:41:38.991] mmc2: Command CRC or END bit error, intmask: a0001
+[12-31 18:41:38.991] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:41:38.991] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:38.991] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:38.991] mmcblk1: error -84 transferring data, sector 62521217, nr 7, cmd response 0x900, card status 0x0
+[12-31 18:41:38.991] end_request: I/O error, dev mmcblk1, sector 62521217
+[12-31 18:41:38.992] mmc2: Command CRC or END bit error, intmask: a0001
+[12-31 18:41:38.992] mmc2: Command CRC or END bit error, intmask: a0001
+[12-31 18:41:38.992] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:41:38.992] mmc2: Command CRC or END bit error, intmask: 20001
+[12-31 18:41:38.992] mmcblk1: response CRC error sending r/w cmd command, card status 0x900
+[12-31 18:41:38.993] mmc2: Command CRC or END bit error, intmask: 20001
+[12-31 18:41:38.993] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:41:38.993] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:38.993] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:38.993] mmcblk1: error -84 transferring data, sector 62521218, nr 6, cmd response 0x400900, card status 0x0
+[12-31 18:41:38.994] end_request: I/O error, dev mmcblk1, sector 62521218
+[12-31 18:41:38.994] mmc2: Command CRC or END bit error, intmask: a0001
+[12-31 18:41:38.994] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:41:38.994] end_request: I/O error, dev mmcblk1, sector 62521219
+[12-31 18:41:38.994] quiet_error: 12 callbacks suppressed
+[12-31 18:41:38.994] Buffer I/O error on device mmcblk1, logical block 7815152
+[12-31 18:41:38.995] mmc2: Command CRC or END bit error, intmask: e0001
+[12-31 18:41:38.995] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:41:38.995] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:38.995] mmcblk1: error -84 transferring data, sector 62521216, nr 8, cmd response 0x900, card status 0x0
+[12-31 18:41:38.996] mmcblk1: retrying using single block read
+[12-31 18:41:38.996] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:38.996] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:38.996] mmcblk1: error -84 transferring data, sector 62521216, nr 8, cmd response 0x900, card status 0x0
+[12-31 18:41:38.996] end_request: I/O error, dev mmcblk1, sector 62521216
+[12-31 18:41:38.997] mmc2: Command CRC or END bit error, intmask: a0001
+[12-31 18:41:38.997] mmc2: Command CRC or END bit error, intmask: 20001
+[12-31 18:41:38.997] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:41:38.997] mmc2: Command CRC or END bit error, intmask: a0001
+[12-31 18:41:38.997] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:41:38.998] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:38.998] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:38.998] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:38.998] mmcblk1: error -84 transferring data, sector 62521217, nr 7, cmd response 0x400900, card status 0x0
+[12-31 18:41:38.998] end_request: I/O error, dev mmcblk1, sector 62521217
+[12-31 18:41:38.998] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:38.998] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:38.998] mmcblk1: error -84 transferring data, sector 62521218, nr 6, cmd response 0x900, card status 0x0
+[12-31 18:41:38.998] end_request: I/O error, dev mmcblk1, sector 62521218
+[12-31 18:41:38.998] mmc2: Command CRC or END bit error, intmask: 20001
+[12-31 18:41:38.998] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:41:38.999] mmc2: Command CRC or END bit error, intmask: 20001
+[12-31 18:41:38.999] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:41:38.999] mmc2: Command CRC or END bit error, intmask: 20001
+[12-31 18:41:38.999] mmc2: Command CRC or END bit error, intmask: a0001
+[12-31 18:41:38.999] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:41:38.999] end_request: I/O error, dev mmcblk1, sector 62521219
+[12-31 18:41:38.999] Buffer I/O error on device mmcblk1, logical block 7815152
+[12-31 18:41:38.999] mmc2: Command CRC or END bit error, intmask: 60001
+[12-31 18:41:38.999] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:41:39.000] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:39.000] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:39.000] mmcblk1: error -84 transferring data, sector 0, nr 1, cmd response 0x900, card status 0x0
+[12-31 18:41:39.000] end_request: I/O error, dev mmcblk1, sector 0
+[12-31 18:41:39.000] FAT-fs (mmcblk1): unable to read boot sector
+[12-31 18:41:39.010] mmc2: Command CRC or END bit error, intmask: 20001
+[12-31 18:41:39.010] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:41:39.010] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:39.010] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:39.011] mmcblk1: error -84 transferring data, sector 0, nr 1, cmd response 0x900, card status 0x0
+[12-31 18:41:39.011] end_request: I/O error, dev mmcblk1, sector 0
+[12-31 18:41:39.011] FAT-fs (mmcblk1): unable to read boot sector
+[12-31 18:41:39.014] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.031] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.047] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.064] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.080] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.097] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.114] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.130] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.147] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.163] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.180] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.197] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.213] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.230] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.246] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.251] asuspec: [asuspec_send_ec_req] send EC_Request
+[12-31 18:41:39.263] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.279] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.295] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.312] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.312] asuspec: [asuspec_work_function] 0x2 0x81 0x50 0xff
+[12-31 18:41:39.312] asuspec: [asuspec_smi] ASUSPEC_SMI_HANDSHAKING
+[12-31 18:41:39.328] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.345] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.362] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.378] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.395] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.411] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.428] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.445] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.461] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.478] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.494] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.505] pad_get_capacity val->intval=54 ret=57
+[12-31 18:41:39.510] pad_get_psp  val->intval=Not charging ret=c0
+[12-31 18:41:39.512] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.528] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.545] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.562] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.578] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.595] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.611] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.628] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.645] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.661] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.678] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.694] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.711] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.727] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.744] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.761] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.777] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.794] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.810] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.827] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.844] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.860] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.877] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.893] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.910] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.927] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.943] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.960] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.976] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:39.993] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.010] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.026] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.043] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.059] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.076] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.093] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.109] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.126] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.142] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.159] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.175] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.192] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.209] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.225] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.242] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.258] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.275] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.292] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.308] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.325] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.342] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.357] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.374] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.390] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.407] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.424] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.440] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.457] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.473] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.490] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.507] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.516] asuspec: [asuspec_enter_s3_work_function] EC in S3
+[12-31 18:41:40.523] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.541] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.557] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.574] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.590] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.603] mmc2: Command CRC or END bit error, intmask: a0001
+[12-31 18:41:40.603] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:41:40.604] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:40.604] mmcblk1: error -110 sending status command, retrying
+[12-31 18:41:40.604] mmc2: Command CRC or END bit error, intmask: 60001
+[12-31 18:41:40.604] mmcblk1: error -84 sending status command, retrying
+[12-31 18:41:40.604] mmcblk1: error -84 transferring data, sector 62521216, nr 8, cmd response 0x900, card status 0x0
+[12-31 18:41:40.604] mmcblk1: retrying using single block read
+[12-31 18:41:40.605] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:40.605] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:40.605] mmcblk1: error -84 transferring data, sector 62521216, nr 8, cmd response 0x900, card status 0x0
+[12-31 18:41:40.605] end_request: I/O error, dev mmcblk1, sector 62521216
+[12-31 18:41:40.606] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:40.606] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:40.606] mmcblk1: error -84 transferring data, sector 62521217, nr 7, cmd response 0x900, card status 0x0
+[12-31 18:41:40.606] end_request: I/O error, dev mmcblk1, sector 62521217
+[12-31 18:41:40.606] mmc2: Command CRC or END bit error, intmask: 20001
+[12-31 18:41:40.607] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:41:40.607] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:40.607] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:40.607] mmcblk1: error -84 transferring data, sector 62521218, nr 6, cmd response 0x900, card status 0x0
+[12-31 18:41:40.607] end_request: I/O error, dev mmcblk1, sector 62521218
+[12-31 18:41:40.607] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:40.607] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:40.607] mmcblk1: error -84 transferring data, sector 62521219, nr 5, cmd response 0x900, card status 0x0
+[12-31 18:41:40.607] end_request: I/O error, dev mmcblk1, sector 62521219
+[12-31 18:41:40.608] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:40.608] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:40.608] mmcblk1: error -84 transferring data, sector 62521220, nr 4, cmd response 0x900, card status 0x0
+[12-31 18:41:40.608] end_request: I/O error, dev mmcblk1, sector 62521220
+[12-31 18:41:40.608] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:40.608] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:40.608] mmcblk1: error -84 transferring data, sector 62521221, nr 3, cmd response 0x900, card status 0x0
+[12-31 18:41:40.608] end_request: I/O error, dev mmcblk1, sector 62521221
+[12-31 18:41:40.608] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:40.608] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:40.608] mmcblk1: error -84 transferring data, sector 62521222, nr 2, cmd response 0x900, card status 0x0
+[12-31 18:41:40.608] end_request: I/O error, dev mmcblk1, sector 62521222
+[12-31 18:41:40.609] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:40.609] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:40.609] mmcblk1: error -84 transferring data, sector 62521223, nr 1, cmd response 0x900, card status 0x0
+[12-31 18:41:40.609] end_request: I/O error, dev mmcblk1, sector 62521223
+[12-31 18:41:40.609] Buffer I/O error on device mmcblk1, logical block 7815152
+[12-31 18:41:40.609] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:40.609] mmcblk1: error -84 transferring data, sector 62521216, nr 8, cmd response 0x900, card status 0xb00
+[12-31 18:41:40.609] mmcblk1: retrying using single block read
+[12-31 18:41:40.610] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:40.610] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:40.610] mmcblk1: error -84 transferring data, sector 62521216, nr 8, cmd response 0x900, card status 0x0
+[12-31 18:41:40.610] end_request: I/O error, dev mmcblk1, sector 62521216
+[12-31 18:41:40.610] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:40.610] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:40.610] mmcblk1: error -84 transferring data, sector 62521217, nr 7, cmd response 0x900, card status 0x0
+[12-31 18:41:40.610] end_request: I/O error, dev mmcblk1, sector 62521217
+[12-31 18:41:40.610] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:40.610] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:40.610] mmcblk1: error -84 transferring data, sector 62521218, nr 6, cmd response 0x900, card status 0x0
+[12-31 18:41:40.610] end_request: I/O error, dev mmcblk1, sector 62521218
+[12-31 18:41:40.611] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:40.611] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:40.611] mmcblk1: error -84 transferring data, sector 62521219, nr 5, cmd response 0x900, card status 0x0
+[12-31 18:41:40.611] end_request: I/O error, dev mmcblk1, sector 62521219
+[12-31 18:41:40.611] mmc2: Command CRC or END bit error, intmask: 20001
+[12-31 18:41:40.611] mmc2: Command CRC or END bit error, intmask: a0001
+[12-31 18:41:40.611] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:41:40.611] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:40.611] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:40.611] mmcblk1: error -84 transferring data, sector 62521220, nr 4, cmd response 0x900, card status 0x0
+[12-31 18:41:40.611] end_request: I/O error, dev mmcblk1, sector 62521220
+[12-31 18:41:40.611] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:40.611] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:40.612] mmcblk1: error -84 transferring data, sector 62521221, nr 3, cmd response 0x900, card status 0x0
+[12-31 18:41:40.612] end_request: I/O error, dev mmcblk1, sector 62521221
+[12-31 18:41:40.612] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:40.612] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:40.612] mmcblk1: error -84 transferring data, sector 62521222, nr 2, cmd response 0x900, card status 0x0
+[12-31 18:41:40.612] end_request: I/O error, dev mmcblk1, sector 62521222
+[12-31 18:41:40.612] mmc2: Data CRC error, intmask: 200000
+[12-31 18:41:40.612] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:40.612] mmcblk1: error -84 transferring data, sector 62521223, nr 1, cmd response 0x900, card status 0x0
+[12-31 18:41:40.612] end_request: I/O error, dev mmcblk1, sector 62521223
+[12-31 18:41:40.612] Buffer I/O error on device mmcblk1, logical block 7815152
+[12-31 18:41:40.614] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.615] mmc2: Command CRC or END bit error, intmask: 20001
+[12-31 18:41:40.615] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:41:40.615] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:40.615] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:40.615] mmcblk1: error -84 transferring data, sector 0, nr 1, cmd response 0x900, card status 0x0
+[12-31 18:41:40.616] end_request: I/O error, dev mmcblk1, sector 0
+[12-31 18:41:40.616] FAT-fs (mmcblk1): unable to read boot sector
+[12-31 18:41:40.623] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.624] mmc2: Command CRC or END bit error, intmask: a0001
+[12-31 18:41:40.624] mmc2: Command CRC or END bit error, intmask: a0001
+[12-31 18:41:40.624] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:41:40.624] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:40.625] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:40.625] mmcblk1: error -84 transferring data, sector 0, nr 1, cmd response 0x900, card status 0x0
+[12-31 18:41:40.625] end_request: I/O error, dev mmcblk1, sector 0
+[12-31 18:41:40.625] FAT-fs (mmcblk1): unable to read boot sector
+[12-31 18:41:40.634] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.640] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.643] mmc2: Command CRC or END bit error, intmask: e0001
+[12-31 18:41:40.643] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:41:40.643] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:40.644] mmcblk1: error -84 transferring data, sector 62521216, nr 8, cmd response 0x900, card status 0xb00
+[12-31 18:41:40.644] mmcblk1: retrying using single block read
+[12-31 18:41:40.644] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:40.644] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:40.644] mmcblk1: error -84 transferring data, sector 62521216, nr 8, cmd response 0x900, card status 0x0
+[12-31 18:41:40.644] end_request: I/O error, dev mmcblk1, sector 62521216
+[12-31 18:41:40.645] mmc2: Command CRC or END bit error, intmask: a0001
+[12-31 18:41:40.645] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:41:40.645] mmc2: Command CRC or END bit error, intmask: 20001
+[12-31 18:41:40.645] mmcblk1: error -110 sending status command, retrying
+[12-31 18:41:40.645] mmcblk1: error -110 sending status command, retrying
+[12-31 18:41:40.646] mmcblk1: error -110 sending status command, aborting
+[12-31 18:41:40.646] end_request: I/O error, dev mmcblk1, sector 62521217
+[12-31 18:41:40.646] Buffer I/O error on device mmcblk1, logical block 7815152
+[12-31 18:41:40.646] mmcblk1: timed out sending r/w cmd command, card status 0xc00900
+[12-31 18:41:40.646] mmcblk1: command error, retrying timeout
+[12-31 18:41:40.647] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:40.647] mmcblk1: error -84 transferring data, sector 62521216, nr 8, cmd response 0x900, card status 0xb00
+[12-31 18:41:40.647] mmcblk1: retrying using single block read
+[12-31 18:41:40.647] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:40.647] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:40.648] mmcblk1: error -84 transferring data, sector 62521216, nr 8, cmd response 0x900, card status 0x0
+[12-31 18:41:40.648] end_request: I/O error, dev mmcblk1, sector 62521216
+[12-31 18:41:40.648] mmc2: Command CRC or END bit error, intmask: a0001
+[12-31 18:41:40.648] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:41:40.649] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:40.649] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:40.649] mmcblk1: error -84 transferring data, sector 62521217, nr 7, cmd response 0x900, card status 0x0
+[12-31 18:41:40.649] end_request: I/O error, dev mmcblk1, sector 62521217
+[12-31 18:41:40.649] mmc2: Command CRC or END bit error, intmask: a0001
+[12-31 18:41:40.649] mmc2: Command CRC or END bit error, intmask: 20001
+[12-31 18:41:40.650] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:41:40.650] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:40.650] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:40.650] mmcblk1: error -84 transferring data, sector 62521218, nr 6, cmd response 0x900, card status 0x0
+[12-31 18:41:40.650] end_request: I/O error, dev mmcblk1, sector 62521218
+[12-31 18:41:40.650] mmc2: Command CRC or END bit error, intmask: a0001
+[12-31 18:41:40.651] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:41:40.651] mmc2: Command CRC or END bit error, intmask: a0001
+[12-31 18:41:40.651] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:41:40.651] mmcblk1: timed out sending r/w cmd command, card status 0x800900
+[12-31 18:41:40.651] mmcblk1: command error, retrying timeout
+[12-31 18:41:40.652] end_request: I/O error, dev mmcblk1, sector 62521219
+[12-31 18:41:40.652] Buffer I/O error on device mmcblk1, logical block 7815152
+[12-31 18:41:40.652] mmc2: Command CRC or END bit error, intmask: e0001
+[12-31 18:41:40.652] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:41:40.653] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:40.653] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:40.653] mmcblk1: error -84 transferring data, sector 0, nr 1, cmd response 0x900, card status 0x0
+[12-31 18:41:40.653] end_request: I/O error, dev mmcblk1, sector 0
+[12-31 18:41:40.653] FAT-fs (mmcblk1): unable to read boot sector
+[12-31 18:41:40.657] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.665] mmc2: Command CRC or END bit error, intmask: a0001
+[12-31 18:41:40.665] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:41:40.665] mmc2: Command CRC or END bit error, intmask: 20001
+[12-31 18:41:40.665] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:41:40.666] mmc2: Command CRC or END bit error, intmask: 20001
+[12-31 18:41:40.666] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:41:40.666] mmc2: Command CRC or END bit error, intmask: 20001
+[12-31 18:41:40.666] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:41:40.666] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:41:40.667] mmc2: Got data interrupt 0x00000002 even though no data operation was in progress.
+[12-31 18:41:40.667] mmcblk1: error -84 transferring data, sector 0, nr 1, cmd response 0x900, card status 0x0
+[12-31 18:41:40.667] end_request: I/O error, dev mmcblk1, sector 0
+[12-31 18:41:40.667] FAT-fs (mmcblk1): unable to read boot sector
+[12-31 18:41:40.673] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.690] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.706] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.721] EXT4-fs (mmcblk0p1): mounted filesystem with ordered data mode. Opts: 
+[12-31 18:41:40.723] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.740] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.756] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.773] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.790] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.806] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.819] charger_pad_dock_detection:0 dock_in_value=1  charger_pad_dock_value =0
+[12-31 18:41:40.819] asuspec: [asuspec_send_ec_req] send EC_Request
+[12-31 18:41:40.823] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.839] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.856] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.872] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.879] asuspec: [asuspec_work_function] 0x2 0x81 0x50 0xff
+[12-31 18:41:40.879] asuspec: [asuspec_smi] ASUSPEC_SMI_HANDSHAKING
+[12-31 18:41:40.889] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.906] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.922] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.939] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.955] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.972] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:40.988] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.005] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.019] battery_status_poll 120 1 
+[12-31 18:41:41.022] pad_get_psp  val->intval=Not charging ret=c0
+[12-31 18:41:41.022] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.035] pad_get_psp voltage_now =7506
+[12-31 18:41:41.038] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.040] pad_get_capacity val->intval=54 ret=57
+[12-31 18:41:41.045] pad_get_psp  battery temperature=255
+[12-31 18:41:41.055] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.071] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.074] pad_get_capacity val->intval=54 ret=57
+[12-31 18:41:41.088] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.089] pad_get_psp voltage_now =7506
+[12-31 18:41:41.093] pad_get_psp  battery temperature=255
+[12-31 18:41:41.098] pad_get_psp  val->intval=Not charging ret=c0
+[12-31 18:41:41.102] pad_get_capacity val->intval=54 ret=57
+[12-31 18:41:41.105] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.116] pad_get_psp voltage_now =7506
+[12-31 18:41:41.121] pad_get_psp  battery temperature=255
+[12-31 18:41:41.121] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.125] pad_get_psp  val->intval=Not charging ret=c0
+[12-31 18:41:41.138] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.154] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.171] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.188] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.204] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.221] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.237] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.254] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.271] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.287] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.304] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.320] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.337] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.354] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.369] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.386] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.402] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.419] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.436] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.441] mtp_open
+[12-31 18:41:41.453] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.469] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.485] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.502] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.519] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.535] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.552] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.568] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.585] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.602] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.618] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.635] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.651] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.668] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.685] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.701] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.718] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.734] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.751] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.769] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.784] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.801] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.817] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.834] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.851] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.867] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.884] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.900] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.917] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.933] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.950] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.967] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:41.983] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:42.000] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:42.016] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:42.033] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:42.050] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:42.066] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:42.083] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:42.099] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:42.116] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:42.133] asuspec: [asuspec_enter_s3_work_function] EC in S3
+[12-31 18:41:42.133] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:42.149] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:42.166] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:42.182] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:42.200] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:42.216] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:42.232] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:42.250] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:42.265] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:42.282] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:42.300] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:42.315] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:42.332] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:41:42.348] cardhu_backlight_init: error in gpio request for backlight_enb
+[12-31 18:42:40.447] asuspec: [asuspec_send_ec_req] send EC_Request
+[12-31 18:42:40.510] asuspec: [asuspec_work_function] 0x2 0x81 0x50 0xff
+[12-31 18:42:40.510] asuspec: [asuspec_smi] ASUSPEC_SMI_HANDSHAKING
+[12-31 18:42:40.700] pad_get_capacity val->intval=54 ret=57
+[12-31 18:42:40.705] pad_get_psp  val->intval=Not charging ret=c0
+[12-31 18:42:41.188] pad_get_capacity val->intval=54 ret=57
+[12-31 18:42:41.202] pad_get_psp voltage_now =7508
+[12-31 18:42:41.208] pad_get_psp  battery temperature=258
+[12-31 18:42:41.212] pad_get_psp  val->intval=Not charging ret=c0
+[12-31 18:42:42.221] asuspec: [asuspec_enter_s3_work_function] EC in S3
+[12-31 18:42:55.554] type=1400 audit(1514745775.554:9): avc:  denied  { execute } for  pid=1687 comm="recovery" name="updater" dev="tmpfs" ino=4386 scontext=u:r:init:s0 tcontext=u:object_r:init_tmpfs:s0 tclass=file permissive=1
+[12-31 18:42:55.555] type=1400 audit(1514745775.555:10): avc:  denied  { execute_no_trans } for  pid=1687 comm="recovery" path="/tmp/updater" dev="tmpfs" ino=4386 scontext=u:r:init:s0 tcontext=u:object_r:init_tmpfs:s0 tclass=file permissive=1
+[12-31 18:42:58.741] EXT4-fs (mmcblk0p1): mounted filesystem with ordered data mode. Opts: 
+[12-31 18:42:58.790] mmc2: Command CRC or END bit error, intmask: e0001
+[12-31 18:42:58.790] mmc2: Command CRC or END bit error, intmask: 20001
+[12-31 18:42:58.790] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:42:58.790] mmc2: Command CRC or END bit error, intmask: 60001
+[12-31 18:42:58.790] mmc2: Command CRC or END bit error, intmask: a0001
+[12-31 18:42:58.791] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:42:58.791] mmc2: Command CRC or END bit error, intmask: e0001
+[12-31 18:42:58.791] mmc2: Command CRC or END bit error, intmask: a0001
+[12-31 18:42:58.791] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:42:58.791] mmc2: Command CRC or END bit error, intmask: e0001
+[12-31 18:42:58.791] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:42:58.791] mmc2: Command CRC or END bit error, intmask: a0001
+[12-31 18:42:58.791] mmc2: Command CRC or END bit error, intmask: a0001
+[12-31 18:42:58.791] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:42:58.791] mmc2: Command CRC or END bit error, intmask: e0001
+[12-31 18:42:58.791] mmc2: Command CRC or END bit error, intmask: a0001
+[12-31 18:42:58.791] mmcblk1: response CRC error sending r/w cmd command, card status 0xb00
+[12-31 18:42:58.791] end_request: I/O error, dev mmcblk1, sector 62521216
+[12-31 18:42:58.791] Buffer I/O error on device mmcblk1, logical block 7815152
+[12-31 18:42:58.792] mmc2: Data END Bit error, intmask: 600000
+[12-31 18:42:58.792] mmc2: Command CRC or END bit error, intmask: 60001
+[12-31 18:42:58.792] mmcblk1: error -84 sending status command, retrying
+[12-31 18:42:58.792] mmcblk1: error -110 sending status command, retrying
+[12-31 18:42:58.792] mmc2: Command CRC or END bit error, intmask: 60001
+[12-31 18:42:58.792] mmcblk1: error -84 sending status command, aborting
+[12-31 18:42:58.792] end_request: I/O error, dev mmcblk1, sector 62521216
+[12-31 18:42:58.792] Buffer I/O error on device mmcblk1, logical block 7815152
+[12-31 18:42:58.793] mmcblk1: error -110 sending status command, retrying
+[12-31 18:42:58.793] mmc2: Command CRC or END bit error, intmask: e0001
+[12-31 18:42:58.793] mmcblk1: error -84 sending status command, retrying
+[12-31 18:42:58.793] mmc2: Command CRC or END bit error, intmask: e0001
+[12-31 18:42:58.793] mmcblk1: error -84 sending status command, aborting
+[12-31 18:42:58.793] end_request: I/O error, dev mmcblk1, sector 0
+[12-31 18:42:58.793] FAT-fs (mmcblk1): unable to read boot sector
+[12-31 18:42:58.802] mmcblk1: error -110 sending status command, retrying
+[12-31 18:42:58.802] mmc2: Command CRC or END bit error, intmask: e0001
+[12-31 18:42:58.802] mmcblk1: error -84 sending status command, retrying
+[12-31 18:42:58.802] mmc2: Command CRC or END bit error, intmask: 60001
+[12-31 18:42:58.802] mmcblk1: error -84 sending status command, aborting
+[12-31 18:42:58.803] end_request: I/O error, dev mmcblk1, sector 0
+[12-31 18:42:58.803] FAT-fs (mmcblk1): unable to read boot sector
+[12-31 18:43:14.324] EXT4-fs (mmcblk0p1): mounted filesystem with ordered data mode. Opts: 
+[12-31 18:43:14.389] EXT4-fs (mmcblk0p1): mounted filesystem with ordered data mode. Opts: 
+[12-31 18:43:16.007] SysRq : Emergency Remount R/O
+[12-31 18:43:16.024] EXT4-fs (mmcblk0p2): re-mounted. Opts: (null)
+[12-31 18:43:16.063] Emergency Remount complete
+[12-31 18:43:16.111] rtc_shutdown: clean alarm
+[12-31 18:43:16.325] Shutting down tegra ...
+[12-31 18:43:16.325] Restarting system with command ''.
+[12-31 18:43:16.325] 
+[12-31 18:43:16.325] Restarting Linux version 3.4.113-gadcba51-dirty (clamor@retranslator) (gcc version 4.8 (GCC) ) #15 SMP PREEMPT Wed Dec 27 22:10:07 EET 2017
+[12-31 18:43:16.325] 
+nteractive_up_task+0x1b8/0x248) from [<c00c07e0>] (kthread+0xb0/0xb8)
+[    3.637091] [<c00c07e0>] (kthread+0xb0/0xb8) from [<c0016978>] (kernel_thread_exit+0x0/0x8)
+[    3.637330] ---[ end trace 159081c3bf38309d ]---
+[    3.637467] cpu-tegra: Failed to set cpu frequency to 1150000 kHz
+[    3.637825] tegra_wm8903_modinit- #####
+[    3.637964] headset_init+ #####
+[    3.638125] HEADSET: Headset detection init
+[    3.638773] HEADSET: Headset detection mode
+[    3.638915] HEADSET: Config Headset Button detection gpio
+[    3.639054] HEADSET: Config LineOut detection gpio
+[    3.639387] audio_stand_route: audio stand lineout off
+[    3.640130] pad_get_psp voltage_now =7507
+[    3.640621] HEADSET: Config Jack-in detection gpio
+[    3.640761] HEADSET: Turn on micbias power
+[    3.644638] pad_get_capacity val->intval=56 ret=59
+[    3.649317] pad_get_psp  batttery temperature=232
+[    3.669033] ------------[ cut here ]------------
+[    3.669295] WARNING: at arch/arm/mach-tegra/tegra3_clocks.c:853 tegra3_cpu_clk_set_rate+0x494/0x530()
+[    3.669536] Increasing CPU rate while regulator is not ready may overclock CPU
+[    3.669668] Modules linked in:
+[    3.669940] [<c001e190>] (unwind_backtrace+0x0/0x15c) from [<c09f6964>] (dump_stack+0x20/0x24)
+[    3.670205] [<c09f6964>] (dump_stack+0x20/0x24) from [<c0098440>] (warn_slowpath_fmt+0x70/0x8c)
+[    3.670463] [<c0098440>] (warn_slowpath_fmt+0x70/0x8c) from [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530)
+[    3.670727] [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.670988] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4)
+[    3.671246] [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.671505] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c0033c28>] (clk_set_rate+0x90/0x1d0)
+[    3.671764] [<c0033c28>] (clk_set_rate+0x90/0x1d0) from [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228)
+[    3.671914] [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228) from [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94)
+[    3.672170] [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94) from [<c005e6a8>] (tegra_target+0x8c/0xb8)
+[    3.672430] [<c005e6a8>] (tegra_target+0x8c/0xb8) from [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214)
+[    3.672688] [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214) from [<c06d8410>] (cpufreq_interactive_freq_down+0x148/0x1c8)
+[    3.672955] [<c06d8410>] (cpufreq_interactive_freq_down+0x148/0x1c8) from [<c00ba504>] (process_one_work+0x194/0x768)
+[    3.673214] [<c00ba504>] (process_one_work+0x194/0x768) from [<c00bb0a8>] (worker_thread+0x280/0x778)
+[    3.673470] [<c00bb0a8>] (worker_thread+0x280/0x778) from [<c00c07e0>] (kthread+0xb0/0xb8)
+[    3.673623] [<c00c07e0>] (kthread+0xb0/0xb8) from [<c0016978>] (kernel_thread_exit+0x0/0x8)
+[    3.673761] ---[ end trace 159081c3bf38309e ]---
+[    3.674006] cpu-tegra: Failed to set cpu frequency to 1150000 kHz
+[    3.674228] ------------[ cut here ]------------
+[    3.674476] WARNING: at arch/arm/mach-tegra/tegra3_clocks.c:853 tegra3_cpu_clk_set_rate+0x494/0x530()
+[    3.674610] Increasing CPU rate while regulator is not ready may overclock CPU
+[    3.674846] Modules linked in:
+[    3.675111] [<c001e190>] (unwind_backtrace+0x0/0x15c) from [<c09f6964>] (dump_stack+0x20/0x24)
+[    3.675369] [<c09f6964>] (dump_stack+0x20/0x24) from [<c0098440>] (warn_slowpath_fmt+0x70/0x8c)
+[    3.675624] [<c0098440>] (warn_slowpath_fmt+0x70/0x8c) from [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530)
+[    3.675888] [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.676147] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4)
+[    3.676403] [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.676662] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c0033c28>] (clk_set_rate+0x90/0x1d0)
+[    3.676813] [<c0033c28>] (clk_set_rate+0x90/0x1d0) from [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228)
+[    3.677067] [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228) from [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94)
+[    3.677322] [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94) from [<c005e6a8>] (tegra_target+0x8c/0xb8)
+[    3.677576] [<c005e6a8>] (tegra_target+0x8c/0xb8) from [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214)
+[    3.677827] [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214) from [<c06d8410>] (cpufreq_interactive_freq_down+0x148/0x1c8)
+[    3.678170] [<c06d8410>] (cpufreq_interactive_freq_down+0x148/0x1c8) from [<c00ba504>] (process_one_work+0x194/0x768)
+[    3.678471] [<c00ba504>] (process_one_work+0x194/0x768) from [<c00bb0a8>] (worker_thread+0x280/0x778)
+[    3.678732] [<c00bb0a8>] (worker_thread+0x280/0x778) from [<c00c07e0>] (kthread+0xb0/0xb8)
+[    3.678883] [<c00c07e0>] (kthread+0xb0/0xb8) from [<c0016978>] (kernel_thread_exit+0x0/0x8)
+[    3.679124] ---[ end trace 159081c3bf38309f ]---
+[    3.679368] cpu-tegra: Failed to set cpu frequency to 910000 kHz
+[    3.688201] ------------[ cut here ]------------
+[    3.688351] WARNING: at arch/arm/mach-tegra/tegra3_clocks.c:853 tegra3_cpu_clk_set_rate+0x494/0x530()
+[    3.688590] Increasing CPU rate while regulator is not ready may overclock CPU
+[    3.688826] Modules linked in:
+[    3.689096] [<c001e190>] (unwind_backtrace+0x0/0x15c) from [<c09f6964>] (dump_stack+0x20/0x24)
+[    3.689360] [<c09f6964>] (dump_stack+0x20/0x24) from [<c0098440>] (warn_slowpath_fmt+0x70/0x8c)
+[    3.689618] [<c0098440>] (warn_slowpath_fmt+0x70/0x8c) from [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530)
+[    3.689881] [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.690140] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4)
+[    3.690294] [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.690552] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c0033c28>] (clk_set_rate+0x90/0x1d0)
+[    3.690807] [<c0033c28>] (clk_set_rate+0x90/0x1d0) from [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228)
+[    3.691063] [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228) from [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94)
+[    3.691319] [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94) from [<c005e6a8>] (tegra_target+0x8c/0xb8)
+[    3.691577] [<c005e6a8>] (tegra_target+0x8c/0xb8) from [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214)
+[    3.691833] [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214) from [<c06d8648>] (cpufreq_interactive_up_task+0x1b8/0x248)
+[    3.692091] [<c06d8648>] (cpufreq_interactive_up_task+0x1b8/0x248) from [<c00c07e0>] (kthread+0xb0/0xb8)
+[    3.692351] [<c00c07e0>] (kthread+0xb0/0xb8) from [<c0016978>] (kernel_thread_exit+0x0/0x8)
+[    3.692488] ---[ end trace 159081c3bf3830a0 ]---
+[    3.692732] cpu-tegra: Failed to set cpu frequency to 1150000 kHz
+[    3.708172] ------------[ cut here ]------------
+[    3.708427] WARNING: at arch/arm/mach-tegra/tegra3_clocks.c:853 tegra3_cpu_clk_set_rate+0x494/0x530()
+[    3.708562] Increasing CPU rate while regulator is not ready may overclock CPU
+[    3.708800] Modules linked in:
+[    3.709069] [<c001e190>] (unwind_backtrace+0x0/0x15c) from [<c09f6964>] (dump_stack+0x20/0x24)
+[    3.709333] [<c09f6964>] (dump_stack+0x20/0x24) from [<c0098440>] (warn_slowpath_fmt+0x70/0x8c)
+[    3.709592] [<c0098440>] (warn_slowpath_fmt+0x70/0x8c) from [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530)
+[    3.709854] [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.710110] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4)
+[    3.710367] [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.710626] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c0033c28>] (clk_set_rate+0x90/0x1d0)
+[    3.710772] [<c0033c28>] (clk_set_rate+0x90/0x1d0) from [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228)
+[    3.711020] [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228) from [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94)
+[    3.711276] [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94) from [<c005e6a8>] (tegra_target+0x8c/0xb8)
+[    3.711534] [<c005e6a8>] (tegra_target+0x8c/0xb8) from [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214)
+[    3.711790] [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214) from [<c06d8648>] (cpufreq_interactive_up_task+0x1b8/0x248)
+[    3.712045] [<c06d8648>] (cpufreq_interactive_up_task+0x1b8/0x248) from [<c00c07e0>] (kthread+0xb0/0xb8)
+[    3.712304] [<c00c07e0>] (kthread+0xb0/0xb8) from [<c0016978>] (kernel_thread_exit+0x0/0x8)
+[    3.712442] ---[ end trace 159081c3bf3830a1 ]---
+[    3.712684] cpu-tegra: Failed to set cpu frequency to 1150000 kHz
+[    3.728243] ------------[ cut here ]------------
+[    3.728505] WARNING: at arch/arm/mach-tegra/tegra3_clocks.c:853 tegra3_cpu_clk_set_rate+0x494/0x530()
+[    3.728745] Increasing CPU rate while regulator is not ready may overclock CPU
+[    3.728877] Modules linked in:
+[    3.729251] [<c001e190>] (unwind_backtrace+0x0/0x15c) from [<c09f6964>] (dump_stack+0x20/0x24)
+[    3.729405] [<c09f6964>] (dump_stack+0x20/0x24) from [<c0098440>] (warn_slowpath_fmt+0x70/0x8c)
+[    3.729662] [<c0098440>] (warn_slowpath_fmt+0x70/0x8c) from [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530)
+[    3.729924] [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.730182] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4)
+[    3.730439] [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.730698] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c0033c28>] (clk_set_rate+0x90/0x1d0)
+[    3.730953] [<c0033c28>] (clk_set_rate+0x90/0x1d0) from [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228)
+[    3.731101] [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228) from [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94)
+[    3.731354] [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94) from [<c005e6a8>] (tegra_target+0x8c/0xb8)
+[    3.731610] [<c005e6a8>] (tegra_target+0x8c/0xb8) from [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214)
+[    3.731864] [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214) from [<c06d8410>] (cpufreq_interactive_freq_down+0x148/0x1c8)
+[    3.732124] [<c06d8410>] (cpufreq_interactive_freq_down+0x148/0x1c8) from [<c00ba504>] (process_one_work+0x194/0x768)
+[    3.732383] [<c00ba504>] (process_one_work+0x194/0x768) from [<c00bb0a8>] (worker_thread+0x280/0x778)
+[    3.732639] [<c00bb0a8>] (worker_thread+0x280/0x778) from [<c00c07e0>] (kthread+0xb0/0xb8)
+[    3.732897] [<c00c07e0>] (kthread+0xb0/0xb8) from [<c0016978>] (kernel_thread_exit+0x0/0x8)
+[    3.733033] ---[ end trace 159081c3bf3830a2 ]---
+[    3.733280] cpu-tegra: Failed to set cpu frequency to 910000 kHz
+[    3.748116] HEADSET: Turn off micbias power
+[    3.748199] ------------[ cut here ]------------
+[    3.748226] WARNING: at arch/arm/mach-tegra/tegra3_clocks.c:853 tegra3_cpu_clk_set_rate+0x494/0x530()
+[    3.748240] Increasing CPU rate while regulator is not ready may overclock CPU
+[    3.748252] Modules linked in:
+[    3.748281] [<c001e190>] (unwind_backtrace+0x0/0x15c) from [<c09f6964>] (dump_stack+0x20/0x24)
+[    3.748316] [<c09f6964>] (dump_stack+0x20/0x24) from [<c0098440>] (warn_slowpath_fmt+0x70/0x8c)
+[    3.748347] [<c0098440>] (warn_slowpath_fmt+0x70/0x8c) from [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530)
+[    3.748382] [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.748413] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4)
+[    3.748444] [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.748476] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c0033c28>] (clk_set_rate+0x90/0x1d0)
+[    3.748506] [<c0033c28>] (clk_set_rate+0x90/0x1d0) from [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228)
+[    3.748535] [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228) from [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94)
+[    3.748563] [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94) from [<c005e6a8>] (tegra_target+0x8c/0xb8)
+[    3.748594] [<c005e6a8>] (tegra_target+0x8c/0xb8) from [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214)
+[    3.748625] [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214) from [<c06d8648>] (cpufreq_interactive_up_task+0x1b8/0x248)
+[    3.748654] [<c06d8648>] (cpufreq_interactive_up_task+0x1b8/0x248) from [<c00c07e0>] (kthread+0xb0/0xb8)
+[    3.748686] [<c00c07e0>] (kthread+0xb0/0xb8) from [<c0016978>] (kernel_thread_exit+0x0/0x8)
+[    3.748702] ---[ end trace 159081c3bf3830a3 ]---
+[    3.748720] cpu-tegra: Failed to set cpu frequency to 1000000 kHz
+[    3.752424] ------------[ cut here ]------------
+[    3.752576] WARNING: at arch/arm/mach-tegra/tegra3_clocks.c:853 tegra3_cpu_clk_set_rate+0x494/0x530()
+[    3.752816] Increasing CPU rate while regulator is not ready may overclock CPU
+[    3.753053] Modules linked in:
+[    3.753319] [<c001e190>] (unwind_backtrace+0x0/0x15c) from [<c09f6964>] (dump_stack+0x20/0x24)
+[    3.753581] [<c09f6964>] (dump_stack+0x20/0x24) from [<c0098440>] (warn_slowpath_fmt+0x70/0x8c)
+[    3.753734] [<c0098440>] (warn_slowpath_fmt+0x70/0x8c) from [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530)
+[    3.753994] [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.754251] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4)
+[    3.754508] [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.754766] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c0033c28>] (clk_set_rate+0x90/0x1d0)
+[    3.755022] [<c0033c28>] (clk_set_rate+0x90/0x1d0) from [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228)
+[    3.755278] [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228) from [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94)
+[    3.755533] [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94) from [<c005e6a8>] (tegra_target+0x8c/0xb8)
+[    3.755788] [<c005e6a8>] (tegra_target+0x8c/0xb8) from [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214)
+[    3.755939] [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214) from [<c06d8410>] (cpufreq_interactive_freq_down+0x148/0x1c8)
+[    3.756097] [<c06d8410>] (cpufreq_interactive_freq_down+0x148/0x1c8) from [<c00ba504>] (process_one_work+0x194/0x768)
+[    3.756356] [<c00ba504>] (process_one_work+0x194/0x768) from [<c00bb0a8>] (worker_thread+0x280/0x778)
+[    3.756613] [<c00bb0a8>] (worker_thread+0x280/0x778) from [<c00c07e0>] (kthread+0xb0/0xb8)
+[    3.756869] [<c00c07e0>] (kthread+0xb0/0xb8) from [<c0016978>] (kernel_thread_exit+0x0/0x8)
+[    3.757114] ---[ end trace 159081c3bf3830a4 ]---
+[    3.757253] cpu-tegra: Failed to set cpu frequency to 1000000 kHz
+[    3.757536] remove_headset:++++++++++
+[    3.757668] headset_init- #####
+[    3.757799] fm34_init+ #####
+[    3.758077] gpio 123 set to 1
+[    3.758207] fm34_init()
+[    3.758649] fm34: [fm34_chip_init] GPIO = 115 , state = 1
+[    3.758795] fm34: [fm34_chip_init] GPIO = 222 , state = 1
+[    3.768187] ------------[ cut here ]------------
+[    3.768338] WARNING: at arch/arm/mach-tegra/tegra3_clocks.c:853 tegra3_cpu_clk_set_rate+0x494/0x530()
+[    3.768578] Increasing CPU rate while regulator is not ready may overclock CPU
+[    3.768815] Modules linked in:
+[    3.769083] [<c001e190>] (unwind_backtrace+0x0/0x15c) from [<c09f6964>] (dump_stack+0x20/0x24)
+[    3.769347] [<c09f6964>] (dump_stack+0x20/0x24) from [<c0098440>] (warn_slowpath_fmt+0x70/0x8c)
+[    3.769604] [<c0098440>] (warn_slowpath_fmt+0x70/0x8c) from [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530)
+[    3.769867] [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.770018] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4)
+[    3.770273] [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.770529] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c0033c28>] (clk_set_rate+0x90/0x1d0)
+[    3.770785] [<c0033c28>] (clk_set_rate+0x90/0x1d0) from [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228)
+[    3.771039] [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228) from [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94)
+[    3.771292] [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94) from [<c005e6a8>] (tegra_target+0x8c/0xb8)
+[    3.771549] [<c005e6a8>] (tegra_target+0x8c/0xb8) from [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214)
+[    3.771806] [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214) from [<c06d8648>] (cpufreq_interactive_up_task+0x1b8/0x248)
+[    3.772061] [<c06d8648>] (cpufreq_interactive_up_task+0x1b8/0x248) from [<c00c07e0>] (kthread+0xb0/0xb8)
+[    3.772215] [<c00c07e0>] (kthread+0xb0/0xb8) from [<c0016978>] (kernel_thread_exit+0x0/0x8)
+[    3.772456] ---[ end trace 159081c3bf3830a5 ]---
+[    3.772700] cpu-tegra: Failed to set cpu frequency to 1150000 kHz
+[    3.788177] ------------[ cut here ]------------
+[    3.788436] WARNING: at arch/arm/mach-tegra/tegra3_clocks.c:853 tegra3_cpu_clk_set_rate+0x494/0x530()
+[    3.788571] Increasing CPU rate while regulator is not ready may overclock CPU
+[    3.788809] Modules linked in:
+[    3.789077] [<c001e190>] (unwind_backtrace+0x0/0x15c) from [<c09f6964>] (dump_stack+0x20/0x24)
+[    3.789338] [<c09f6964>] (dump_stack+0x20/0x24) from [<c0098440>] (warn_slowpath_fmt+0x70/0x8c)
+[    3.789595] [<c0098440>] (warn_slowpath_fmt+0x70/0x8c) from [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530)
+[    3.789857] [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.790116] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4)
+[    3.790374] [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.790633] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c0033c28>] (clk_set_rate+0x90/0x1d0)
+[    3.790785] [<c0033c28>] (clk_set_rate+0x90/0x1d0) from [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228)
+[    3.791040] [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228) from [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94)
+[    3.791293] [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94) from [<c005e6a8>] (tegra_target+0x8c/0xb8)
+[    3.791551] [<c005e6a8>] (tegra_target+0x8c/0xb8) from [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214)
+[    3.791806] [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214) from [<c06d8648>] (cpufreq_interactive_up_task+0x1b8/0x248)
+[    3.792062] [<c06d8648>] (cpufreq_interactive_up_task+0x1b8/0x248) from [<c00c07e0>] (kthread+0xb0/0xb8)
+[    3.792318] [<c00c07e0>] (kthread+0xb0/0xb8) from [<c0016978>] (kernel_thread_exit+0x0/0x8)
+[    3.792455] ---[ end trace 159081c3bf3830a6 ]---
+[    3.792699] cpu-tegra: Failed to set cpu frequency to 1150000 kHz
+[    3.808265] ------------[ cut here ]------------
+[    3.808525] WARNING: at arch/arm/mach-tegra/tegra3_clocks.c:853 tegra3_cpu_clk_set_rate+0x494/0x530()
+[    3.808769] Increasing CPU rate while regulator is not ready may overclock CPU
+[    3.808903] Modules linked in:
+[    3.809169] [<c001e190>] (unwind_backtrace+0x0/0x15c) from [<c09f6964>] (dump_stack+0x20/0x24)
+[    3.809431] [<c09f6964>] (dump_stack+0x20/0x24) from [<c0098440>] (warn_slowpath_fmt+0x70/0x8c)
+[    3.809687] [<c0098440>] (warn_slowpath_fmt+0x70/0x8c) from [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530)
+[    3.809950] [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.810207] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4)
+[    3.810461] [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.810718] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c0033c28>] (clk_set_rate+0x90/0x1d0)
+[    3.810974] [<c0033c28>] (clk_set_rate+0x90/0x1d0) from [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228)
+[    3.811123] [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228) from [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94)
+[    3.811377] [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94) from [<c005e6a8>] (tegra_target+0x8c/0xb8)
+[    3.811633] [<c005e6a8>] (tegra_target+0x8c/0xb8) from [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214)
+[    3.811890] [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214) from [<c06d8410>] (cpufreq_interactive_freq_down+0x148/0x1c8)
+[    3.812151] [<c06d8410>] (cpufreq_interactive_freq_down+0x148/0x1c8) from [<c00ba504>] (process_one_work+0x194/0x768)
+[    3.812410] [<c00ba504>] (process_one_work+0x194/0x768) from [<c00bb0a8>] (worker_thread+0x280/0x778)
+[    3.812665] [<c00bb0a8>] (worker_thread+0x280/0x778) from [<c00c07e0>] (kthread+0xb0/0xb8)
+[    3.812817] [<c00c07e0>] (kthread+0xb0/0xb8) from [<c0016978>] (kernel_thread_exit+0x0/0x8)
+[    3.813060] ---[ end trace 159081c3bf3830a7 ]---
+[    3.813303] cpu-tegra: Failed to set cpu frequency to 910000 kHz
+[    3.828166] ------------[ cut here ]------------
+[    3.828420] WARNING: at arch/arm/mach-tegra/tegra3_clocks.c:853 tegra3_cpu_clk_set_rate+0x494/0x530()
+[    3.828557] Increasing CPU rate while regulator is not ready may overclock CPU
+[    3.828794] Modules linked in:
+[    3.829060] [<c001e190>] (unwind_backtrace+0x0/0x15c) from [<c09f6964>] (dump_stack+0x20/0x24)
+[    3.829320] [<c09f6964>] (dump_stack+0x20/0x24) from [<c0098440>] (warn_slowpath_fmt+0x70/0x8c)
+[    3.829577] [<c0098440>] (warn_slowpath_fmt+0x70/0x8c) from [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530)
+[    3.829838] [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.830097] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4)
+[    3.830354] [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.830611] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c0033c28>] (clk_set_rate+0x90/0x1d0)
+[    3.830761] [<c0033c28>] (clk_set_rate+0x90/0x1d0) from [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228)
+[    3.831016] [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228) from [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94)
+[    3.831273] [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94) from [<c005e6a8>] (tegra_target+0x8c/0xb8)
+[    3.831530] [<c005e6a8>] (tegra_target+0x8c/0xb8) from [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214)
+[    3.831785] [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214) from [<c06d8648>] (cpufreq_interactive_up_task+0x1b8/0x248)
+[    3.832042] [<c06d8648>] (cpufreq_interactive_up_task+0x1b8/0x248) from [<c00c07e0>] (kthread+0xb0/0xb8)
+[    3.832299] [<c00c07e0>] (kthread+0xb0/0xb8) from [<c0016978>] (kernel_thread_exit+0x0/0x8)
+[    3.832437] ---[ end trace 159081c3bf3830a8 ]---
+[    3.832680] cpu-tegra: Failed to set cpu frequency to 1000000 kHz
+[    3.832907] ------------[ cut here ]------------
+[    3.833165] WARNING: at arch/arm/mach-tegra/tegra3_clocks.c:853 tegra3_cpu_clk_set_rate+0x494/0x530()
+[    3.833406] Increasing CPU rate while regulator is not ready may overclock CPU
+[    3.833537] Modules linked in:
+[    3.833801] [<c001e190>] (unwind_backtrace+0x0/0x15c) from [<c09f6964>] (dump_stack+0x20/0x24)
+[    3.834060] [<c09f6964>] (dump_stack+0x20/0x24) from [<c0098440>] (warn_slowpath_fmt+0x70/0x8c)
+[    3.834318] [<c0098440>] (warn_slowpath_fmt+0x70/0x8c) from [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530)
+[    3.834579] [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.834836] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4)
+[    3.835093] [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.835351] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c0033c28>] (clk_set_rate+0x90/0x1d0)
+[    3.835606] [<c0033c28>] (clk_set_rate+0x90/0x1d0) from [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228)
+[    3.835757] [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228) from [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94)
+[    3.836012] [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94) from [<c005e6a8>] (tegra_target+0x8c/0xb8)
+[    3.836268] [<c005e6a8>] (tegra_target+0x8c/0xb8) from [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214)
+[    3.836525] [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214) from [<c06d8410>] (cpufreq_interactive_freq_down+0x148/0x1c8)
+[    3.836788] [<c06d8410>] (cpufreq_interactive_freq_down+0x148/0x1c8) from [<c00ba504>] (process_one_work+0x194/0x768)
+[    3.837044] [<c00ba504>] (process_one_work+0x194/0x768) from [<c00bb0a8>] (worker_thread+0x280/0x778)
+[    3.837298] [<c00bb0a8>] (worker_thread+0x280/0x778) from [<c00c07e0>] (kthread+0xb0/0xb8)
+[    3.837555] [<c00c07e0>] (kthread+0xb0/0xb8) from [<c0016978>] (kernel_thread_exit+0x0/0x8)
+[    3.837693] ---[ end trace 159081c3bf3830a9 ]---
+[    3.837938] cpu-tegra: Failed to set cpu frequency to 1000000 kHz
+[    3.848172] ------------[ cut here ]------------
+[    3.848427] WARNING: at arch/arm/mach-tegra/tegra3_clocks.c:853 tegra3_cpu_clk_set_rate+0x494/0x530()
+[    3.848564] Increasing CPU rate while regulator is not ready may overclock CPU
+[    3.848807] Modules linked in:
+[    3.849078] [<c001e190>] (unwind_backtrace+0x0/0x15c) from [<c09f6964>] (dump_stack+0x20/0x24)
+[    3.849340] [<c09f6964>] (dump_stack+0x20/0x24) from [<c0098440>] (warn_slowpath_fmt+0x70/0x8c)
+[    3.849597] [<c0098440>] (warn_slowpath_fmt+0x70/0x8c) from [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530)
+[    3.849857] [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.850114] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4)
+[    3.850369] [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.850625] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c0033c28>] (clk_set_rate+0x90/0x1d0)
+[    3.850776] [<c0033c28>] (clk_set_rate+0x90/0x1d0) from [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228)
+[    3.851031] [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228) from [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94)
+[    3.851284] [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94) from [<c005e6a8>] (tegra_target+0x8c/0xb8)
+[    3.851541] [<c005e6a8>] (tegra_target+0x8c/0xb8) from [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214)
+[    3.851798] [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214) from [<c06d8648>] (cpufreq_interactive_up_task+0x1b8/0x248)
+[    3.852055] [<c06d8648>] (cpufreq_interactive_up_task+0x1b8/0x248) from [<c00c07e0>] (kthread+0xb0/0xb8)
+[    3.852313] [<c00c07e0>] (kthread+0xb0/0xb8) from [<c0016978>] (kernel_thread_exit+0x0/0x8)
+[    3.852450] ---[ end trace 159081c3bf3830aa ]---
+[    3.852694] cpu-tegra: Failed to set cpu frequency to 1150000 kHz
+[    3.868181] ------------[ cut here ]------------
+[    3.868437] WARNING: at arch/arm/mach-tegra/tegra3_clocks.c:853 tegra3_cpu_clk_set_rate+0x494/0x530()
+[    3.868678] Increasing CPU rate while regulator is not ready may overclock CPU
+[    3.868810] Modules linked in:
+[    3.869181] [<c001e190>] (unwind_backtrace+0x0/0x15c) from [<c09f6964>] (dump_stack+0x20/0x24)
+[    3.869335] [<c09f6964>] (dump_stack+0x20/0x24) from [<c0098440>] (warn_slowpath_fmt+0x70/0x8c)
+[    3.869593] [<c0098440>] (warn_slowpath_fmt+0x70/0x8c) from [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530)
+[    3.869852] [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.870109] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4)
+[    3.870365] [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.870619] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c0033c28>] (clk_set_rate+0x90/0x1d0)
+[    3.870876] [<c0033c28>] (clk_set_rate+0x90/0x1d0) from [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228)
+[    3.871026] [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228) from [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94)
+[    3.871279] [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94) from [<c005e6a8>] (tegra_target+0x8c/0xb8)
+[    3.871536] [<c005e6a8>] (tegra_target+0x8c/0xb8) from [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214)
+[    3.871795] [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214) from [<c06d8648>] (cpufreq_interactive_up_task+0x1b8/0x248)
+[    3.872052] [<c06d8648>] (cpufreq_interactive_up_task+0x1b8/0x248) from [<c00c07e0>] (kthread+0xb0/0xb8)
+[    3.872310] [<c00c07e0>] (kthread+0xb0/0xb8) from [<c0016978>] (kernel_thread_exit+0x0/0x8)
+[    3.872554] ---[ end trace 159081c3bf3830ab ]---
+[    3.872690] cpu-tegra: Failed to set cpu frequency to 1150000 kHz
+[    3.888270] ------------[ cut here ]------------
+[    3.888454] WARNING: at arch/arm/mach-tegra/tegra3_clocks.c:853 tegra3_cpu_clk_set_rate+0x494/0x530()
+[    3.888694] Increasing CPU rate while regulator is not ready may overclock CPU
+[    3.888826] Modules linked in:
+[    3.889197] [<c001e190>] (unwind_backtrace+0x0/0x15c) from [<c09f6964>] (dump_stack+0x20/0x24)
+[    3.889353] [<c09f6964>] (dump_stack+0x20/0x24) from [<c0098440>] (warn_slowpath_fmt+0x70/0x8c)
+[    3.889611] [<c0098440>] (warn_slowpath_fmt+0x70/0x8c) from [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530)
+[    3.889872] [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.890132] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4)
+[    3.890388] [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.890644] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c0033c28>] (clk_set_rate+0x90/0x1d0)
+[    3.890897] [<c0033c28>] (clk_set_rate+0x90/0x1d0) from [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228)
+[    3.891153] [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228) from [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94)
+[    3.891408] [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94) from [<c005e6a8>] (tegra_target+0x8c/0xb8)
+[    3.891560] [<c005e6a8>] (tegra_target+0x8c/0xb8) from [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214)
+[    3.891816] [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214) from [<c06d8410>] (cpufreq_interactive_freq_down+0x148/0x1c8)
+[    3.892077] [<c06d8410>] (cpufreq_interactive_freq_down+0x148/0x1c8) from [<c00ba504>] (process_one_work+0x194/0x768)
+[    3.892336] [<c00ba504>] (process_one_work+0x194/0x768) from [<c00bb0a8>] (worker_thread+0x280/0x778)
+[    3.892592] [<c00bb0a8>] (worker_thread+0x280/0x778) from [<c00c07e0>] (kthread+0xb0/0xb8)
+[    3.892848] [<c00c07e0>] (kthread+0xb0/0xb8) from [<c0016978>] (kernel_thread_exit+0x0/0x8)
+[    3.893090] ---[ end trace 159081c3bf3830ac ]---
+[    3.893225] cpu-tegra: Failed to set cpu frequency to 910000 kHz
+[    3.904789] ami306_init- #####
+[    3.905039] i2c i2c-2: Installing compassirq irq using 400
+[    3.905531] ami306_mod_delay_init: Probe name ami306_mod
+[    3.905778] ami306_mod_delay_init- #####
+[    3.908178] ------------[ cut here ]------------
+[    3.908330] WARNING: at arch/arm/mach-tegra/tegra3_clocks.c:853 tegra3_cpu_clk_set_rate+0x494/0x530()
+[    3.908572] Increasing CPU rate while regulator is not ready may overclock CPU
+[    3.908811] Modules linked in:
+[    3.909081] [<c001e190>] (unwind_backtrace+0x0/0x15c) from [<c09f6964>] (dump_stack+0x20/0x24)
+[    3.909341] [<c09f6964>] (dump_stack+0x20/0x24) from [<c0098440>] (warn_slowpath_fmt+0x70/0x8c)
+[    3.909599] [<c0098440>] (warn_slowpath_fmt+0x70/0x8c) from [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530)
+[    3.909857] [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.910007] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4)
+[    3.910260] [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.910519] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c0033c28>] (clk_set_rate+0x90/0x1d0)
+[    3.910775] [<c0033c28>] (clk_set_rate+0x90/0x1d0) from [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228)
+[    3.911028] [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228) from [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94)
+[    3.911281] [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94) from [<c005e6a8>] (tegra_target+0x8c/0xb8)
+[    3.911538] [<c005e6a8>] (tegra_target+0x8c/0xb8) from [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214)
+[    3.911794] [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214) from [<c06d8410>] (cpufreq_interactive_freq_down+0x148/0x1c8)
+[    3.912056] [<c06d8410>] (cpufreq_interactive_freq_down+0x148/0x1c8) from [<c00ba504>] (process_one_work+0x194/0x768)
+[    3.912315] [<c00ba504>] (process_one_work+0x194/0x768) from [<c00bb0a8>] (worker_thread+0x280/0x778)
+[    3.912466] [<c00bb0a8>] (worker_thread+0x280/0x778) from [<c00c07e0>] (kthread+0xb0/0xb8)
+[    3.912722] [<c00c07e0>] (kthread+0xb0/0xb8) from [<c0016978>] (kernel_thread_exit+0x0/0x8)
+[    3.912964] ---[ end trace 159081c3bf3830ad ]---
+[    3.913103] cpu-tegra: Failed to set cpu frequency to 910000 kHz
+[    3.918374] fm34_probe()
+[    3.918593] fm34_init- #####
+[    3.918724] ALSA device list:
+[    3.918959]   #0: HDA NVIDIA Tegra at 0x70038000 irq 113
+[    3.919089]   #1: tegra-codec
+[    3.919669] oprofile: using arm/armv7-ca9
+[    3.920120] GACT probability NOT on
+[    3.920263] Mirror/redirect action on
+[    3.920397] u32 classifier
+[    3.920629]     Actions configured
+[    3.920760] Netfilter messages via NETLINK v0.30.
+[    3.920981] nf_conntrack version 0.5.0 (15540 buckets, 62160 max)
+[    3.922207] NF_TPROXY: Transparent proxy support initialized, version 4.1.0
+[    3.922348] NF_TPROXY: Copyright (c) 2006-2007 BalaBit IT Ltd.
+[    3.922993] xt_time: kernel timezone is -0000
+[    3.923390] ip_tables: (C) 2000-2006 Netfilter Core Team
+[    3.924008] arp_tables: (C) 2002 David S. Miller
+[    3.924231] TCP bic registered
+[    3.924365] TCP cubic registered
+[    3.924601] TCP westwood registered
+[    3.924732] TCP highspeed registered
+[    3.924861] TCP htcp registered
+[    3.925093] TCP vegas registered
+[    3.925221] TCP veno registered
+[    3.925349] TCP scalable registered
+[    3.925478] TCP yeah registered
+[    3.925713] TCP illinois registered
+[    3.926793] NET: Registered protocol family 10
+[    3.928152] fm34: [fm34_reconfig] ReConfigure DSP
+[    3.928257] ------------[ cut here ]------------
+[    3.928285] WARNING: at arch/arm/mach-tegra/tegra3_clocks.c:853 tegra3_cpu_clk_set_rate+0x494/0x530()
+[    3.928299] Increasing CPU rate while regulator is not ready may overclock CPU
+[    3.928311] Modules linked in:
+[    3.928343] [<c001e190>] (unwind_backtrace+0x0/0x15c) from [<c09f6964>] (dump_stack+0x20/0x24)
+[    3.928379] [<c09f6964>] (dump_stack+0x20/0x24) from [<c0098440>] (warn_slowpath_fmt+0x70/0x8c)
+[    3.928408] [<c0098440>] (warn_slowpath_fmt+0x70/0x8c) from [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530)
+[    3.928447] [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.928479] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4)
+[    3.928510] [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.928541] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c0033c28>] (clk_set_rate+0x90/0x1d0)
+[    3.928571] [<c0033c28>] (clk_set_rate+0x90/0x1d0) from [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228)
+[    3.928600] [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228) from [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94)
+[    3.928628] [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94) from [<c005e6a8>] (tegra_target+0x8c/0xb8)
+[    3.928662] [<c005e6a8>] (tegra_target+0x8c/0xb8) from [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214)
+[    3.928693] [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214) from [<c06d8648>] (cpufreq_interactive_up_task+0x1b8/0x248)
+[    3.928724] [<c06d8648>] (cpufreq_interactive_up_task+0x1b8/0x248) from [<c00c07e0>] (kthread+0xb0/0xb8)
+[    3.928757] [<c00c07e0>] (kthread+0xb0/0xb8) from [<c0016978>] (kernel_thread_exit+0x0/0x8)
+[    3.928774] ---[ end trace 159081c3bf3830ae ]---
+[    3.928793] cpu-tegra: Failed to set cpu frequency to 1000000 kHz
+[    3.932833] Mobile IPv6
+[    3.933022] ip6_tables: (C) 2000-2006 Netfilter Core Team
+[    3.933550] IPv6 over IPv4 tunneling driver
+[    3.935377] NET: Registered protocol family 17
+[    3.935558] NET: Registered protocol family 15
+[    3.935802] Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+[    3.936296] NET: Registered protocol family 37
+[    3.936544] Registering the dns_resolver key type
+[    3.936749] VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 4
+[    3.937150] Registering SWP/SWPB emulation handler
+[    3.948147] fm34: [fm34_reset_DSP] GPIO = 115 , state = 0
+[    3.948248] ------------[ cut here ]------------
+[    3.948279] WARNING: at arch/arm/mach-tegra/tegra3_clocks.c:853 tegra3_cpu_clk_set_rate+0x494/0x530()
+[    3.948294] Increasing CPU rate while regulator is not ready may overclock CPU
+[    3.948306] Modules linked in:
+[    3.948343] [<c001e190>] (unwind_backtrace+0x0/0x15c) from [<c09f6964>] (dump_stack+0x20/0x24)
+[    3.948381] [<c09f6964>] (dump_stack+0x20/0x24) from [<c0098440>] (warn_slowpath_fmt+0x70/0x8c)
+[    3.948411] [<c0098440>] (warn_slowpath_fmt+0x70/0x8c) from [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530)
+[    3.948450] [<c003b9b4>] (tegra3_cpu_clk_set_rate+0x494/0x530) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.948484] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4)
+[    3.948515] [<c003820c>] (tegra3_cpu_cmplx_clk_set_rate+0x90/0x1f4) from [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268)
+[    3.948548] [<c0033a3c>] (clk_set_rate_locked+0x10c/0x268) from [<c0033c28>] (clk_set_rate+0x90/0x1d0)
+[    3.948578] [<c0033c28>] (clk_set_rate+0x90/0x1d0) from [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228)
+[    3.948608] [<c005dbbc>] (tegra_update_cpu_speed+0xf4/0x228) from [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94)
+[    3.948637] [<c005dfd0>] (tegra_cpu_set_speed_cap+0x64/0x94) from [<c005e6a8>] (tegra_target+0x8c/0xb8)
+[    3.948670] [<c005e6a8>] (tegra_target+0x8c/0xb8) from [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214)
+[    3.948702] [<c06cf8e0>] (__cpufreq_driver_target+0xb8/0x214) from [<c06d8648>] (cpufreq_interactive_up_task+0x1b8/0x248)
+[    3.948734] [<c06d8648>] (cpufreq_interactive_up_task+0x1b8/0x248) from [<c00c07e0>] (kthread+0xb0/0xb8)
+[    3.948769] [<c00c07e0>] (kthread+0xb0/0xb8) from [<c0016978>] (kernel_thread_exit+0x0/0x8)
+[    3.948787] ---[ end trace 159081c3bf3830af ]---
+[    3.948806] cpu-tegra: Failed to set cpu frequency to 1500000 kHz
+[    3.952349] fm34: [fm34_reset_DSP] GPIO = 115 , state = 1
+[    3.960520] Disabling clocks left on by bootloader:
+[    3.960773]    dsi2-fixed
+[    3.960904]    dsi1-fixed
+[    3.961050]    uarta
+[    3.961315]    fuse_burn
+[    3.961455]    cclk_lp
+[    3.961585]    pll_x_out0
+[    3.961714]    pll_d2_out0
+[    3.961840]    pll_d_out0
+[    3.962072]    pll_p_out2
+[    3.962204]    pll_c_out1
+[    3.962334]    pll_m_out1
+[    3.962560] CPU rate: 475 MHz
+[    3.963241] DVFS: Got RTC device name:rtc0
+[    3.965918] rtc_tps6591x rtc_tps6591x.0: RTC Time : 12/31/2017 18:31:43
+[    3.966081] TEGRA: Linear age: 8
+[    3.967430] tegra_dvfs: vdd_cpu: stats above 1237 mV will be squashed
+[    3.969200] tegra dvfs: tegra sysfs cap interface is initialized
+[    3.969856] tegra_actmon.emc: Completed initialization (0)
+[    3.970301] tegra_actmon.avp: Completed initialization (0)
+[    3.973327] [DHD4329] ## wifi_probe
+[    3.973474] [DHD4329] wifi_set_power = 1
+[    3.973613] sdhci-tegra sdhci-tegra.2: Error: tegra3 io dpd not supported for sdhci-tegra.2
+[    4.088351] fm34: [fm34_config_DSP] DSP ACK,  read 0xc0: 1
+[    4.088596] fm34: [fm34_config_DSP] Load  DSP parameters
+[    4.238055] fm34: [fm34_config_DSP] config_length = 1462
+[    4.238364] fm34: [fm34_config_DSP] DSP configuration is done
+[    4.274557] [DHD4329] wifi_set_carddetect = 1
+[    4.274810] [mmc]:mmc_schedule_delayed_work:84 mmc1: delay 0
+[    4.275112] [DHD4329] 
+[    4.275118] Dongle Host Driver, version 5.90.195.75
+[    4.275126] Compiled in drivers/net/wireless/bcmdhd on Nov 11 2014 at 14:51:45
+[    4.331145] mmc1 clock request: 50000KHz. currently 48000KHz
+[    4.334514] mmc1: new high speed SDIO card at address 0001
+[    4.335148] [DHD4329] bcmdhd: fw_path: /system/vendor/firmware/bcm4329/fw_bcmdhd.bin nvram_path: /data/misc/wifi/nvram.txt
+[    4.335362] [DHD4329] F1 signature read @0x18000000=0x9934329
+[    4.335696] [DHD4329] sih->chiprev = 3
+[    4.335750] [DHD4329] BCM4329 found!
+[    4.337683] [DHD4329] DHD: dongle ram size is set to 294912(orig 294912)
+[    4.338330] [DHD4329] wl_create_event_handler thr:77 started
+[    4.338580] [DHD4329] dhd_attach thr:78 started
+[    4.338687] [DHD4329] dhd_attach thr:79 started
+[    4.338796] [DHD4329] dhd_attach thr:7a started
+[    4.339005] [DHD4329] wifi_get_mac_addr
+[    4.339442] [DHD4329] Broadcom Dongle Host Driver: register interface [wlan0] MAC: 00:90:4c:11:22:33
+[    4.339559] [DHD4329] wifi_set_power = 0
+[    4.339617] sdhci-tegra sdhci-tegra.2: Error: tegra3 io dpd not supported for sdhci-tegra.2
+[    4.354834] mmc1: Controller never released inhibit bit(s).
+[    4.354893] sdhci: =========== REGISTER DUMP (mmc1)===========
+[    4.354993] sdhci: Sys addr: 0x000fd029 | Version:  0x0000000f
+[    4.355049] sdhci: Blk size: 0x0000d029 | Blk cnt:  0x0000000f
+[    4.355149] sdhci: Argument: 0x000fd029 | Trn mode: 0x0000d029
+[    4.355247] sdhci: Present:  0x000fd029 | Host ctl: 0x00000029
+[    4.355303] sdhci: Power:    0x000000d0 | Blk gap:  0x0000000f
+[    4.355401] sdhci: Wake-up:  0x00000000 | Clock:    0x0000d029
+[    4.355456] sdhci: Timeout:  0x0000000f | Int stat: 0x000fd029
+[    4.355556] sdhci: Int enab: 0x000fd029 | Sig enab: 0x000fd029
+[    4.355611] sdhci: AC12 err: 0x0000d029 | Slot int: 0x0000d029
+[    4.355709] sdhci: Caps:     0x000fd029 | Caps_1:   0x000fd029
+[    4.355764] sdhci: Cmd:      0x0000000f | Max curr: 0x000fd029
+[    4.355863] sdhci: Host ctl2: 0x0000000f
+[    4.355916] sdhci: ADMA Err: 0x000fd029 | ADMA Ptr: 0x000fd029
+[    4.356014] sdhci: ===========================================
+[    4.356130] bcmsdh_sdmmc: probe of mmc1:0001:3 failed with error -5
+[    4.356241] [mmc]:mmc_rescan_try_freq:2002 mmc1: sdio completed
+[    4.640035] [DHD4329] =========== WLAN placed in RESET ========
+[    4.640421] input: gpio-keys as /devices/platform/gpio-keys.0/input/input2
+[    4.640553] gpio_keys: Make up pressed KEY_POWER
+[    4.643052] rtc_tps6591x rtc_tps6591x.0: RTC Time : 12/31/2017 18:31:44
+[    4.643128] rtc_tps6591x rtc_tps6591x.0: setting system clock to 2017-12-31 18:31:44 UTC (1514745104)
+[    4.654346] asuspec: [asuspec_enter_s3_work_function] EC in S3
+[    5.058114] tegra_ehci_bus_suspend instance 2 +
+[    5.058183] tegra_ehci_bus_suspend : ehci_bus_suspend +
+[    5.058916] tegra_ehci_bus_suspend : ehci_bus_suspend, err = 0 -
+[    5.059089] tegra_ehci_bus_suspend instance 2 -
+[    5.306297] init (1): /proc/1/oom_adj is deprecated, please use /proc/1/oom_score_adj instead.
+[    5.314421] asuspec: [asuspec_send_ec_req] send EC_Request
+[    5.379718] asuspec: [asuspec_work_function] 0x2 0x81 0x50 0xff
+[    5.379781] asuspec: [asuspec_smi] ASUSPEC_SMI_HANDSHAKING
+[    5.580677] pad_get_psp  val->intval=Not charging ret=c0
+[    5.594488] pad_get_psp voltage_now =7529
+[    5.599203] pad_get_capacity val->intval=56 ret=59
+[    5.603697] pad_get_psp  batttery temperature=232
+[    5.610884] power_supply dock_battery: driver failed to report `status' property
+[    5.659821] init: /dev/hw_random not found
+[    5.659953] keychord: using input dev gpio-keys for fevent
+[    5.901066] init: using deprecated syntax for specifying property 'ro.serialno', use ${name} instead
+[    5.920889] EXT4-fs (mmcblk0p1): mounted filesystem with ordered data mode. Opts: (null)
+[    5.942250] EXT4-fs (mmcblk0p2): mounted filesystem with ordered data mode. Opts: nomblk_io_submit,errors=panic
+[    5.942568] F2FS-fs (mmcblk0p8): mounting..
+[    6.548628] cpu ext_temperature=31
+[    6.604254] asuspec: [asuspec_enter_s3_work_function] EC in S3
+[    7.283929] F2FS-fs (mmcblk0p8): recovery complete
+[    7.331230] F2FS-fs (mmcblk0p8): mounted filesystem
+[    7.385705] init: /dev/hw_random not found
+[    7.428854] healthd: wakealarm_init: timerfd_create failed
+[    7.430548] healthd: DockBatteryHealthPath not found
+[    7.430725] healthd: DockBatteryPresentPath not found
+[    7.430820] healthd: DockBatteryVoltagePath not found
+[    7.430913] healthd: DockBatteryTemperaturePath not found
+[    7.431077] healthd: DockBatteryTechnologyPath not found
+[    7.431221] binder: 132:132 transaction failed 29189, size 0-0
+[    7.438538] init: cannot find '/system/bin/rild', disabling 'ril-daemon'
+[    7.472025] init: cannot find '/system/bin/bdaddrwriter', disabling 'bdaddrwriter'
+[    7.472369] init: cannot find '/system/bin/rm_ts_server', disabling 'rm_ts_service'
+[    7.472717] init: cannot find '/system/bin/tf_daemon', disabling 'tf_daemon'
+[    7.473564] tegra_uart tegra_uart.2: Setting clk_src clk_m
+[    7.474202] tegra_uart tegra_uart.2: Setting clk_src clk_m
+[    7.479399] tegra_uart tegra_uart.2: Setting clk_src clk_m
+[    7.479956] tegra_uart tegra_uart.2: Setting clk_src clk_m
+[    7.516191] Tegra auto-hotplug enabled
+[    7.608170] cpu_down(1)+
+[    7.616189] cpu_down(1)-
+[    7.630578] init: using deprecated syntax for specifying property 'ro.product.manufacturer', use ${name} instead
+[    7.630826] init: using deprecated syntax for specifying property 'ro.product.model', use ${name} instead
+[    7.684455] warning: `daemonsu' uses 32-bit capabilities (legacy support in use)
+[    7.728749] init: untracked pid 147 exited
+[    7.790971] init: property 'sys.powerctl' doesn't exist while expanding '${sys.powerctl}'
+[    7.791165] init: powerctl: cannot expand '${sys.powerctl}'
+[    7.791282] init: property 'sys.sysctl.extra_free_kbytes' doesn't exist while expanding '${sys.sysctl.extra_free_kbytes}'
+[    7.791452] init: cannot expand '${sys.sysctl.extra_free_kbytes}' while writing to '/proc/sys/vm/extra_free_kbytes'
+[    7.791689] init: property 'sys.sysctl.tcp_def_init_rwnd' doesn't exist while expanding '${sys.sysctl.tcp_def_init_rwnd}'
+[    7.791893] init: cannot expand '${sys.sysctl.tcp_def_init_rwnd}' while writing to '/proc/sys/net/ipv4/tcp_default_init_rwnd'
+[    7.795847] android_usb: already disabled
+[    7.796144] init: using deprecated syntax for specifying property 'sys.usb.config', use ${name} instead
+[    7.797038] init: using deprecated syntax for specifying property 'sys.usb.config', use ${name} instead
+[    7.800081] adb_open(adbd)
+[    7.800779] mtp_bind_config
+[    7.801486] adb_bind_config
+[    8.102153] EXT4-fs (mmcblk0p1): re-mounted. Opts: (null)
+[    8.618039] charger_pad_dock_detection:0 dock_in_value=1  charger_pad_dock_value =0
+[    8.618551] asuspec: [asuspec_send_ec_req] send EC_Request
+[    8.693209] asuspec: [asuspec_work_function] 0x2 0x81 0x50 0xff
+[    8.693320] asuspec: [asuspec_smi] ASUSPEC_SMI_HANDSHAKING
+[    8.818053] battery_status_poll 120 1 
+[    8.821353] pad_get_psp  val->intval=Not charging ret=c0
+[    8.835717] pad_get_psp voltage_now =7519
+[    8.840390] pad_get_capacity val->intval=56 ret=59
+[    8.844991] pad_get_psp  batttery temperature=232
+[    8.891037] pad_get_capacity val->intval=56 ret=59
+[    8.904905] pad_get_psp voltage_now =7519
+[    8.909546] pad_get_psp  batttery temperature=232
+[    8.914077] pad_get_psp  val->intval=Not charging ret=c0
+[    8.914270] power_supply dock_battery: driver failed to report `capacity' property
+[    8.914413] power_supply dock_battery: driver failed to report `status' property
+[    8.914641] power_supply dock_battery: driver failed to report `status' property
+[    8.914785] healthd: battery l=56 v=7 t=23.2 h=2 st=4 dockBattery l=0 v=0 t=0.0 h=1 st=1 chg=
+[    8.918689] pad_get_capacity val->intval=56 ret=59
+[    8.932603] pad_get_psp voltage_now =7519
+[    8.937180] pad_get_psp  batttery temperature=232
+[    8.941786] pad_get_psp  val->intval=Not charging ret=c0
+[    8.941956] power_supply dock_battery: driver failed to report `capacity' property
+[    8.942097] power_supply dock_battery: driver failed to report `status' property
+[    8.942352] power_supply dock_battery: driver failed to report `status' property
+[    8.942425] healthd: battery l=56 v=7 t=23.2 h=2 st=4 dockBattery l=0 v=0 t=0.0 h=1 st=1 chg=
+[    9.075809] TF : INFO 00000002 18:31:42.876 P-0005 T-0014 TL OTF --------- SDrvCreate
+[    9.075991] TF : INFO 00000003 18:31:42.876 P-000D T-0022 NV RSA --------- SDrvCreate
+[    9.076215] TF : INFO 00000004 18:31:42.876 P-001C T-0025 HDCP SERVICE --- >> Cr <<
+[    9.076286] TF : INFO 00000005 18:31:42.877 P-001C T-0025 HDCP SERVICE --- >> SRVXOpenClientSession
+[    9.077618] TF : INFO 00000006 18:31:42.878 P-001C T-0025 HDCP SERVICE --- glob size mismatch\x0A
+[    9.077735] TF : INFO 00000007 18:31:42.878 P-001C T-0025 HDCP SERVICE --- glob decrypt failed
+[    9.077852] TF : INFO 00000008 18:31:42.878 P-001C T-0025 HDCP SERVICE --- >> De <<
+[    9.506577] nvavp nvavp: using SMMU at ff00000 to load AVP kernel
+[    9.524947] nvavp nvavp: read firmware from 'nvavp_os_0ff00000.bin' (15516 bytes)
+[    9.542633] nvavp nvavp: entry=00000094 control=00004a80 debug=00005280 size=15492
+[    9.542867] nvavp nvavp: AVP os at vaddr=c8e00000 paddr=ff00000 reset_addr=0ff00094
+[    9.557837] nvavp nvavp: read ucode firmware from 'nvavp_vid_ucode.bin' (43464 bytes)
+[    9.618086] cpu_down(2)+
+[    9.620057] cpu_down(2)-
+[    9.647143] nvavp nvavp: using SMMU at ff00000 to load AVP kernel
+[    9.647385] nvavp nvavp: AVP os at vaddr=c8e00000 paddr=ff00000 reset_addr=0ff00094
+[    9.943684] asuspec: [asuspec_enter_s3_work_function] EC in S3
+[   11.294589] nvavp nvavp: using SMMU at ff00000 to load AVP kernel
+[   11.294786] nvavp nvavp: AVP os at vaddr=c8e00000 paddr=ff00000 reset_addr=0ff00094
+[   11.558459] cpu ext_temperature=31
+[   11.618066] cpu_down(3)+
+[   11.619826] cpu_down(3)-
+[   13.308278] EXT4-fs (mmcblk0p1): re-mounted. Opts: (null)
+[   13.316817] EXT4-fs (mmcblk0p1): re-mounted. Opts: (null)
+[   13.353640] EXT4-fs (mmcblk0p1): re-mounted. Opts: (null)
+[   13.388298] init: untracked pid 520 exited
+[   13.404588] EXT4-fs (mmcblk0p1): re-mounted. Opts: (null)
+[   13.444710] init: untracked pid 532 exited
+[   13.448694] init: untracked pid 534 exited
+[   13.463486] EXT4-fs (mmcblk0p1): re-mounted. Opts: (null)
+[   13.717339] EXT4-fs (mmcblk0p1): re-mounted. Opts: (null)
+[   13.848202] EXT4-fs (mmcblk0p1): re-mounted. Opts: (null)
+[   13.874295] EXT4-fs (mmcblk0p1): re-mounted. Opts: (null)
+[   13.908290] init: untracked pid 538 exited
+[   14.218066] cpu_up(1)+
+[   14.225789] CPU1: Booted secondary processor
+[   14.227408] cpu_up(1)-
+[   14.227898] Switched to NOHz mode on CPU #1
+[   16.568524] cpu ext_temperature=32
+[   18.152197] mpu_dev_open+ #####
+[   18.152315] mpu_dev_open- #####
+[   18.152643] drivers/misc/inv_mpu/compass/ami306.c|ami306_get_config|1078 returning 36
+[   18.152748] drivers/misc/inv_mpu/mldl_cfg.c|inv_mpu_get_slave_config|1749 returning 36
+[   19.818068] cpu_down(1)+
+[   19.819720] cpu_down(1)-
+[   21.578458] cpu ext_temperature=32
+[   22.838261] asuspec: [asuspec_send_ec_req] send EC_Request
+[   22.911518] asuspec: [asuspec_work_function] 0x2 0x81 0x50 0xff
+[   22.911584] asuspec: [asuspec_smi] ASUSPEC_SMI_HANDSHAKING
+[   23.110922] pad_get_capacity val->intval=56 ret=59
+[   23.124673] pad_get_psp voltage_now =7529
+[   23.129370] pad_get_psp  batttery temperature=233
+[   23.133973] pad_get_psp  val->intval=Not charging ret=c0
+[   23.134189] power_supply dock_battery: driver failed to report `capacity' property
+[   23.134331] power_supply dock_battery: driver failed to report `status' property
+[   23.134608] power_supply dock_battery: driver failed to report `status' property
+[   23.134688] healthd: battery l=56 v=7 t=23.3 h=2 st=4 dockBattery l=0 v=0 t=0.0 h=1 st=1 chg=
+[   23.148623] request_suspend_state: wakeup (3->0) at 23130611003 (2017-12-31 18:32:02.998372002 UTC)
+[   23.418062] cpu_up(1)+
+[   23.423537] CPU1: Booted secondary processor
+[   23.425693] cpu_up(1)-
+[   23.427743] Switched to NOHz mode on CPU #1
+[   23.622385] acc_open
+[   23.622456] acc_release
+[   24.118120] cpu_up(2)+
+[   24.128351] CPU2: Booted secondary processor
+[   24.130966] cpu_up(2)-
+[   24.134564] asuspec: [asuspec_enter_s3_work_function] EC in S3
+[   24.137468] Switched to NOHz mode on CPU #2
+[   24.218087] cpu_up(3)+
+[   24.218981] CPU3: Booted secondary processor
+[   24.219941] cpu_up(3)-
+[   24.227456] Switched to NOHz mode on CPU #3
+[   24.452164] tegra_ehci_bus_resume instance 2 +
+[   24.454995] utmi_phy_irq: usb device plugged-in
+[   24.468501] tegra_ehci_bus_resume instance 2 -
+[   26.588499] cpu ext_temperature=34
+[   27.028160] tegra_ehci_bus_suspend instance 2 +
+[   27.028248] tegra_ehci_bus_suspend : ehci_bus_suspend +
+[   27.028881] tegra_ehci_bus_suspend : ehci_bus_suspend, err = 0 -
+[   27.029086] tegra_ehci_bus_suspend instance 2 -
+[   27.425395] init: sys_prop: permission denied uid:1003  name:service.bootanim.exit
+[   27.558059] cpu_down(1)+
+[   27.559877] cpu_down(1)-
+[   28.358099] cpu_up(1)+
+[   28.358632] CPU1: Booted secondary processor
+[   28.359368] cpu_up(1)-
+[   28.367461] Switched to NOHz mode on CPU #1
+[   30.358201] cpu_down(3)+
+[   30.359836] cpu_down(3)-
+[   31.598563] cpu ext_temperature=33
+[   32.358038] cpu_down(1)+
+[   32.359838] cpu_down(1)-
+[   32.588038] gpio_keys: Pressed KEY_POWER
+[   34.359287] cpu_down(2)+
+[   34.361434] cpu_down(2)-
+[   34.378293] gpio_keys: Released KEY_POWER
+[   35.058191] cpu_up(1)+
+[   35.061194] CPU1: Booted secondary processor
+[   35.063015] cpu_up(1)-
+[   35.067607] Switched to NOHz mode on CPU #1
+[   35.158512] cpu_up(2)+
+[   35.159430] CPU2: Booted secondary processor
+[   35.161169] cpu_up(2)-
+[   35.167498] Switched to NOHz mode on CPU #2
+[   36.608733] cpu ext_temperature=33
+[   37.158126] cpu_down(1)+
+[   37.161300] cpu_down(1)-
+[   39.158134] cpu_down(2)+
+[   39.163313] cpu_down(2)-
+[   41.619380] cpu ext_temperature=33
+[   46.629700] cpu ext_temperature=32
+[   47.349598] SysRq : Emergency Remount R/O
+[   47.369069] EXT4-fs (mmcblk0p2): re-mounted. Opts: (null)
+[   47.377659] Emergency Remount complete
+[   47.451492] rtc_shutdown: clean alarm
+[   47.453773] wm8903_i2c_shutdown+
+[   47.748504] wm8903_i2c_shutdown-
+[   47.748667] tegra_dc_shutdown+, ndev->name=tegradc ####
+[   47.748776] tegra_dc_shutdown-, ndev->name=tegradc ####
+[   47.748947] tegra_dc_shutdown+, ndev->name=tegradc ####
+[   48.248528] tegra_dc_shutdown-, ndev->name=tegradc ####
+[   48.248874] tegra_ehci_hcd_shutdown instance 2 +
+[   48.249021] tegra_ehci_shutdown instance 2 +
+[   48.249256] tegra_ehci_shutdown instance 2 -
+[   48.249384] tegra_ehci_hcd_shutdown instance 2 -
+[   48.249557] Restarting system with command 'recovery'.
+[   48.249791] 
+[   48.249915] Restarting Linux version 3.1.10-katkernel-017+ (timduru@androtim) (gcc version 4.10.0 20140417 (experimental) (GCC) ) #81 SMP PREEMPT Tue Nov 11 14:52:17 CET 2014
+[   48.249933] 
+
+6 Corrected bytes, 1325 unrecoverable blocks
