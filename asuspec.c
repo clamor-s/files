@@ -94,19 +94,24 @@ static int asusdec_kp_sci_table[] = {
 	KEY_NEXTSONG, KEY_MUTE, KEY_VOLUMEDOWN, KEY_VOLUMEUP
 };
 
+static const unsigned battery_prop_offs[] = {
+	[POWER_SUPPLY_PROP_STATUS] = 1,
+	[POWER_SUPPLY_PROP_TEMP] = 7,
+	[POWER_SUPPLY_PROP_VOLTAGE_NOW] = 9,
+	[POWER_SUPPLY_PROP_CURRENT_NOW] = 11,
+	[POWER_SUPPLY_PROP_CAPACITY] = 13,
+	[POWER_SUPPLY_PROP_CHARGE_NOW] = 15,
+	[POWER_SUPPLY_PROP_TIME_TO_EMPTY_AVG] = 17,
+	[POWER_SUPPLY_PROP_TIME_TO_FULL_AVG] = 19,
+	[POWER_SUPPLY_PROP_ENERGY_FULL_DESIGN] = 21,
+	[POWER_SUPPLY_PROP_CHARGE_FULL_DESIGN] = 23,
+	[POWER_SUPPLY_PROP_VOLTAGE_MAX_DESIGN] = 25,
+	[POWER_SUPPLY_PROP_CYCLE_COUNT] = 27,
+};
+
 /*
  * functions definition
  */
-void asusdec_touchpad_reinit(void){
-
-	if(ec_chip->dock_status == 0){
-		ASUSPEC_NOTICE("dock_status = 0, return\n");
-        }else {
-		ASUSPEC_NOTICE("touchpad reinit\n");
-		queue_delayed_work(asuspec_tp_wq, &ec_chip->asusdec_tp_enable_work, 0);
-	}
-}
-EXPORT_SYMBOL(asusdec_touchpad_reinit);
 
 int is_pad_charging_and_with_dock(void){
 	int ret = 0;
@@ -121,7 +126,8 @@ int is_pad_charging_and_with_dock(void){
 	return ret;
 }
 
-int asuspec_battery_monitor(char *cmd,bool pad){
+int asuspec_battery_monitor(char *cmd, bool pad)
+{
 	int ret_val = 0;
 	struct timeval pad_battery_time;
 	struct timeval dock_battery_time;
@@ -134,379 +140,35 @@ int asuspec_battery_monitor(char *cmd,bool pad){
 		return ret_val;
 	}
 
-	if (ec_chip->ec_in_s3){
-                asuspec_send_ec_req();
-                msleep(200);
-        }
+	if (ec_chip->ec_in_s3) {
+        asuspec_send_ec_req();
+        msleep(200);
+    }
 
-	if(pad){//pad battery
-		if(((pad_battery_time.tv_sec - old_pad_battery_time.tv_sec) > 15) || !strcmp(cmd, "status")){
-			if(ec_chip->op_mode != 1){
-				ret_val = asuspec_dockram_read_battery(0x14);
-				old_pad_battery_time.tv_sec = pad_battery_time.tv_sec;
-			}
+	if (pad) { //pad battery
+		if (((pad_battery_time.tv_sec - old_pad_battery_time.tv_sec) > 15) || !strcmp(cmd, "status")){
+			ret_val = asuspec_dockram_read_battery(0x14);
+			old_pad_battery_time.tv_sec = pad_battery_time.tv_sec;
 		}
 	}
-	else {//dock battery
+	else { //dock battery
 		if(((dock_battery_time.tv_sec - old_dock_battery_time.tv_sec) > 15) || !strcmp(cmd, "status")){
-			if(ec_chip->op_mode != 1){
-				ret_val = asuspec_dockram_read_battery(0x24);
-				old_dock_battery_time.tv_sec = dock_battery_time.tv_sec;
-			}
+			ret_val = asuspec_dockram_read_battery(0x24);
+			old_dock_battery_time.tv_sec = dock_battery_time.tv_sec;
 		}
 	}
 
 	if (ret_val == -1){
 		ASUSPEC_ERR("Fail to access battery info.\n");
 		return -1;
-	}
-	else {
-		if(pad){
-			if (!strcmp(cmd, "status"))
-				ret_val = (ec_chip->i2c_dm_battery[2] << 8 ) | ec_chip->i2c_dm_battery[1];
-			else if (!strcmp(cmd, "temperature"))
-				ret_val = (ec_chip->i2c_dm_battery[8] << 8 ) | ec_chip->i2c_dm_battery[7];
-			else if (!strcmp(cmd, "voltage"))
-				ret_val = (ec_chip->i2c_dm_battery[10] << 8 ) | ec_chip->i2c_dm_battery[9];
-			else if (!strcmp(cmd, "current"))
-				ret_val = (ec_chip->i2c_dm_battery[12] << 8 ) | ec_chip->i2c_dm_battery[11];
-			else if (!strcmp(cmd, "capacity"))
-				ret_val = (ec_chip->i2c_dm_battery[14] << 8 ) | ec_chip->i2c_dm_battery[13];
-			else if (!strcmp(cmd, "remaining_capacity"))
-				ret_val = (ec_chip->i2c_dm_battery[16] << 8 ) | ec_chip->i2c_dm_battery[15];
-			else if (!strcmp(cmd, "avg_time_to_empty"))
-				ret_val = (ec_chip->i2c_dm_battery[18] << 8 ) | ec_chip->i2c_dm_battery[17];
-			else if (!strcmp(cmd, "avg_time_to_full"))
-				ret_val = (ec_chip->i2c_dm_battery[20] << 8 ) | ec_chip->i2c_dm_battery[19];
-			else if (!strcmp(cmd, "full_capacity"))
-				ret_val = (ec_chip->i2c_dm_battery[22] << 8 ) | ec_chip->i2c_dm_battery[21];
-			else if (!strcmp(cmd, "design_capacity"))
-				ret_val = (ec_chip->i2c_dm_battery[24] << 8 ) | ec_chip->i2c_dm_battery[23];
-			else if (!strcmp(cmd, "design_voltage"))
-				ret_val = (ec_chip->i2c_dm_battery[26] << 8 ) | ec_chip->i2c_dm_battery[25];
-			else if (!strcmp(cmd, "cycle_count"))
-				ret_val = (ec_chip->i2c_dm_battery[28] << 8 ) | ec_chip->i2c_dm_battery[27];
-			else {
-				ASUSPEC_ERR("Unknown command\n");
-				ret_val = -2;
-			}
-		} else {
-			if (!strcmp(cmd, "status"))
-				ret_val = (ec_chip->i2c_dm_dock_battery[2] << 8 ) | ec_chip->i2c_dm_dock_battery[1];
-			else if (!strcmp(cmd, "temperature"))
-				ret_val = (ec_chip->i2c_dm_dock_battery[8] << 8 ) | ec_chip->i2c_dm_dock_battery[7];
-			else if (!strcmp(cmd, "voltage"))
-				ret_val = (ec_chip->i2c_dm_dock_battery[10] << 8 ) | ec_chip->i2c_dm_dock_battery[9];
-			else if (!strcmp(cmd, "current"))
-				ret_val = (ec_chip->i2c_dm_dock_battery[12] << 8 ) | ec_chip->i2c_dm_dock_battery[11];
-			else if (!strcmp(cmd, "capacity"))
-				ret_val = (ec_chip->i2c_dm_dock_battery[14] << 8 ) | ec_chip->i2c_dm_dock_battery[13];
-			else if (!strcmp(cmd, "remaining_capacity"))
-				ret_val = (ec_chip->i2c_dm_dock_battery[16] << 8 ) | ec_chip->i2c_dm_dock_battery[15];
-			else if (!strcmp(cmd, "avg_time_to_empty"))
-				ret_val = (ec_chip->i2c_dm_dock_battery[18] << 8 ) | ec_chip->i2c_dm_dock_battery[17];
-			else if (!strcmp(cmd, "avg_time_to_full"))
-				ret_val = (ec_chip->i2c_dm_dock_battery[20] << 8 ) | ec_chip->i2c_dm_dock_battery[19];
-			else if (!strcmp(cmd, "full_capacity"))
-				ret_val = (ec_chip->i2c_dm_dock_battery[22] << 8 ) | ec_chip->i2c_dm_dock_battery[21];
-			else if (!strcmp(cmd, "design_capacity"))
-				ret_val = (ec_chip->i2c_dm_dock_battery[24] << 8 ) | ec_chip->i2c_dm_dock_battery[23];
-			else if (!strcmp(cmd, "design_voltage"))
-				ret_val = (ec_chip->i2c_dm_dock_battery[26] << 8 ) | ec_chip->i2c_dm_dock_battery[25];
-			else if (!strcmp(cmd, "cycle_count"))
-				ret_val = (ec_chip->i2c_dm_dock_battery[28] << 8 ) | ec_chip->i2c_dm_dock_battery[27];
-			else {
-				ASUSPEC_ERR("Unknown command\n");
-				ret_val = -2;
-			}
-		}
-		ASUSPEC_INFO("cmd %s, return %d\n", cmd, ret_val);
-		return ret_val;
+	} else {
+		if (pad)
+		    return ec_chip->i2c_dm_battery[offs + 1] << 8 | ec_chip->i2c_dm_battery[offs];
+		else
+		    return ec_chip->i2c_dm_dock_battery[offs + 1] << 8 | ec_chip->i2c_dm_dock_battery[offs];
 	}
 }
 EXPORT_SYMBOL(asuspec_battery_monitor);
-
-u16 asuspec_get_battery_info(char *cmd, bool pad){
-	u8 reg;
-	u16 ret_val = 0x0000;
-	int ret;
-
-	gauge_fu_status = 0;
-	if (!strcmp(cmd, "CONTROL_STATUS"))
-		reg = 0x00;
-	else if (!strcmp(cmd, "DEVICE_TYPE"))
-		reg = 0x01;
-	else if (!strcmp(cmd, "FW_VERSION"))
-		reg = 0x02;
-	else if (!strcmp(cmd, "BATTERY_ID_FROM_GAUGEIC"))
-		reg = 0x08;
-	else if (!strcmp(cmd, "DF_VERSION"))
-		reg = 0x1f;
-	else {
-		ASUSPEC_ERR("Unknown command\n");
-		return -2;
-	}
-
-	memset(&ec_chip->i2c_fu_data, 0, 32);//clear buffer
-	if(pad){
-		ec_chip->i2c_fu_data[0] = 0x06;
-		ec_chip->i2c_fu_data[1] = 0x31;
-		ec_chip->i2c_fu_data[2] = 0x04;
-		ec_chip->i2c_fu_data[3] = 0x55;
-		ec_chip->i2c_fu_data[4] = 0x00;
-		ec_chip->i2c_fu_data[5] = reg;
-		ec_chip->i2c_fu_data[6] = 0x00;
-		//use i2c router write cmd to access gauge register
-		ret = i2c_smbus_write_i2c_block_data(&dockram_client, 0x21, 7, ec_chip->i2c_fu_data);//FIXME:need err handler
-		if (ret < 0){
-			ASUSPEC_NOTICE("i2c write error\n");
-		}
-		msleep(500);//FIXME:will tune the time or use retry
-		if(gauge_fu_status != 68){
-			i2c_smbus_write_i2c_block_data(&dockram_client, 0x21, 7, ec_chip->i2c_fu_data);//FIXME:need err handler
-			msleep(500);//FIXME:will tune the time or use retry
-		}
-	}else{
-		ec_chip->i2c_fu_data[0] = 0x0b;
-		ec_chip->i2c_fu_data[1] = 0x21;
-		ec_chip->i2c_fu_data[2] = 0x09;
-		ec_chip->i2c_fu_data[3] = 0x1b;
-		ec_chip->i2c_fu_data[4] = 0x21;
-		ec_chip->i2c_fu_data[5] = 0x06;
-		ec_chip->i2c_fu_data[6] = 0x31;
-		ec_chip->i2c_fu_data[7] = 0x04;
-		ec_chip->i2c_fu_data[8] = 0x55;
-		ec_chip->i2c_fu_data[9] = 0x00;
-		ec_chip->i2c_fu_data[10] = reg;
-		ec_chip->i2c_fu_data[11] = 0x00;
-		//use i2c router write cmd to access gauge register
-		ret = i2c_smbus_write_i2c_block_data(&dockram_client, 0x21, 12, ec_chip->i2c_fu_data);//FIXME:need err handler
-		if (ret < 0){
-			ASUSPEC_NOTICE("i2c write error\n");
-		}
-		msleep(500);//FIXME:will tune the time or use retry
-		if(gauge_fu_status != 0xa8){
-			i2c_smbus_write_i2c_block_data(&dockram_client, 0x21, 12, ec_chip->i2c_fu_data);//FIXME:need err handler
-			msleep(500);//FIXME:will tune the time or use retry
-		}
-	}
-	memset(&ec_chip->i2c_fu_data, 0, 32);//clear buffer
-	if(pad){
-		ec_chip->i2c_fu_data[0] = 0x05;
-		ec_chip->i2c_fu_data[1] = 0x30;
-		ec_chip->i2c_fu_data[2] = 0x03;
-		ec_chip->i2c_fu_data[3] = 0x55;
-		ec_chip->i2c_fu_data[4] = 0x00;
-		ec_chip->i2c_fu_data[5] = 0x02;
-		//use i2c router read cmd to read gauge register
-		ret = i2c_smbus_write_i2c_block_data(&dockram_client, 0x21, 6, ec_chip->i2c_fu_data);//FIXME:need err handler
-		if (ret < 0){
-			ASUSPEC_NOTICE("i2c write error2\n");
-		}
-		msleep(100);//FIXME:will tune the time or use retry
-		if(gauge_fu_status != 69){
-			i2c_smbus_write_i2c_block_data(&dockram_client, 0x21, 6, ec_chip->i2c_fu_data);//FIXME:need err handler
-			msleep(500);//FIXME:will tune the time or use retry
-		}
-	}else{
-		ec_chip->i2c_fu_data[0] = 0x0a;
-		ec_chip->i2c_fu_data[1] = 0x21;
-		ec_chip->i2c_fu_data[2] = 0x08;
-		ec_chip->i2c_fu_data[3] = 0x1b;
-		ec_chip->i2c_fu_data[4] = 0x21;
-		ec_chip->i2c_fu_data[5] = 0x05;
-		ec_chip->i2c_fu_data[6] = 0x30;
-		ec_chip->i2c_fu_data[7] = 0x03;
-		ec_chip->i2c_fu_data[8] = 0x55;
-		ec_chip->i2c_fu_data[9] = 0x00;
-		ec_chip->i2c_fu_data[10] = 0x02;
-		//use i2c router read cmd to read gauge register
-		ret = i2c_smbus_write_i2c_block_data(&dockram_client, 0x21, 11, ec_chip->i2c_fu_data);//FIXME:need err handler
-		if (ret < 0){
-			ASUSPEC_NOTICE("i2c write error2\n");
-		}
-		msleep(100);//FIXME:will tune the time or use retry
-		if(gauge_fu_status != 69){
-			i2c_smbus_write_i2c_block_data(&dockram_client, 0x21, 11, ec_chip->i2c_fu_data);//FIXME:need err handler
-			msleep(500);//FIXME:will tune the time or use retry
-		}
-	}
-
-	//get data from ec
-	memset(&ec_chip->i2c_fu_data, 0, 32);//clear buffer
-	i2c_smbus_read_i2c_block_data(&dockram_client, 0x21, 3, ec_chip->i2c_fu_data);//FIXME:need err handler
-	if (ret < 0){
-		ASUSPEC_NOTICE("i2c read error\n");
-	}
-	msleep(100);//FIXME:will tune the time or use retry
-	ret_val = ec_chip->i2c_fu_data[1] | (ec_chip->i2c_fu_data[2] << 8);
-	return ret_val;
-}
-
-u16 asuspec_get_dock_battery_source(void)
-{
-	int ret = 0;
-
-	memset(&ec_chip->i2c_fu_data, 0, 32);//clear buffer
-	ec_chip->i2c_fu_data[0] = 0x05;
-	ec_chip->i2c_fu_data[1] = 0x20;
-	ec_chip->i2c_fu_data[2] = 0x03;
-	ec_chip->i2c_fu_data[3] = 0x1b;
-	ec_chip->i2c_fu_data[4] = 0x35;
-	ec_chip->i2c_fu_data[5] = 0x06;
-
-	ret = i2c_smbus_write_i2c_block_data(&dockram_client, 0x21, 6, ec_chip->i2c_fu_data);
-
-	msleep(50);//FIXME:will tune the time or use retry
-	memset(&ec_chip->i2c_fu_data, 0, 32);//clear buffer
-	ret = i2c_smbus_read_i2c_block_data(&dockram_client, 0x21, 7, ec_chip->i2c_fu_data);
-	if (ret < 0){
-		ASUSPEC_NOTICE("i2c read error :fail to read battery type\n");
-		return 0xffff;
-	}
-	msleep(50);//FIXME:will tune the time or use retry
-	if (ec_chip->i2c_fu_data[6] > 0x30)
-		return 1;
-	else
-		return 0;
-}
-
-u16 asuspec_gauge_ic_monitor(char *cmd, bool pad)
-{
-	u16 ret_val = 0x0000;
-	if (!strcmp(cmd, "CONTROL_STATUS"))
-		ret_val = asuspec_get_battery_info("CONTROL_STATUS", pad);
-	else if (!strcmp(cmd, "FW_VERSION"))
-		ret_val = asuspec_get_battery_info("FW_VERSION", pad);
-	else if (!strcmp(cmd, "DEVICE_TYPE"))
-		ret_val = asuspec_get_battery_info("DEVICE_TYPE", pad);
-	else if (!strcmp(cmd, "DF_VERSION"))
-		ret_val = asuspec_get_battery_info("DF_VERSION", pad);
-	else if (!strcmp(cmd, "BATTERY_ID_FROM_GAUGEIC"))
-		ret_val = asuspec_get_battery_info("BATTERY_ID_FROM_GAUGEIC", pad);
-	else if (!strcmp(cmd, "BATTERY_TYPE"))
-		ret_val = asuspec_get_battery_info("BATTERY_TYPE", pad);
-	else if (!strcmp(cmd, "BATTERY_ID_FROM_PIN"))
-		if(pad)
-			ret_val = gpio_get_value(asuspec_bat_id_gpio);
-		else
-			ret_val = asuspec_get_dock_battery_source();
-	else if (!strcmp(cmd, "BATTERY_ID"))
-		ret_val = gpio_get_value(asuspec_bat_id_gpio);
-	else {
-		ASUSPEC_ERR("Unknown command\n");
-		ret_val = -2;
-	}
-	ASUSPEC_INFO("cmd %s, return %d\n", cmd, ret_val);
-	return ret_val;
-}
-EXPORT_SYMBOL(asuspec_gauge_ic_monitor);
-
-int asuspec_get_gauge_mode(bool pad){
-	int normal_mode_fail, rom_mode_fail, ret;
-
-	gauge_fu_status = 0;
-	memset(&ec_chip->i2c_fu_data, 0, 32);//clear buffer
-	if(pad){
-		ec_chip->i2c_fu_data[0] = 0x05;
-		ec_chip->i2c_fu_data[1] = 0x30;
-		ec_chip->i2c_fu_data[2] = 0x03;
-		ec_chip->i2c_fu_data[3] = 0x55;
-		ec_chip->i2c_fu_data[4] = 0x00;
-		ec_chip->i2c_fu_data[5] = 0x02;
-		//use i2c router read cmd to read gauge register
-		ret = i2c_smbus_write_i2c_block_data(&dockram_client, 0x21, 6, ec_chip->i2c_fu_data);
-		if (ret < 0){
-			ASUSPEC_NOTICE("i2c write error\n");
-		}
-		msleep(200);
-		if(gauge_fu_status != 69){
-			i2c_smbus_write_i2c_block_data(&dockram_client, 0x21, 6, ec_chip->i2c_fu_data);
-			msleep(300);
-			if(gauge_fu_status == -2){
-				ASUSPEC_ERR("normal mode write failed!\n");
-				normal_mode_fail = 1;
-			}else
-				normal_mode_fail = 0;
-		}else{
-			normal_mode_fail = 0;
-		}
-		ec_chip->i2c_fu_data[3] = 0x0b;
-		ret = i2c_smbus_write_i2c_block_data(&dockram_client, 0x21, 6, ec_chip->i2c_fu_data);
-		if (ret < 0){
-			ASUSPEC_NOTICE("i2c write error2\n");
-		}
-		msleep(200);
-		if(gauge_fu_status != 69){
-			i2c_smbus_write_i2c_block_data(&dockram_client, 0x21, 6, ec_chip->i2c_fu_data);
-			msleep(300);
-			if(gauge_fu_status == -2){
-				ASUSPEC_ERR("rom mode write failed!\n");
-				rom_mode_fail = 1;
-			}else
-				rom_mode_fail = 0;
-		}else{
-			rom_mode_fail = 0;
-		}
-	}else{
-		ec_chip->i2c_fu_data[0] = 0x0a;
-		ec_chip->i2c_fu_data[1] = 0x21;
-		ec_chip->i2c_fu_data[2] = 0x08;
-		ec_chip->i2c_fu_data[3] = 0x1b;
-		ec_chip->i2c_fu_data[4] = 0x21;
-		ec_chip->i2c_fu_data[5] = 0x05;
-		ec_chip->i2c_fu_data[6] = 0x30;
-		ec_chip->i2c_fu_data[7] = 0x03;
-		ec_chip->i2c_fu_data[8] = 0x55;
-		ec_chip->i2c_fu_data[9] = 0x00;
-		ec_chip->i2c_fu_data[10] = 0x02;
-		//use i2c router read cmd to read gauge register
-		ret = i2c_smbus_write_i2c_block_data(&dockram_client, 0x21, 11, ec_chip->i2c_fu_data);
-		if (ret < 0){
-			ASUSPEC_NOTICE("i2c write error\n");
-		}
-		msleep(200);
-		if(gauge_fu_status != 69){
-			i2c_smbus_write_i2c_block_data(&dockram_client, 0x21, 11, ec_chip->i2c_fu_data);
-			msleep(300);
-			if(gauge_fu_status == -2){
-				ASUSPEC_ERR("normal mode write failed!\n");
-				normal_mode_fail = 1;
-			}else
-				normal_mode_fail = 0;
-		}else{
-			normal_mode_fail = 0;
-		}
-		ec_chip->i2c_fu_data[8] = 0x0b;
-		ret = i2c_smbus_write_i2c_block_data(&dockram_client, 0x21, 11, ec_chip->i2c_fu_data);
-		if (ret < 0){
-			ASUSPEC_NOTICE("i2c write error2\n");
-		}
-		msleep(200);
-		if(gauge_fu_status != 69){
-			i2c_smbus_write_i2c_block_data(&dockram_client, 0x21, 11, ec_chip->i2c_fu_data);
-			msleep(300);
-			if(gauge_fu_status == -2){
-				ASUSPEC_ERR("rom mode write failed!\n");
-				rom_mode_fail = 1;
-			}else
-				rom_mode_fail = 0;
-		}else{
-			rom_mode_fail = 0;
-		}
-	}
-	if(normal_mode_fail && rom_mode_fail){
-		ASUSPEC_ERR("normal mode and rom mode write failed!\n");
-		return 0;
-	}else if (normal_mode_fail == 1 && rom_mode_fail == 0){
-		ASUSPEC_NOTICE("gauge ic is in rom mode!\n");
-		return 1;
-	}else if (normal_mode_fail == 0 && rom_mode_fail == 1){
-		ASUSPEC_NOTICE("gauge ic is in normal mode!\n");
-		return 2;
-	}
-}
-EXPORT_SYMBOL(asuspec_get_gauge_mode);
 
 static void asuspec_dockram_init(struct i2c_client *client){
 	dockram_client.adapter = client->adapter;
@@ -546,30 +208,33 @@ static int asusdec_dockram_read_data(int cmd)
 	int ret = 0;
 	int i = 0;
 
-	if (ec_chip->dock_in == 0){
+	if (ec_chip->dock_in == 0)
 		return -1;
-	}
+
 	memset(&ec_chip->i2c_dm_data, 0, 32);
+
 	ec_chip->i2c_dm_data[0] = 0x05;
-	ec_chip->i2c_dm_data[1] = 0x0b;//i2c read block
-	ec_chip->i2c_dm_data[2] = 0x00;//result :read only
-	ec_chip->i2c_dm_data[3] = 0x36;//8bit dock i2c address
+	ec_chip->i2c_dm_data[1] = 0x0b; //i2c read block
+	ec_chip->i2c_dm_data[2] = 0x00; //result :read only
+	ec_chip->i2c_dm_data[3] = 0x36; //8bit dock i2c address
 	ec_chip->i2c_dm_data[4] = (u8)cmd;
-	ec_chip->i2c_dm_data[5] = (u8)24;//read byte number
+	ec_chip->i2c_dm_data[5] = (u8)24; //read byte number
+
 	ret = i2c_smbus_write_i2c_block_data(&dockram_client, 0x11, 6, ec_chip->i2c_dm_data);
-	if (ret < 0) {
+	if (ret < 0)
 	        ASUSPEC_ERR("Fail to write dockram data, status %d\n", ret);
-	}
+
 	msleep(20);
+
 	ret = i2c_smbus_read_i2c_block_data(&dockram_client, 0x11, 32, ec_chip->i2c_dm_data);
-	if (ret < 0) {
+	if (ret < 0)
 	        ASUSPEC_ERR("Fail to read dockram data, status %d\n", ret);
-	}
+
 	//FIXME:read status data
-	for(i=9; i<32; i++)
-	{
+
+	for (i=9; i<32; i++)
 		ec_chip->i2c_dm_data[i-9] = ec_chip->i2c_dm_data[i];
-	}
+
 	return ret;
 }
 
@@ -582,21 +247,15 @@ static int asuspec_dockram_write_data(int cmd, int length)
 		return -1;
 	}
 
-	if (ec_chip->op_mode){
-		ASUSPEC_ERR("It's not allowed to access dockram under FW update mode.\n");
-		return -2;
-	}
-
-	if (ec_chip->i2c_err_count > ASUSPEC_I2C_ERR_TOLERANCE){
+	if (ec_chip->i2c_err_count > ASUSPEC_I2C_ERR_TOLERANCE)
 		return -3;
-	}
 
 	ret = i2c_smbus_write_i2c_block_data(&dockram_client, cmd, length, ec_chip->i2c_dm_data);
-	if (ret < 0) {
+	if (ret < 0)
 		ASUSPEC_ERR("Fail to write dockram data, status %d\n", ret);
-	} else {
+	else
 		ec_chip->i2c_err_count = 0;
-	}
+
 	return ret;
 }
 
@@ -609,25 +268,20 @@ static int asuspec_dockram_read_data(int cmd)
 		return -1;
 	}
 
-	if (ec_chip->op_mode){
-		ASUSPEC_ERR("It's not allowed to access dockram under FW update mode.\n");
-		return -2;
-	}
-
-	if (ec_chip->i2c_err_count > ASUSPEC_I2C_ERR_TOLERANCE){
+	if (ec_chip->i2c_err_count > ASUSPEC_I2C_ERR_TOLERANCE)
 		return -3;
-	}
 
 	ret = i2c_smbus_read_i2c_block_data(&dockram_client, cmd, 32, ec_chip->i2c_dm_data);
 	if(ec_chip->i2c_dm_data[0] == 0xff){
 		ASUSPEC_ERR("read 0xFF from ec! read again \n");
 		ret = i2c_smbus_read_i2c_block_data(&dockram_client, cmd, 32, ec_chip->i2c_dm_data);
 	}
-	if (ret < 0) {
+
+	if (ret < 0)
 		ASUSPEC_ERR("Fail to read dockram data, status %d\n", ret);
-	} else {
+	else
 		ec_chip->i2c_err_count = 0;
-	}
+
 	return ret;
 }
 
@@ -640,16 +294,11 @@ static int asuspec_dockram_read_battery(int cmd)
 		return -1;
 	}
 
-	if (ec_chip->op_mode){
-		ASUSPEC_ERR("It's not allowed to access dockram under FW update mode.\n");
-		return -2;
-	}
-
-	if(cmd == 0x14){
+	if(cmd == 0x14)
 		ret = i2c_smbus_read_i2c_block_data(&dockram_client, cmd, 32, ec_chip->i2c_dm_battery);
-	}else{
+	else
 		ret = i2c_smbus_read_i2c_block_data(&dockram_client, cmd, 32, ec_chip->i2c_dm_dock_battery);
-	}
+
 	if (ret < 0) {
 		ASUSPEC_ERR("Fail to read dockram battery, status %d\n", ret);
 		ret = -1;
@@ -672,11 +321,6 @@ static int asuspec_dockram_read_battery(int cmd)
 static int asuspec_i2c_read_data(struct i2c_client *client)
 {
 	int ret = 0;
-
-	if (ec_chip->op_mode){
-		ASUSPEC_ERR("It's not allowed to access ec under FW update mode.\n");
-		return -1;
-	}
 
 	if (ec_chip->i2c_err_count > ASUSPEC_I2C_ERR_TOLERANCE){
 		mutex_lock(&ec_chip->irq_lock);
@@ -704,30 +348,23 @@ static int asuspec_chip_init(struct i2c_client *client)
 {
 	int ret_val = 0;
 	int i = 0;
-	u16 gaugeIC_firmware_info;
 
-	ec_chip->op_mode = 0;
-
-	if (asuspec_dockram_read_data(0x01) < 0){
+	if (asuspec_dockram_read_data(0x01) < 0)
 		goto fail_to_access_ec;
-	}
 	strcpy(ec_chip->ec_model_name, &ec_chip->i2c_dm_data[1]);
 	ASUSPEC_NOTICE("Model Name: %s\n", ec_chip->ec_model_name);
 
-	if (asuspec_dockram_read_data(0x02) < 0){
+	if (asuspec_dockram_read_data(0x02) < 0)
 		goto fail_to_access_ec;
-	}
 	strcpy(ec_chip->ec_version, &ec_chip->i2c_dm_data[1]);
 	ASUSPEC_NOTICE("EC-FW Version: %s\n", ec_chip->ec_version);
 
-	if (asuspec_dockram_read_data(0x03) < 0){
+	if (asuspec_dockram_read_data(0x03) < 0)
 		goto fail_to_access_ec;
-	}
 	ASUSPEC_INFO("EC-Config Format: %s\n", &ec_chip->i2c_dm_data[1]);
 
-	if (asuspec_dockram_read_data(0x04) < 0){
+	if (asuspec_dockram_read_data(0x04) < 0)
 		goto fail_to_access_ec;
-	}
 	strcpy(ec_chip->ec_pcba, &ec_chip->i2c_dm_data[1]);
 	ASUSPEC_NOTICE("PCBA Version: %s\n", ec_chip->ec_pcba);
 
@@ -735,36 +372,35 @@ static int asuspec_chip_init(struct i2c_client *client)
 
 	ec_chip->status = 1;
 	switch_set_state(&ec_chip->pad_sdev, !ec_chip->pad_sdev.state);
+
 fail_to_access_ec:
 	return 0;
-
 }
 
 static void asusdec_kp_sci(void)
 {
 	int ec_signal = ec_chip->i2c_data[2];
 
-	if(ec_chip->dock_status == 0){
+	if (ec_chip->dock_status == 0)
 		return;
-	}
-	if(kb_power_on == 0){
-		if(elantech_i2c_command(&kb_client, ASUS_KB_WAKE_UP_CMD, ec_chip->i2c_kb_data, 0)){
+
+	if (kb_power_on == 0){
+		if (elantech_i2c_command(&kb_client, ASUS_KB_WAKE_UP_CMD, ec_chip->i2c_kb_data, 0)) {
 			ASUSPEC_NOTICE("set kb power on!\n");
 			kb_power_on = 1;
 		}
 	}
+
 	if(ec_signal == 4){
 		if(tp_in_ioctl == 1){
 			ASUSPEC_NOTICE("tp in ioctl, skip touchpad sci event!\n");
 			return;
-		}else{
+		}else
 			tp_in_ioctl = 1;
-		}
-	}else {
+	} else
 		tp_in_ioctl = 0;
-	}
 
-	if(finish_touchpad_init == 0){
+	if (finish_touchpad_init == 0) {
 		ASUSPEC_NOTICE("waiting for touchpad init, skip sci event!\n", ec_chip->keypad_data.input_keycode);
 		return;
 	}
@@ -775,9 +411,8 @@ static void asusdec_kp_sci(void)
 		input_sync(ec_chip->indev);
 		input_report_key(ec_chip->indev, ec_chip->keypad_data.input_keycode, 0);
 		input_sync(ec_chip->indev);
-	}else{
+	} else
 		ASUSPEC_INFO("Unknown ec_signal = 0x%x\n", ec_signal);
-	}
 }
 
 static int asusdec_kp_key_mapping(int x)
@@ -1043,60 +678,8 @@ static int asusdec_kp_key_mapping(int x)
 	}
 }
 
-static int asusdec_tp_control(int arg){
-
-	int ret_val = 0;
-	touchpad_enable_flag = arg;
-	if(ec_chip->dock_status != 1){
-		ASUSPEC_NOTICE("dock_status = 0, return\n");
-		tp_in_ioctl = 0;
-		return -1;
-	}
-	if(finish_touchpad_init == 0){
-		ASUSPEC_NOTICE("waiting for touchpad init,skip tp control!\n");
-		tp_in_ioctl = 0;
-		return -1;
-	}
-	ASUSPEC_NOTICE("asusdec_tp_control : %d\n",arg);
-
-#if EMC_NOTIFY
-	if(arg == 1)
-		mouse_dock_enable_flag = mouse_dock_enable_flag | 0x1;
-	else
-		mouse_dock_enable_flag = mouse_dock_enable_flag & 0xE;
-#endif
-
-	if(arg == ASUSDEC_TP_ON){
-		if (ec_chip->tp_enable == 0 ){
-			ec_chip->tp_wait_ack = 1;
-			ec_chip->tp_enable = 1;
-			disable_irq(gpio_to_irq(asuspec_ps2_int_gpio));
-			asuspec_tp_enable(0xf4);
-			enable_irq(gpio_to_irq(asuspec_ps2_int_gpio));
-			ec_chip->d_index = 0;
-		}
-		if (ec_chip->touchpad_member == -1){
-			ec_chip->init_success = -1;
-			queue_delayed_work(asuspec_wq, &ec_chip->asusdec_dock_init_work, 0);
-		}
-		ret_val = 0;
-	} else if (arg == ASUSDEC_TP_OFF){
-		ec_chip->tp_wait_ack = 1;
-		disable_irq(gpio_to_irq(asuspec_ps2_int_gpio));
-		asuspec_tp_enable(0xf5);
-		enable_irq(gpio_to_irq(asuspec_ps2_int_gpio));
-		ec_chip->tp_enable = 0;
-		ec_chip->d_index = 0;
-		ret_val = 0;
-	} else
-		ret_val = -ENOTTY;
-
-	tp_in_ioctl = 0;
-	return ret_val;
-
-}
-
-static void asusdec_tp_abs(void){
+static void asusdec_tp_abs(void)
+{
         unsigned char SA1,A1,B1,SB1,C1,D1;
         static unsigned char SA1_O=0,A1_O=0,B1_O=0,SB1_O=0,C1_O=0,D1_O=0;
         static int Null_data_times = 0;
@@ -1145,9 +728,6 @@ static void asusdec_touchpad_processing(void)
 	int length = 0;
 	int tp_start = 0;
 
-	ASUSPEC_INFO("TOUCHPAD_PROCESSING\n");
-	ASUSPEC_INFO("length %d\n",ec_chip->i2c_tp_data[3]);
-
 	length = ec_chip->i2c_tp_data[3];
 	for( i = 0; i < length ; i++){
 		ec_chip->ec_data[i] = ec_chip->i2c_tp_data[i+4];
@@ -1160,11 +740,7 @@ static irqreturn_t asuspec_interrupt_handler(int irq, void *dev_id)
 	ASUSPEC_INFO("interrupt irq = %d", irq);
 	if (irq == gpio_to_irq(asuspec_apwake_gpio)){
 		disable_irq_nosync(irq);
-		if (ec_chip->op_mode){
-			queue_delayed_work(asuspec_wq, &ec_chip->asuspec_fw_update_work, 0);
-		} else {
-			queue_delayed_work(asuspec_wq, &ec_chip->asuspec_work, 0);
-		}
+		queue_delayed_work(asuspec_wq, &ec_chip->asuspec_work, 0);
 	}
 	else if (irq == gpio_to_irq(asuspec_ps2_int_gpio)){
 		ASUSPEC_INFO("ps2 int = %d", irq);
@@ -1190,7 +766,7 @@ static int asuspec_irq_ec_request(struct i2c_client *client)
 	int rc = 0 ;
 	unsigned gpio = asuspec_ecreq_gpio;
 	int irq = gpio_to_irq(gpio);
-	const char* label = "asuspec_request" ;
+	const char* label = "asuspec_request";
 
 	rc = gpio_request(gpio, label);
 	if (rc) {
@@ -1224,7 +800,7 @@ static int asuspec_irq_kb_int(struct i2c_client *client)
 		goto err_request_input_gpio_failed;
 	}
 
-	rc = gpio_direction_input(gpio) ;
+	rc = gpio_direction_input(gpio);
 	if (rc) {
 		ASUSPEC_ERR("gpio_direction_input failed for input %d\n", gpio);
 		goto err_gpio_direction_input_failed;
@@ -1343,7 +919,7 @@ static int asuspec_irq_dock_in(struct i2c_client *client)
 		goto err_gpio_direction_input_failed;
 	}
 	
-	rc = request_irq(irq, asuspec_interrupt_handler,IRQF_SHARED|IRQF_TRIGGER_RISING|IRQF_TRIGGER_FALLING/*|IRQF_TRIGGER_HIGH|IRQF_TRIGGER_LOW*/, label, client);
+	rc = request_irq(irq, asuspec_interrupt_handler,IRQF_SHARED|IRQF_TRIGGER_RISING|IRQF_TRIGGER_FALLING, label, client);
 	if (rc < 0) {
 		ASUSPEC_ERR("Could not register for %s interrupt, irq = %d, rc = %d\n", label, irq, rc);
 		rc = -EIO;
@@ -1394,107 +970,71 @@ static void asuspec_send_ec_req(void){
 	gpio_set_value(asuspec_ecreq_gpio, 1);
 }
 
-static void asuspec_smi(void){
+static void asuspec_smi(void)
+{
+    struct timeval dock_retry_time;
 
-struct timeval dock_retry_time;
+    do_gettimeofday(&dock_retry_time);
 
-do_gettimeofday(&dock_retry_time);
-
-	if(machine_is_mozart()){
-		if (ec_chip->i2c_data[2] == ASUSPEC_SxI_AC_Event){
-			ASUSPEC_NOTICE("36 pin-connector insert or remove!\n");
-		} else if (ec_chip->i2c_data[2] == ASUSPEC_SxI_Battery_CycleChange){
-			ASUSPEC_NOTICE("Battery_CycleChange!!\n");
-		} else if (ec_chip->i2c_data[2] == ASUSPEC_SxI_Battery_FCCchange){
-			ASUSPEC_NOTICE("Battery full charge capacity change!\n");
-		} else if (ec_chip->i2c_data[2] == ASUSPEC_SxI_Battery_Low){
-			ASUSPEC_NOTICE("battery lower than 5% without AC!!\n");
-		} else if (ec_chip->i2c_data[2] == ASUSPEC_SxI_Battery_Updated){
-			ASUSPEC_NOTICE("battery info or charge status changed\n");
-		} else if (ec_chip->i2c_data[2] == ASUSPEC_SxI_ECREQ_Received){
-			ASUSPEC_NOTICE("EC got request\n");
-			if(ec_chip->status == 0){
-				if(finish_first_dock_init == 1)
-					asuspec_chip_init(ec_chip->client);
-				else
-					ASUSPEC_NOTICE("skip chip init because init must auto run at boot\n");
-			}
-			ec_chip->ec_in_s3 = 0;
-		} else if (ec_chip->i2c_data[2] == ASUSPEC_SxI_EC_WAKEUP){
-			ASUSPEC_NOTICE("Dock insert! pad EC wake up!\n");
-		} else if (ec_chip->i2c_data[2] == ASUSPEC_SxI_BOOTBLOCK_RESET){
-			ASUSPEC_NOTICE("reset EC\n");
-			queue_delayed_work(asuspec_wq, &ec_chip->asuspec_init_work, 0);
-		} else if (ec_chip->i2c_data[2] == ASUSPEC_SxI_WATCHDOG_RESET){
-			ASUSPEC_NOTICE("reset EC\n");
-			queue_delayed_work(asuspec_wq, &ec_chip->asuspec_init_work, 0);
-		} else if (ec_chip->i2c_data[2] == ASUSPEC_SxI_DOCK_REMOVE){
-			ASUSPEC_NOTICE("dock remove\n");
-			if(finish_first_dock_init == 1)
-				queue_delayed_work(asuspec_wq, &ec_chip->asusdec_dock_init_work, 0);
-			else
-				ASUSPEC_NOTICE("skip dock remove event because dock init must auto run at boot\n");
-		} else if (ec_chip->i2c_data[2] == ASUSPEC_SxI_DOCK_INSERT){
-			ASUSPEC_NOTICE("dock insert\n");
-		} else if (ec_chip->i2c_data[2] == ASUSPEC_SxI_DOCK_FAIL){
-			ASUSPEC_NOTICE("dock communication fail!\n");
+    if (ec_chip->i2c_data[2] == ASUSPEC_SxI_ECREQ_Received){
+        ASUSPEC_NOTICE("EC got request\n");
+        if(ec_chip->status == 0){
+            if(finish_first_dock_init == 1)
+                asuspec_chip_init(ec_chip->client);
+            else
+                ASUSPEC_NOTICE("skip chip init because init must auto run at boot\n");
+            }
+        ec_chip->ec_in_s3 = 0;
+	} else if (ec_chip->i2c_data[2] == ASUSPEC_SxI_BOOTBLOCK_RESET){
+		ASUSPEC_NOTICE("reset EC\n");
+		queue_delayed_work(asuspec_wq, &ec_chip->asuspec_init_work, 0);
+	} else if (ec_chip->i2c_data[2] == ASUSPEC_SxI_WATCHDOG_RESET){
+		ASUSPEC_NOTICE("reset EC\n");
+		queue_delayed_work(asuspec_wq, &ec_chip->asuspec_init_work, 0);
+	} else if (ec_chip->i2c_data[2] == ASUSPEC_SxI_DOCK_REMOVE){
+		ASUSPEC_NOTICE("dock remove\n");
+		if(finish_first_dock_init == 1)
+			queue_delayed_work(asuspec_wq, &ec_chip->asusdec_dock_init_work, 0);
+		else
+			ASUSPEC_NOTICE("skip dock remove event because dock init must auto run at boot\n");
+	} else if (ec_chip->i2c_data[2] == ASUSPEC_SxI_DOCK_FAIL){
+		ASUSPEC_NOTICE("dock communication fail!\n");
 #if BATTERY_DRIVER
-			if(1 != last_dock_in_stat && finish_first_dock_init == 1)
-				for_asuspec_call_me_back_if_dock_in_status_change(false);
+		if(1 != last_dock_in_stat && finish_first_dock_init == 1)
+			for_asuspec_call_me_back_if_dock_in_status_change(false);
 #endif
-			if(finish_first_dock_init == 1)
-				queue_delayed_work(asuspec_wq, &ec_chip->asusdec_dock_init_work, 0);
-			else
-				ASUSPEC_NOTICE("skip dock remove event because dock init must auto run at boot\n");
-		} else if (ec_chip->i2c_data[2] == ASUSPEC_SxI_DOCK_HID_INIT_FAIL){
-			if(finish_first_dock_init == 1){
-				if((dock_retry_time.tv_sec - old_dock_retry_time.tv_sec) > 5){
-					old_dock_retry_time.tv_sec = dock_retry_time.tv_sec;
+		if(finish_first_dock_init == 1)
+			queue_delayed_work(asuspec_wq, &ec_chip->asusdec_dock_init_work, 0);
+		else
+			ASUSPEC_NOTICE("skip dock remove event because dock init must auto run at boot\n");
+	} else if (ec_chip->i2c_data[2] == ASUSPEC_SxI_DOCK_HID_INIT_FAIL){
+		if(finish_first_dock_init == 1){
+			if((dock_retry_time.tv_sec - old_dock_retry_time.tv_sec) > 5){
+                old_dock_retry_time	.tv_sec = dock_retry_time.tv_sec;
 #if BATTERY_DRIVER
-					for_asuspec_call_me_back_if_dock_in_status_change(true);
-#endif
-					cancel_delayed_work_sync(&ec_chip->asusdec_tp_enable_work);
-					cancel_delayed_work_sync(&ec_chip->asusdec_dock_init_work);
-					queue_delayed_work(asuspec_wq, &ec_chip->asusdec_dock_init_work, 0);
-					ASUSPEC_NOTICE("reinit dock\n");
-				}else{
-					ASUSPEC_NOTICE("reinit should over 5 seconds: skip\n");
-				}
-			}else
-				ASUSPEC_NOTICE("skip dock event because dock init must auto run at boot:6C\n");
-		} else if (ec_chip->i2c_data[2] == ASUSPEC_SxI_ADAPTER_CHANGE){
-		} else if (ec_chip->i2c_data[2] == ASUSPEC_SxI_PAD_BL_CHANGE){
-		} else if (ec_chip->i2c_data[2] == ASUSPEC_SxI_HID_Status_Changed){
-		} else if (ec_chip->i2c_data[2] == ASUSDEC_SxI_PAD_BL_CHANGE){
-#if BATTERY_DRIVER
-			if(1 != last_dock_in_stat && finish_first_dock_init == 1)
 				for_asuspec_call_me_back_if_dock_in_status_change(true);
 #endif
-		} else if (ec_chip->i2c_data[2] == ASUSDEC_SxI_HID_Status_Changed){
-			ASUSPEC_NOTICE("dock HID status changed\n");
-			//init dock
-			if(finish_first_dock_init == 1){
-				ASUSPEC_NOTICE("queue dock init work\n");
+				cancel_delayed_work_sync(&ec_chip->asusdec_tp_enable_work);
+				cancel_delayed_work_sync(&ec_chip->asusdec_dock_init_work);
 				queue_delayed_work(asuspec_wq, &ec_chip->asusdec_dock_init_work, 0);
-			}else
-				ASUSPEC_NOTICE("skip dock init event because dock init must auto run at boot\n");
-		} else if (ec_chip->i2c_data[2] == ASUSPEC_SxI_HID_WakeUp){
-		} else if (ec_chip->i2c_data[2] == ASUSPEC_SxI_I2CRouter_Busy){
-			gauge_fu_status = -1;
-		} else if (ec_chip->i2c_data[2] == ASUSPEC_SxI_I2CRouter_Error){
-			gauge_fu_status = -2;
-		} else if (ec_chip->i2c_data[2] == ASUSPEC_SxI_I2CRouter_WR_success){
-			gauge_fu_status = 68;
-		} else if (ec_chip->i2c_data[2] == ASUSPEC_SxI_I2CRouter_RD_success){
-			gauge_fu_status = 69;
-		} else if (ec_chip->i2c_data[2] == 0xa8){//FIXME:name
-			gauge_fu_status = 0xa8;
-		} else if (ec_chip->i2c_data[2] == 0xa7){//FIXME:name
-			gauge_fu_status = -2;
-		} else if (ec_chip->i2c_data[2] == 0x69){//FIXME:name
-			gauge_fu_status = 69;
-		} else {
-		}
+				ASUSPEC_NOTICE("reinit dock\n");
+			} else
+				ASUSPEC_NOTICE("reinit should over 5 seconds: skip\n");
+		} else
+				ASUSPEC_NOTICE("skip dock event because dock init must auto run at boot:6C\n");
+	} else if (ec_chip->i2c_data[2] == ASUSDEC_SxI_PAD_BL_CHANGE){
+#if BATTERY_DRIVER
+		if(1 != last_dock_in_stat && finish_first_dock_init == 1)
+			for_asuspec_call_me_back_if_dock_in_status_change(true);
+#endif
+	} else if (ec_chip->i2c_data[2] == ASUSDEC_SxI_HID_Status_Changed){
+		ASUSPEC_NOTICE("dock HID status changed\n");
+		//init dock
+		if(finish_first_dock_init == 1){
+			ASUSPEC_NOTICE("queue dock init work\n");
+			queue_delayed_work(asuspec_wq, &ec_chip->asusdec_dock_init_work, 0);
+		} else
+			ASUSPEC_NOTICE("skip dock init event because dock init must auto run at boot\n");
 	}
 }
 
@@ -1504,12 +1044,6 @@ static void asuspec_enter_s3_work_function(struct work_struct *dat)
 	int i = 0;
 
 	mutex_lock(&ec_chip->state_change_lock);
-
-	if (ec_chip->op_mode){
-		ASUSPEC_ERR("It's not allowed to access dockram under FW update mode.\n");
-		mutex_unlock(&ec_chip->state_change_lock);
-		return ;
-	}
 
 	ec_chip->ec_in_s3 = 1;
 	for ( i = 0; i < 3; i++ ){
@@ -1550,7 +1084,7 @@ static void asusdec_tp_report_work_function(struct work_struct *dat)
 	int irq = gpio_to_irq(gpio);
 
        	memset(&ec_chip->i2c_tp_data, 0, 32);
-	if(touchpad_enable_flag == 0){//tp_enable FIXME:check enable and disable irq
+	if(touchpad_enable_flag == 0){ //tp_enable FIXME:check enable and disable irq
 		elantech_i2c_command(&tp_client, ETP_HID_READ_DATA_CMD, ec_chip->i2c_tp_data, 10);
 		enable_irq(irq);
 	}else{
@@ -1558,7 +1092,6 @@ static void asusdec_tp_report_work_function(struct work_struct *dat)
 		enable_irq(irq);
 		asusdec_touchpad_processing();
 	}
-
 }
 
 static void asusdec_kb_report_work_function(struct work_struct *dat)
@@ -1649,7 +1182,6 @@ static void asusdec_kb_report_work_function(struct work_struct *dat)
 			}
 			if(the_same_key == 0){
 				ec_chip->keypad_data.input_keycode = asusdec_kp_key_mapping(ec_chip->i2c_old_kb_data[i+5]);
-				//ASUSPEC_INFO("release keycode = 0x%x\n", ec_chip->keypad_data.input_keycode);
 				input_report_key(ec_chip->indev,
 					ec_chip->keypad_data.input_keycode, 0);
 			}
@@ -1686,6 +1218,7 @@ static void asusdec_tp_enable_work_function(struct work_struct *dat)
 	        ec_chip->touchpad_member = -1;
 		return;
 	}
+
 	//tp hid power on
 	memset(&ec_chip->i2c_tp_data, 0, 38);
 	elantech_i2c_command(&tp_client, ETP_HID_WAKE_UP_CMD, ec_chip->i2c_tp_data, 0);
@@ -1729,10 +1262,12 @@ static void asusdec_tp_enable_work_function(struct work_struct *dat)
 void asuspec_tp_enable(u8 cmd)
 {
 	struct elantech_data *etd = ec_chip->private;
+
 	if(first_tp_ioctl == 0){
 		first_tp_ioctl = 1;
 		ASUSPEC_NOTICE("first tp enable control!\n");
 	}
+
 	//tp hid power on
 	memset(&ec_chip->i2c_tp_data, 0, 38);
 
@@ -1758,9 +1293,13 @@ void asuspec_tp_enable(u8 cmd)
 	ec_chip->i2c_tp_data[3] = 0x22;
 	ec_chip->i2c_tp_data[4] = 0xd4;
 	ec_chip->i2c_tp_data[5] = cmd;
+
 	i2c_smbus_write_i2c_block_data(&tp_client, 0x25, 6, ec_chip->i2c_tp_data);
+
 	ASUSPEC_INFO("tp gpio value %x\n",gpio_get_value(asuspec_ps2_int_gpio));
+
 	msleep(60);
+
 	elantech_i2c_command(&tp_client, ETP_HID_READ_DATA_CMD, ec_chip->i2c_tp_data, 10);
 	if(cmd == 0xf4){
 #if EMC_NOTIFY
@@ -1774,6 +1313,7 @@ void asuspec_tp_enable(u8 cmd)
 		ASUSPEC_NOTICE("tp disable\n");
 	}else
 		ASUSPEC_ERR("wrong tp cmd\n");
+
 	tp_in_ioctl = 0;
 }
 
@@ -1967,7 +1507,6 @@ fail_to_access_ec:
 		ec_chip->dock_in = 0;
 	} else {
 		ASUSPEC_NOTICE("Need EC FW update\n");
-		//asusdec_fw_reset();FIXME:
 	}
 }
 
@@ -1981,40 +1520,19 @@ static void asuspec_work_function(struct work_struct *dat)
 
 	enable_irq(irq);
 
-	ASUSPEC_NOTICE("0x%x 0x%x 0x%x 0x%x\n", ec_chip->i2c_data[0],
-		ec_chip->i2c_data[1], ec_chip->i2c_data[2], ec_chip->i2c_data[3]);
-
 	if (ret_val < 0){
-		return ;
+		return;
 	}
 
 	if (ec_chip->i2c_data[1] & ASUSPEC_OBF_MASK){
 		if (ec_chip->i2c_data[1] & ASUSPEC_SMI_MASK){
 			asuspec_smi();
-			return ;
+			return;
 		}else if(ec_chip->i2c_data[1] & ASUSDEC_SCI_MASK){
-			if(machine_is_mozart()){
-				if(ec_chip->i2c_data[2] >= 0 && ec_chip->i2c_data[2] < 24)
-					asusdec_kp_sci();
-			}
+			if(ec_chip->i2c_data[2] >= 0 && ec_chip->i2c_data[2] < 24)
+                asusdec_kp_sci();
 		}
 	}
-}
-
-static int asusdec_event(struct input_dev *dev, unsigned int type, unsigned int code, int value){
-        ASUSPEC_INFO("type = 0x%x, code = 0x%x, value = 0x%x\n", type, code, value);
-        if ((ec_chip->op_mode == 0) && (ec_chip->dock_in)){
-                if ((type == EV_LED) && (code == LED_CAPSL)){
-                        if(value == 0){
-                                //queue_delayed_work(asusdec_wq, &ec_chip->asusdec_led_off_work, 0);
-                                return 0;
-                        } else {
-                                //queue_delayed_work(asusdec_wq, &ec_chip->asusdec_led_on_work, 0);
-                                return 0;
-                        }
-                }
-        }
-        return -ENOTTY;
 }
 
 static void asusdec_keypad_set_input_params(struct input_dev *dev)
@@ -2055,7 +1573,6 @@ static int asusdec_input_device_create(struct i2c_client *client)
 	ec_chip->indev->name = "asuspec";
 	ec_chip->indev->phys = "/dev/input/asuspec";
 	ec_chip->indev->dev.parent = &client->dev;
-	ec_chip->indev->event = asusdec_event;
 
 	asusdec_keypad_set_input_params(ec_chip->indev);
 
@@ -2179,6 +1696,7 @@ static int __devinit asuspec_probe(struct i2c_client *client,
 	INIT_DELAYED_WORK_DEFERRABLE(&ec_chip->asuspec_work, asuspec_work_function);
 	INIT_DELAYED_WORK_DEFERRABLE(&ec_chip->asuspec_init_work, asuspec_init_work_function);
 	INIT_DELAYED_WORK_DEFERRABLE(&ec_chip->asuspec_enter_s3_work, asuspec_enter_s3_work_function);
+
 	INIT_DELAYED_WORK_DEFERRABLE(&ec_chip->asusdec_dock_init_work, asusdec_dock_init_work_function);
 	INIT_DELAYED_WORK_DEFERRABLE(&ec_chip->asusdec_kb_report_work, asusdec_kb_report_work_function);
 	INIT_DELAYED_WORK_DEFERRABLE(&ec_chip->asusdec_tp_report_work, asusdec_tp_report_work_function);
