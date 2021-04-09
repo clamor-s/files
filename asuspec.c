@@ -42,15 +42,14 @@ extern int for_asuspec_call_me_back_if_dock_in_status_change(bool);
  */
 char* switch_value[]={"0", "10"}; //0: no dock, 1:mobile dock
 
+#define DOCK_IN_GPIO TEGRA_GPIO_PO0
+
 static unsigned int asuspec_apwake_gpio = TEGRA_GPIO_PQ5;
 static unsigned int asuspec_ps2_int_gpio = TEGRA_GPIO_PW2;
 static unsigned int asuspec_kb_int_gpio = TEGRA_GPIO_PJ0;
 static unsigned int asuspec_ecreq_gpio = TEGRA_GPIO_PQ2;
-static unsigned int asuspec_dock_in_gpio = TEGRA_GPIO_PO0;
-static unsigned int asuspec_hall_sensor_gpio = TEGRA_GPIO_PO5;
 static unsigned int asuspec_bat_id_gpio = TEGRA_GPIO_PQ1;
 
-static int gauge_fu_status = 0;
 static int first_tp_ioctl = 0;
 
 struct i2c_client dockram_client;
@@ -76,7 +75,6 @@ static int return_data_show_type = 0;
 static int tp_init_retry = 3 ;
 static int dock_init_retry = 3 ;
 static int finish_first_dock_init = 0 ;
-static int touchpad_enable_flag = ASUSDEC_TP_ON;
 static int hid_device_sleep = 0 ;
 static int kb_power_on = 0 ;
 static int finish_touchpad_init = 0;
@@ -113,17 +111,19 @@ static const unsigned battery_prop_offs[] = {
  * functions definition
  */
 
-int is_pad_charging_and_with_dock(void){
+int is_pad_charging_and_with_dock(void)
+{
 	int ret = 0;
 
 	memset(&ec_chip->i2c_dm_data, 0, 32);
+
 	ret = asuspec_dockram_read_data(0x0A);
 	if (ret < 0){
 		ASUSPEC_ERR("Fail to access control flag info.\n");
 		return ret;
 	}
-	ret = (ec_chip->i2c_dm_data[1] & 0x80 && ec_chip->i2c_dm_data[1] & 0x04);
-	return ret;
+
+	return (ec_chip->i2c_dm_data[1] & 0x80 && ec_chip->i2c_dm_data[1] & 0x04);
 }
 
 int asuspec_battery_monitor(char *cmd, bool pad)
@@ -229,8 +229,6 @@ static int asusdec_dockram_read_data(int cmd)
 	ret = i2c_smbus_read_i2c_block_data(&dockram_client, 0x11, 32, ec_chip->i2c_dm_data);
 	if (ret < 0)
 	        ASUSPEC_ERR("Fail to read dockram data, status %d\n", ret);
-
-	//FIXME:read status data
 
 	for (i=9; i<32; i++)
 		ec_chip->i2c_dm_data[i-9] = ec_chip->i2c_dm_data[i];
@@ -752,7 +750,7 @@ static irqreturn_t asuspec_interrupt_handler(int irq, void *dev_id)
 		disable_irq_nosync(irq);
 		queue_delayed_work(asuspec_wq, &ec_chip->asusdec_kb_report_work, 0);
 	}
-	else if (irq == gpio_to_irq(asuspec_dock_in_gpio)){
+	else if (irq == gpio_to_irq(DOCK_IN_GPIO)){
 		ASUSPEC_NOTICE("dock in irq = %d", irq);
 	}
 	else
@@ -904,8 +902,8 @@ err_request_input_gpio_failed:
 static int asuspec_irq_dock_in(struct i2c_client *client)
 {
 	int rc = 0 ;
-	unsigned gpio = asuspec_dock_in_gpio;
-	unsigned irq = gpio_to_irq(asuspec_dock_in_gpio);
+	unsigned gpio = DOCK_IN_GPIO;
+	unsigned irq = gpio_to_irq(DOCK_IN_GPIO);
 	const char* label = "asuspec_dock_in";
 	
 	rc = gpio_request(gpio, label);
@@ -1084,14 +1082,10 @@ static void asusdec_tp_report_work_function(struct work_struct *dat)
 	int irq = gpio_to_irq(gpio);
 
        	memset(&ec_chip->i2c_tp_data, 0, 32);
-	if(touchpad_enable_flag == 0){ //tp_enable FIXME:check enable and disable irq
-		elantech_i2c_command(&tp_client, ETP_HID_READ_DATA_CMD, ec_chip->i2c_tp_data, 10);
-		enable_irq(irq);
-	}else{
+
 		elantech_i2c_command(&tp_client, ETP_HID_READ_DATA_CMD, ec_chip->i2c_tp_data, 10);
 		enable_irq(irq);
 		asusdec_touchpad_processing();
-	}
 }
 
 static void asusdec_kb_report_work_function(struct work_struct *dat)
@@ -1104,7 +1098,9 @@ static void asusdec_kb_report_work_function(struct work_struct *dat)
 	int scancode = 0;
 	int the_same_key = 0;
        	memset(&ec_chip->i2c_kb_data, 0, 32);
+
 	ret_val = elantech_i2c_command(&kb_client, ASUS_KB_HID_READ_DATA_CMD, ec_chip->i2c_kb_data, 11);
+
 	enable_irq(irq);
 
 	if(ec_chip->dock_status == 0){
@@ -1112,7 +1108,7 @@ static void asusdec_kb_report_work_function(struct work_struct *dat)
 		return;
 	}
 
-	if(ec_chip->i2c_kb_data[0] == 0 && ec_chip->i2c_kb_data[1] == 0){//not press key
+	if(ec_chip->i2c_kb_data[0] == 0 && ec_chip->i2c_kb_data[1] == 0){ //not press key
 		ASUSPEC_NOTICE("hid data length :0\n");
 		return;
 	}
@@ -1154,6 +1150,7 @@ static void asusdec_kb_report_work_function(struct work_struct *dat)
 	}else if(ec_chip->i2c_old_kb_data[3] & ASUSDEC_KEYPAD_RIGHTWIN){
 	        input_report_key(ec_chip->indev, KEY_SEARCH, 0);
 	}
+
 	for(i = 0;i < 6;i++)//normal keys
 	{
 	        if(ec_chip->i2c_kb_data[i+5] > 0){//press key
@@ -1249,14 +1246,8 @@ static void asusdec_tp_enable_work_function(struct work_struct *dat)
 	ec_chip->i2c_tp_data[5] = 0xf4;
 	i2c_smbus_write_i2c_block_data(&tp_client, 0x25, 6, ec_chip->i2c_tp_data);
 	ASUSPEC_INFO("tp gpio value %x\n",gpio_get_value(asuspec_ps2_int_gpio));
-#if EMC_NOTIFY
-	if(touchpad_enable_flag == 1)
-		mouse_dock_enable_flag = mouse_dock_enable_flag | 0x1;
-	else
-		mouse_dock_enable_flag = mouse_dock_enable_flag & 0xE;
-#endif
-	ASUSPEC_NOTICE("finish tp enable work function: %d \n",touchpad_enable_flag);
 
+    mouse_dock_enable_flag = mouse_dock_enable_flag | 0x1;
 }
 
 void asuspec_tp_enable(u8 cmd)
@@ -1322,24 +1313,6 @@ static void asusdec_dock_status_report(void){
 	switch_set_state(&ec_chip->dock_sdev, switch_value[ec_chip->dock_type]);
 }
 
-static bool asuspec_check_dock_in_control_flag(void){
-	int ret_val = 0;
-	int i = 0;
-	char temp_buf[64];
-
-	ret_val = asuspec_dockram_read_data(0x0A);
-	if (ret_val < 0)
-		ASUSPEC_NOTICE("fail to read dockram data\n");
-	if(ec_chip->i2c_dm_data[3] & ASUSPEC_MOBILE_DOCK_PRESENT){
-		ASUSPEC_NOTICE("detect mobile dock!\n");
-		return true;
-	}
-	else{
-		ASUSPEC_NOTICE("fail to detect mobile dock!\n");
-		return false;
-	}
-}
-
 static void asusdec_dock_init_work_function(struct work_struct *dat)
 {
 	int i = 0;
@@ -1354,17 +1327,9 @@ static void asusdec_dock_init_work_function(struct work_struct *dat)
 
 	memset(ec_chip->i2c_old_kb_data, 0, 38);
 
-	if (!asuspec_check_dock_in_control_flag()){
-		ASUSPEC_NOTICE("No dock detected\n");
-		if(!gpio_get_value(asuspec_dock_in_gpio)){
-			if(dock_init_retry-- > 0){
-				ASUSPEC_ERR("dock in detect! something wrong with control flag\n");
-				queue_delayed_work(asuspec_wq, &ec_chip->asusdec_dock_init_work, HZ/5);
-				return;
-			}
-			dock_init_retry = 3;
-			ASUSPEC_ERR("dock init failed! remove dock!\n");
-		}
+	if (gpio_get_value(DOCK_IN_GPIO)){
+		pr_info("asusdec: No dock detected\n");
+
 		ec_chip->tp_enable = 0;
 		ec_chip->dock_in = 0;
 		ec_chip->init_success = 0;
@@ -1372,6 +1337,7 @@ static void asusdec_dock_init_work_function(struct work_struct *dat)
 		ec_chip->dock_init = 0;
 		ec_chip->dock_type = DOCK_UNKNOWN;
 		ec_chip->touchpad_member = -1;
+
 		finish_touchpad_init = 0;
 		dock_in_stat = 0;
 		hid_device_sleep = 0;
@@ -1384,10 +1350,12 @@ static void asusdec_dock_init_work_function(struct work_struct *dat)
 			input_unregister_device(ec_chip->indev);
 			ec_chip->indev = NULL;
 		}
+
 		if (ec_chip->private->abs_dev){
 			input_unregister_device(ec_chip->private->abs_dev);
 			ec_chip->private->abs_dev = NULL;
 		}
+
 		if(ec_chip->kb_and_ps2_enable){
 			disable_irq_nosync(gpio_to_irq(asuspec_kb_int_gpio));
 			disable_irq_nosync(gpio_to_irq(asuspec_ps2_int_gpio));
@@ -1397,26 +1365,26 @@ static void asusdec_dock_init_work_function(struct work_struct *dat)
 		if(finish_first_dock_init == 1){
 			elantech_i2c_command(&kb_client, ASUS_KB_SLEEP_CMD, ec_chip->i2c_kb_data, 0);
 		}
+
 		asusdec_dock_status_report();
+
 #if BATTERY_DRIVER
 		if(dock_in_stat != last_dock_in_stat)
 			for_asuspec_call_me_back_if_dock_in_status_change(false);
 #endif
 		last_dock_in_stat = 0;
 		finish_first_dock_init = 1;
-		touchpad_enable_flag = ASUSDEC_TP_ON;
-#if EMC_NOTIFY
 		mouse_dock_enable_flag = mouse_dock_enable_flag & 0xE;
-#endif
 		cancel_delayed_work(&ec_chip->asusdec_tp_enable_work);
+
 		return;
-	}else {
-		ASUSPEC_NOTICE("Dock-in detected\n");
-		ec_chip->dock_type = MOBILE_DOCK;
-		ec_chip->dock_in = 1;
+	} else {
+		pr_info("asusdec: Dock-in detected\n");
+
 		dock_in_stat = 1;
 		tp_init_retry = 3;
-		ASUSPEC_INFO("dock_in_gpio : %d\n",gpio_get_value(asuspec_dock_in_gpio));
+	
+		ASUSPEC_INFO("dock_in_gpio %d\n",gpio_get_value(DOCK_IN_GPIO));
 		if(ec_chip->dock_status != 1){
 
 			if (asusdec_dockram_read_data(0x02) < 0){
@@ -1425,8 +1393,9 @@ static void asusdec_dock_init_work_function(struct work_struct *dat)
 			msleep(50);
 			strcpy(ec_chip->dec_version, &ec_chip->i2c_dm_data[0]);
 			ASUSPEC_NOTICE("DEC-FW Version: %s\n", ec_chip->dec_version);
+
 			if(strncmp(ec_chip->dec_version, "DOCK-EC", 6)){
-				if(!gpio_get_value(asuspec_dock_in_gpio)){
+				if(!gpio_get_value(DOCK_IN_GPIO)){
 					ASUSPEC_ERR("dock in detect with wrong version!\n");
 					queue_delayed_work(asuspec_wq, &ec_chip->asusdec_dock_init_work, HZ/2);
 					return;
@@ -1440,7 +1409,9 @@ static void asusdec_dock_init_work_function(struct work_struct *dat)
 			if (asuspec_dockram_read_data(0x23) < 0){
 				goto fail_to_access_ec;
 			}
+
 			msleep(50);
+
 			ec_chip->dock_behavior = ec_chip->i2c_dm_data[2] & 0x02;
 			ASUSPEC_NOTICE("DEC-FW Behavior: %s\n", ec_chip->dock_behavior ?
 				"susb on when receive ec_req" : "susb on when system wakeup");
@@ -1452,6 +1423,7 @@ static void asusdec_dock_init_work_function(struct work_struct *dat)
 
 		////kb_init
 		memset(&ec_chip->i2c_kb_data, 0, 32);
+
 		//kb hid power on
 		while(err_count-- > 0)
 		{
@@ -1466,8 +1438,10 @@ static void asusdec_dock_init_work_function(struct work_struct *dat)
 				break;
 			}
 		}
+
 		err_count = 3;
 		msleep(10);
+
 		while(err_count-- > 0)
 		{
 			ret = elantech_i2c_command(&kb_client, ASUS_KB_RESET_CMD, ec_chip->i2c_kb_data, 0);
@@ -1489,10 +1463,12 @@ static void asusdec_dock_init_work_function(struct work_struct *dat)
 			enable_irq(gpio_to_irq(asuspec_kb_int_gpio));
 			ec_chip->kb_and_ps2_enable = 1;
 		}
+
 #if BATTERY_DRIVER
 		if(1 != last_dock_in_stat && finish_first_dock_init == 0)
 			for_asuspec_call_me_back_if_dock_in_status_change(true);
 #endif
+
 		ec_chip->init_success = 1;
 		ec_chip->dock_status = 1;
 		hid_device_sleep = 0;
@@ -1748,7 +1724,7 @@ static int asuspec_suspend(struct i2c_client *client, pm_message_t mesg)
 		hid_device_sleep = 1;
 		elantech_i2c_command(&kb_client, ASUS_KB_SLEEP_CMD, ec_chip->i2c_kb_data, 0);
 	}
-	if(asuspec_check_hid_control_flag() && ec_chip->dock_in == 1 && touchpad_enable_flag == ASUSDEC_TP_ON){
+	if(asuspec_check_hid_control_flag() && ec_chip->dock_in == 1){
 		asuspec_tp_enable(0xf5);
 	}
 
@@ -1763,14 +1739,14 @@ static int asuspec_resume(struct i2c_client *client)
     ec_chip->ec_in_s3 = 1;
 	ec_chip->i2c_err_count = 0;
 
-	if(!asuspec_check_dock_in_control_flag() && ec_chip->dock_status == 1){
+	if(gpio_get_value(DOCK_IN_GPIO) && ec_chip->dock_status == 1){
 		ASUSPEC_ERR("no mobile dock flag but dock_status = 1\n");
 	} else if(ec_chip->ec_wakeup == 0 && ec_chip->dock_status == 1 && hid_device_sleep == 1) {
 		ASUSPEC_NOTICE("HID device wakeup\n");
 		hid_device_sleep = 0;
 		elantech_i2c_command(&kb_client, ASUS_KB_WAKE_UP_CMD, ec_chip->i2c_kb_data, 0);
 	}
-	if(asuspec_check_hid_control_flag() && ec_chip->dock_in == 1 && touchpad_enable_flag == ASUSDEC_TP_ON){
+	if(asuspec_check_hid_control_flag() && ec_chip->dock_in == 1){
 		ASUSPEC_NOTICE("touchpad wakeup\n");
 		asuspec_tp_enable(0xf4);
 	}
