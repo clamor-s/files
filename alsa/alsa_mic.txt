@@ -1,0 +1,343 @@
+root@tf300t:/ # alsa_amixer -c1                                                
+Simple mixer control 'Headphone',0
+  Capabilities: volume pswitch penum
+  Playback channels: Front Left - Front Right
+  Capture channels: Front Left - Front Right
+  Limits: 0 - 63
+  Front Left: 52 [83%] [-5.00dB] Playback [on]
+  Front Right: 52 [83%] [-5.00dB] Playback [on]
+Simple mixer control 'Headphone Jack',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'Headphone ZC',0
+  Capabilities: pswitch penum
+  Playback channels: Front Left - Front Right
+  Mono:
+  Front Left: Playback [off]
+  Front Right: Playback [off]
+Simple mixer control 'Speaker',0
+  Capabilities: volume pswitch penum
+  Playback channels: Front Left - Front Right
+  Capture channels: Front Left - Front Right
+  Limits: 0 - 63
+  Front Left: 60 [95%] [3.00dB] Playback [on]
+  Front Right: 60 [95%] [3.00dB] Playback [on]
+Simple mixer control 'Speaker ZC',0
+  Capabilities: pswitch penum
+  Playback channels: Front Left - Front Right
+  Mono:
+  Front Left: Playback [off]
+  Front Right: Playback [off]
+Simple mixer control 'Line Out',0
+  Capabilities: volume pswitch penum
+  Playback channels: Front Left - Front Right
+  Capture channels: Front Left - Front Right
+  Limits: 0 - 63
+  Front Left: 57 [90%] [0.00dB] Playback [on]
+  Front Right: 57 [90%] [0.00dB] Playback [on]
+Simple mixer control 'Line Out ZC',0
+  Capabilities: pswitch penum
+  Playback channels: Front Left - Front Right
+  Mono:
+  Front Left: Playback [off]
+  Front Right: Playback [off]
+Simple mixer control 'Mic Jack',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'Playback Deemphasis',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'ADC Companding',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'ADC Companding Mode',0
+  Capabilities: enum
+  Items: 'ulaw' 'alaw'
+  Item0: 'ulaw'
+Simple mixer control 'ADC Input',0
+  Capabilities: enum
+  Items: 'ADC' 'DMIC'
+  Item0: 'DMIC'
+Simple mixer control 'ADC OSR',0
+  Capabilities: enum
+  Items: 'Low power' 'High performance'
+  Item0: 'High performance'
+Simple mixer control 'AUX',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'DAC Companding',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'DAC Companding Mode',0
+  Capabilities: enum
+  Items: 'ulaw' 'alaw'
+  Item0: 'ulaw'
+Simple mixer control 'DAC Mono',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'DAC Mute Mode',0
+  Capabilities: enum
+  Items: 'Hard' 'Soft'
+  Item0: 'Soft'
+Simple mixer control 'DAC OSR',0
+  Capabilities: enum
+  Items: 'Low power' 'High performance'
+  Item0: 'Low power'
+Simple mixer control 'DAC Soft Mute Rate',0
+  Capabilities: enum
+  Items: 'Fast (fs/2)' 'Slow (fs/32)'
+  Item0: 'Fast (fs/2)'
+Simple mixer control 'DACL Sidetone',0
+  Capabilities: enum
+  Items: 'None' 'Left' 'Right'
+  Item0: 'None'
+Simple mixer control 'DACR Sidetone',0
+  Capabilities: enum
+  Items: 'None' 'Left' 'Right'
+  Item0: 'None'
+Simple mixer control 'DRC',0
+  Capabilities: volume volume-joined pswitch pswitch-joined penum
+  Playback channels: Mono
+  Capture channels: Mono
+  Limits: 0 - 30
+  Mono: 30 [100%] [0.00dB] Playback [on]
+Simple mixer control 'DRC Anticlip',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [on]
+Simple mixer control 'DRC Attack Rate',0
+  Capabilities: enum
+  Items: 'instantaneous' '363us' '762us' '1.45ms' '2.9ms' '5.8ms' '11.6ms' '23.2ms' '46.4ms' '92.8ms' '185.6ms'
+  Item0: '1.45ms'
+Simple mixer control 'DRC Compressor Slope R0',0
+  Capabilities: enum
+  Items: '1' '1/2' '1/4' '1/8' '1/16' '0'
+  Item0: '1/16'
+Simple mixer control 'DRC Compressor Slope R1',0
+  Capabilities: enum
+  Items: '1' '1/2' '1/4' '1/8' '1/16' '0'
+  Item0: '1'
+Simple mixer control 'DRC Compressor Threshold',0
+  Capabilities: volume volume-joined penum
+  Playback channels: Mono
+  Capture channels: Mono
+  Limits: 0 - 124
+  Mono: 124 [100%] [93.00dB]
+Simple mixer control 'DRC Decay Rate',0
+  Capabilities: enum
+  Items: '186ms' '372ms' '743ms' '1.49s' '2.97s' '5.94s' '11.89s' '23.87s' '47.56s'
+  Item0: '743ms'
+Simple mixer control 'DRC FF Delay',0
+  Capabilities: enum
+  Items: '5 samples' '9 samples'
+  Item0: '9 samples'
+Simple mixer control 'DRC Maximum Gain',0
+  Capabilities: volume volume-joined penum
+  Playback channels: Mono
+  Capture channels: Mono
+  Limits: 0 - 3
+  Mono: 1 [33%] [18.00dB]
+Simple mixer control 'DRC Minimum Gain',0
+  Capabilities: volume volume-joined penum
+  Playback channels: Mono
+  Capture channels: Mono
+  Limits: 0 - 3
+  Mono: 3 [100%] [18.00dB]
+Simple mixer control 'DRC QR',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [on]
+Simple mixer control 'DRC QR Decay Rate',0
+  Capabilities: enum
+  Items: '0.725ms' '1.45ms' '5.8ms'
+  Item0: '0.725ms'
+Simple mixer control 'DRC QR Threshold',0
+  Capabilities: volume volume-joined penum
+  Playback channels: Mono
+  Capture channels: Mono
+  Limits: 0 - 3
+  Mono: 2 [67%] [24.00dB]
+Simple mixer control 'DRC Smoothing',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [on]
+Simple mixer control 'DRC Smoothing Hysteresis',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [on]
+Simple mixer control 'DRC Smoothing Threshold',0
+  Capabilities: enum
+  Items: 'Low' 'Medium' 'High'
+  Item0: 'Medium'
+Simple mixer control 'DRC Startup',0
+  Capabilities: volume volume-joined penum
+  Playback channels: Mono
+  Capture channels: Mono
+  Limits: 0 - 18
+  Mono: 6 [33%] [0.00dB]
+Simple mixer control 'Digital',0
+  Capabilities: pvolume cvolume penum
+  Playback channels: Front Left - Front Right
+  Capture channels: Front Left - Front Right
+  Limits: Playback 0 - 120 Capture 0 - 120
+  Front Left: Playback 96 [80%] [0.00dB] Capture 127 [106%] [23.25dB]
+  Front Right: Playback 96 [80%] [0.00dB] Capture 127 [106%] [23.25dB]
+Simple mixer control 'Digital Sidetone',0
+  Capabilities: volume penum
+  Playback channels: Front Left - Front Right
+  Capture channels: Front Left - Front Right
+  Limits: 0 - 12
+  Front Left: 0 [0%] [-36.00dB]
+  Front Right: 0 [0%] [-36.00dB]
+Simple mixer control 'HPF',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [on]
+Simple mixer control 'HPF Mode',0
+  Capabilities: enum
+  Items: 'Hi-fi' 'Voice 1' 'Voice 2' 'Voice 3'
+  Item0: 'Voice 1'
+Simple mixer control 'Int Mic',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [on]
+Simple mixer control 'Int Spk',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [on]
+Simple mixer control 'Left Capture Mux',0
+  Capabilities: enum
+  Items: 'Left' 'Right'
+  Item0: 'Left'
+Simple mixer control 'Left Input Inverting Mux',0
+  Capabilities: enum
+  Items: 'IN1L' 'IN2L' 'IN3L'
+  Item0: 'IN1L'
+Simple mixer control 'Left Input Mode Mux',0
+  Capabilities: enum
+  Items: 'Single-Ended' 'Differential Line' 'Differential Mic'
+  Item0: 'Single-Ended'
+Simple mixer control 'Left Input Mux',0
+  Capabilities: enum
+  Items: 'IN1L' 'IN2L' 'IN3L'
+  Item0: 'IN2L'
+Simple mixer control 'Left Input PGA',0
+  Capabilities: volume volume-joined pswitch pswitch-joined penum
+  Playback channels: Mono
+  Capture channels: Mono
+  Limits: 0 - 31
+  Mono: 28 [90%] Playback [off]
+Simple mixer control 'Left Input PGA Common Mode',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [on]
+Simple mixer control 'Left Output Mixer DACL',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [on]
+Simple mixer control 'Left Output Mixer DACR',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'Left Output Mixer Left Bypass',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'Left Output Mixer Right Bypass',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'Left Playback Mux',0
+  Capabilities: enum
+  Items: 'Left' 'Right'
+  Item0: 'Left'
+Simple mixer control 'Left Speaker Mixer DACL',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [on]
+Simple mixer control 'Left Speaker Mixer DACR',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'Left Speaker Mixer Left Bypass',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'Left Speaker Mixer Right Bypass',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'Recording Gain',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'Right Capture Mux',0
+  Capabilities: enum
+  Items: 'Left' 'Right'
+  Item0: 'Right'
+Simple mixer control 'Right Input Inverting Mux',0
+  Capabilities: enum
+  Items: 'IN1R' 'IN2R' 'IN3R'
+  Item0: 'IN1R'
+Simple mixer control 'Right Input Mode Mux',0
+  Capabilities: enum
+  Items: 'Single-Ended' 'Differential Line' 'Differential Mic'
+  Item0: 'Single-Ended'
+Simple mixer control 'Right Input Mux',0
+  Capabilities: enum
+  Items: 'IN1R' 'IN2R' 'IN3R'
+  Item0: 'IN2R'
+Simple mixer control 'Right Input PGA',0
+  Capabilities: volume volume-joined pswitch pswitch-joined penum
+  Playback channels: Mono
+  Capture channels: Mono
+  Limits: 0 - 31
+  Mono: 28 [90%] Playback [off]
+Simple mixer control 'Right Input PGA Common Mode',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [on]
+Simple mixer control 'Right Output Mixer DACL',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'Right Output Mixer DACR',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [on]
+Simple mixer control 'Right Output Mixer Left Bypass',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'Right Output Mixer Right Bypass',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'Right Playback Mux',0
+  Capabilities: enum
+  Items: 'Left' 'Right'
+  Item0: 'Right'
+Simple mixer control 'Right Speaker Mixer DACL',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'Right Speaker Mixer DACR',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [on]
+Simple mixer control 'Right Speaker Mixer Left Bypass',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'Right Speaker Mixer Right Bypass',0
+  Capabilities: pswitch pswitch-joined penum
+  Playback channels: Mono
+  Mono: Playback [off]
+
