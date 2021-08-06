@@ -1,0 +1,148 @@
+rel-tf300tg:~$ upower -d
+Device: /org/freedesktop/UPower/devices/battery_pad_battery
+  native-path:          pad-battery
+  power supply:         yes
+  updated:              Fri Aug  6 23:50:42 2021 (16 seconds ago)
+  has history:          yes
+  has statistics:       yes
+  battery
+    present:             yes
+    rechargeable:        yes
+    state:               charging
+    warning-level:       none
+    energy:              22.2004 Wh
+    energy-empty:        0 Wh
+    energy-full:         24.0316 Wh
+    energy-full-design:  24.0316 Wh
+    energy-rate:         3.63628 W
+    voltage:             8.321 V
+    time to full:        30.2 minutes
+    percentage:          96%
+    temperature:         29.6 degrees C
+    capacity:            100%
+    technology:          lithium-ion
+    icon-name:          'battery-full-charging-symbolic'
+  History (rate):
+    1628268642  3.636   charging
+
+Device: /org/freedesktop/UPower/devices/line_power_ac_adapter_detect
+  native-path:          ac-adapter-detect
+  power supply:         yes
+  updated:              Fri Aug  6 23:47:00 2021 (238 seconds ago)
+  has history:          no
+  has statistics:       no
+  line-power
+    warning-level:       none
+    online:              no
+    icon-name:          'ac-adapter-symbolic'
+
+Device: /org/freedesktop/UPower/devices/battery_dock_battery
+  native-path:          dock-battery
+  power supply:         yes
+  updated:              Fri Aug  6 23:49:00 2021 (118 seconds ago)
+  has history:          yes
+  has statistics:       yes
+  battery
+    present:             yes
+    rechargeable:        yes
+    state:               discharging
+    warning-level:       none
+    energy:              9.07986 Wh
+    energy-empty:        0 Wh
+    energy-full:         17.0472 Wh
+    energy-full-design:  17.0472 Wh
+    energy-rate:         7.69204 W
+    voltage:             7.382 V
+    time to empty:       1.2 hours
+    percentage:          46%
+    temperature:         27.9 degrees C
+    capacity:            100%
+    technology:          lithium-ion
+    icon-name:          'battery-good-symbolic'
+
+Device: /org/freedesktop/UPower/devices/line_power_asusec_charger
+  native-path:          asusec-charger
+  power supply:         yes
+  updated:              Fri Aug  6 23:47:02 2021 (236 seconds ago)
+  has history:          no
+  has statistics:       no
+  line-power
+    warning-level:       none
+    online:              no
+    icon-name:          'ac-adapter-symbolic'
+
+Device: /org/freedesktop/UPower/devices/DisplayDevice
+  power supply:         yes
+  updated:              Fri Aug  6 23:50:42 2021 (16 seconds ago)
+  has history:          no
+  has statistics:       no
+  battery
+    present:             yes
+    state:               charging
+    warning-level:       none
+    energy:              31.2803 Wh
+    energy-full:         41.0787 Wh
+    energy-rate:         11.3283 W
+    time to full:        51.9 minutes
+    time to empty:       1.2 hours
+    percentage:          76.1471%
+    icon-name:          'battery-full-charging-symbolic'
+
+Daemon:
+  daemon-version:  0.99.11
+  on-battery:      yes
+  lid-is-closed:   no
+  lid-is-present:  yes
+  critical-action: PowerOff
+
+relathyme@rel-tf300tg ~> sudo sensors
+dock_battery-isa-0000
+Adapter: ISA adapter
+in0:           7.72 V  (max =  +8.40 V)
+temp:         +27.5°C  (low  =  +0.0°C, high = +45.0°C)
+curr1:       799.00 mA (max =  +1.49 A)
+
+pad_battery-isa-0000
+Adapter: ISA adapter
+in0:           8.35 V  (max =  +8.40 V)
+temp:         +30.9°C  (low  =  +0.0°C, high = +45.0°C)
+curr1:       337.00 mA (max =  +1.49 A)
+
+nct1008-i2c-4-4c
+Adapter: 7000d000.i2c
+temp1:        +42.0°C  (low  = -64.0°C, high = +57.0°C)
+                       (crit = +90.0°C, hyst = +80.0°C)
+temp2:        +47.8°C  (low  = -64.0°C, high = +85.0°C)
+                       (crit = +90.0°C, hyst = +80.0°C)
+
+dock_battery-virtual-0
+Adapter: Virtual device
+temp1:        +27.5°C
+
+pad_battery-virtual-0
+Adapter: Virtual device
+temp1:        +30.9°C
+
+tsensor0_thermal-virtual-0
+Adapter: Virtual device
+temp1:        +50.6°C  (crit = +90.0°C)
+
+relathyme@rel-tf300tg ~> sudo hwtest
+Category         Model                Path                                 Status     Value
+framebuffer      tegra                /sys/class/graphics/fb0              working    U:1280x800p-0
+drm              -                    /sys/class/drm/card0-LVDS-1          working    1280x800
+drm              -                    /sys/class/drm/card0-HDMI-A-1        working    Not connected
+magnetometer     ami306               /sys/bus/iio/devices/iio:device0     working    1.1, -0.46, 0.44 gauss
+accelerometer    kxtf9                /sys/bus/iio/devices/iio:device3     working    8.34, -0.77, -5.67 g
+gyroscope        mpu3050              /sys/bus/iio/devices/iio:device2     working    0.27, 69.97, 0.0 rad/s
+temperature      mpu3050              /sys/bus/iio/devices/iio:device2     working    41.9 deg C
+illuminance      al3010               /sys/bus/iio/devices/iio:device1     broken     0.0
+illuminance      al3010               /sys/bus/iio/devices/iio:device1     working    460 lux
+input            ETPS/2 Elantech Touchpad /dev/input/event5                    working
+input            AT Raw Set 2 keyboard /dev/input/event2                    working
+input            ASUS-TF201-DOCK Keyboard Ext /dev/input/event1                    working
+input            ASUS Transformer RT5631 Headphones Jack /dev/input/event7                    working
+input            tegra-hda HDMI/DP,pcm=3 /dev/input/event6                    working
+input            extcon-keys          /dev/input/event4                    working
+input            pad-keys             /dev/input/event3                    working
+input            Elan Touchscreen     /dev/input/event0                    working
