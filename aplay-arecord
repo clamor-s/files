@@ -1,0 +1,31 @@
+asus-tf201:~$ aplay -L -l
+null
+    Discard all samples (playback) or generate zero samples (capture)
+default:CARD=RT
+    Asus Transformer Prime TF201 RT, RT5631 PCM rt5631-hifi-0
+    Default Audio Device
+sysdefault:CARD=RT
+    Asus Transformer Prime TF201 RT, RT5631 PCM rt5631-hifi-0
+    Default Audio Device
+**** List of PLAYBACK Hardware Devices ****
+card 0: tegrahda [tegra-hda], device 3: HDMI 0 [HDMI 0]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 1: RT [Asus Transformer Prime TF201 RT], device 0: RT5631 PCM rt5631-hifi-0 [RT5631 PCM rt5631-hifi-0]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+asus-tf201:~$ arecord -L -l
+null
+    Discard all samples (playback) or generate zero samples (capture)
+default:CARD=RT
+    Asus Transformer Prime TF201 RT, RT5631 PCM rt5631-hifi-0
+    Default Audio Device
+sysdefault:CARD=RT
+    Asus Transformer Prime TF201 RT, RT5631 PCM rt5631-hifi-0
+    Default Audio Device
+**** List of CAPTURE Hardware Devices ****
+card 1: RT [Asus Transformer Prime TF201 RT], device 0: RT5631 PCM rt5631-hifi-0 [RT5631 PCM rt5631-hifi-0]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+asus-tf201:~$ 
+

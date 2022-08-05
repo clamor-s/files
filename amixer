@@ -1,0 +1,362 @@
+asus-tf201:~$ amixer
+Simple mixer control 'IEC958',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [on]
+
+asus-tf201:~$ amixer -c1
+Simple mixer control 'Headphones',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'Speaker',0
+  Capabilities: pvolume pswitch
+  Playback channels: Front Left - Front Right
+  Limits: Playback 0 - 39
+  Mono:
+  Front Left: Playback 31 [79%] [0.00dB] [on]
+  Front Right: Playback 31 [79%] [0.00dB] [on]
+Simple mixer control 'Speakers',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [on]
+Simple mixer control 'PCM',0
+  Capabilities: pvolume pswitch
+  Playback channels: Front Left - Front Right
+  Limits: Playback 0 - 255
+  Mono:
+  Front Left: Playback 255 [100%] [0.00dB] [on]
+  Front Right: Playback 255 [100%] [0.00dB] [on]
+Simple mixer control 'Mic Jack',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'AXI',0
+  Capabilities: cvolume
+  Capture channels: Front Left - Front Right
+  Limits: Capture 0 - 31
+  Front Left: Capture 23 [74%] [0.00dB]
+  Front Right: Capture 23 [74%] [0.00dB]
+Simple mixer control 'AXO1',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'AXO1MIX Mixer MIC1_BST1',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'AXO1MIX Mixer MIC2_BST2',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'AXO1MIX Mixer OUTVOLL',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'AXO1MIX Mixer OUTVOLR',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'AXO2',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [on]
+Simple mixer control 'AXO2MIX Mixer MIC1_BST1',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'AXO2MIX Mixer MIC2_BST2',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'AXO2MIX Mixer OUTVOLL',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [on]
+Simple mixer control 'AXO2MIX Mixer OUTVOLR',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'DMIC',0
+  Capabilities: cswitch
+  Capture channels: Front Left - Front Right
+  Mono:
+  Front Left: Capture [on]
+  Front Right: Capture [on]
+Simple mixer control 'HP',0
+  Capabilities: pvolume pswitch
+  Playback channels: Front Left - Front Right
+  Limits: Playback 0 - 31
+  Mono:
+  Front Left: Playback 20 [65%] [-16.50dB] [off]
+  Front Right: Playback 20 [65%] [-16.50dB] [off]
+Simple mixer control 'HPL Mux',0
+  Capabilities: enum
+  Items: 'Left HPVOL' 'Left DAC'
+  Item0: 'Left HPVOL'
+Simple mixer control 'HPR Mux',0
+  Capabilities: enum
+  Items: 'Right HPVOL' 'Right DAC'
+  Item0: 'Right HPVOL'
+Simple mixer control 'Headset Mic',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'Int Mic',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [on]
+Simple mixer control 'Int Spk',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [on]
+Simple mixer control 'Internal Mic 1',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [on]
+Simple mixer control 'Internal Mic 2',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [on]
+Simple mixer control 'Left HPVOL Mux',0
+  Capabilities: enum
+  Items: 'Vmid' 'OUTMIXL'
+  Item0: 'OUTMIXL'
+Simple mixer control 'Left OUTVOL Mux',0
+  Capabilities: enum
+  Items: 'Vmid' 'OUTMIXL'
+  Item0: 'OUTMIXL'
+Simple mixer control 'Left SPKVOL Mux',0
+  Capabilities: enum
+  Items: 'Vmid' 'SPKMIXL'
+  Item0: 'SPKMIXL'
+Simple mixer control 'MIC1 Boost',0
+  Capabilities: volume volume-joined
+  Playback channels: Mono
+  Capture channels: Mono
+  Limits: 0 - 8
+  Mono: 6 [75%] [44.00dB]
+Simple mixer control 'MIC1 Mode Control',0
+  Capabilities: enum
+  Items: 'Single ended' 'Differential'
+  Item0: 'Differential'
+Simple mixer control 'MIC2 Boost',0
+  Capabilities: volume volume-joined
+  Playback channels: Mono
+  Capture channels: Mono
+  Limits: 0 - 8
+  Mono: 6 [75%] [44.00dB]
+Simple mixer control 'MIC2 Mode Control',0
+  Capabilities: enum
+  Items: 'Single ended' 'Differential'
+  Item0: 'Single ended'
+Simple mixer control 'MONO',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'MONO Mux',0
+  Capabilities: enum
+  Items: 'MONOMIX' 'MONOIN_RX' 'VDAC'
+  Item0: 'MONOMIX'
+Simple mixer control 'MONOIN Mode Control',0
+  Capabilities: enum
+  Items: 'Single ended' 'Differential'
+  Item0: 'Differential'
+Simple mixer control 'MONOIN_RX',0
+  Capabilities: cvolume
+  Capture channels: Front Left - Front Right
+  Limits: Capture 0 - 31
+  Front Left: Capture 25 [81%] [3.00dB]
+  Front Right: Capture 25 [81%] [3.00dB]
+Simple mixer control 'MONOMIX Mixer OUTVOLL',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'MONOMIX Mixer OUTVOLR',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'OUTMIXL Mixer AXILVOL',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'OUTMIXL Mixer AXIRVOL',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'OUTMIXL Mixer DACL',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [on]
+Simple mixer control 'OUTMIXL Mixer MIC1_BST1',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'OUTMIXL Mixer MIC2_BST2',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'OUTMIXL Mixer MONOIN_RXP',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'OUTMIXL Mixer RECMIXL',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'OUTMIXL Mixer RECMIXR',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'OUTMIXL Mixer VDAC',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'OUTMIXR Mixer AXILVOL',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'OUTMIXR Mixer AXIRVOL',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'OUTMIXR Mixer DACR',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [on]
+Simple mixer control 'OUTMIXR Mixer MIC1_BST1',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'OUTMIXR Mixer MIC2_BST2',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'OUTMIXR Mixer MONOIN_RXN',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'OUTMIXR Mixer RECMIXL',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'OUTMIXR Mixer RECMIXR',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'OUTMIXR Mixer VDAC',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'OUTVOL Channel',0
+  Capabilities: pswitch
+  Playback channels: Front Left - Front Right
+  Mono:
+  Front Left: Playback [on]
+  Front Right: Playback [on]
+Simple mixer control 'RECMIXL Mixer AXILVOL',0
+  Capabilities: cswitch cswitch-joined
+  Capture channels: Mono
+  Mono: Capture [off]
+Simple mixer control 'RECMIXL Mixer MIC1_BST1',0
+  Capabilities: cswitch cswitch-joined
+  Capture channels: Mono
+  Mono: Capture [on]
+Simple mixer control 'RECMIXL Mixer MONOIN_RX',0
+  Capabilities: cswitch cswitch-joined
+  Capture channels: Mono
+  Mono: Capture [off]
+Simple mixer control 'RECMIXL Mixer OUTMIXL',0
+  Capabilities: cswitch cswitch-joined
+  Capture channels: Mono
+  Mono: Capture [off]
+Simple mixer control 'RECMIXR Mixer AXIRVOL',0
+  Capabilities: cswitch cswitch-joined
+  Capture channels: Mono
+  Mono: Capture [off]
+Simple mixer control 'RECMIXR Mixer MIC2_BST2',0
+  Capabilities: cswitch cswitch-joined
+  Capture channels: Mono
+  Mono: Capture [off]
+Simple mixer control 'RECMIXR Mixer MONOIN_RX',0
+  Capabilities: cswitch cswitch-joined
+  Capture channels: Mono
+  Mono: Capture [off]
+Simple mixer control 'RECMIXR Mixer OUTMIXR',0
+  Capabilities: cswitch cswitch-joined
+  Capture channels: Mono
+  Mono: Capture [off]
+Simple mixer control 'Right HPVOL Mux',0
+  Capabilities: enum
+  Items: 'Vmid' 'OUTMIXR'
+  Item0: 'OUTMIXR'
+Simple mixer control 'Right OUTVOL Mux',0
+  Capabilities: enum
+  Items: 'Vmid' 'OUTMIXR'
+  Item0: 'OUTMIXR'
+Simple mixer control 'Right SPKVOL Mux',0
+  Capabilities: enum
+  Items: 'Vmid' 'SPKMIXR'
+  Item0: 'SPKMIXR'
+Simple mixer control 'SPK Ratio Control',0
+  Capabilities: enum
+  Items: '1.00x' '1.09x' '1.27x' '1.44x' '1.56x' '1.68x' '1.99x' '2.34x'
+  Item0: '1.99x'
+Simple mixer control 'SPKMIXL Mixer DACL',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [on]
+Simple mixer control 'SPKMIXL Mixer MIC1_P',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'SPKMIXL Mixer OUTMIXL',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'SPKMIXL Mixer RECMIXL',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'SPKMIXR Mixer DACR',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [on]
+Simple mixer control 'SPKMIXR Mixer MIC2_P',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'SPKMIXR Mixer OUTMIXR',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'SPKMIXR Mixer RECMIXR',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'SPOL Mux',0
+  Capabilities: enum
+  Items: 'SPOLMIX' 'MONOIN_RX' 'VDAC' 'DACL'
+  Item0: 'SPOLMIX'
+Simple mixer control 'SPOLMIX Mixer SPKVOLL',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [on]
+Simple mixer control 'SPOLMIX Mixer SPKVOLR',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'SPOR Mux',0
+  Capabilities: enum
+  Items: 'SPORMIX' 'MONOIN_RX' 'VDAC' 'DACR'
+  Item0: 'SPORMIX'
+Simple mixer control 'SPORMIX Mixer SPKVOLL',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [off]
+Simple mixer control 'SPORMIX Mixer SPKVOLR',0
+  Capabilities: pswitch pswitch-joined
+  Playback channels: Mono
+  Mono: Playback [on]
+asus-tf201:~$
+
